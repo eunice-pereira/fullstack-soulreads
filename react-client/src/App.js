@@ -4,15 +4,24 @@ import BookForm from './UI/BookForm';
 
 import Home from './UI/Home';
 
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+// import Search from "./Search";
+// import Wishlist from './components/Wishlist';
+
+import Test from './components/Test';
+
+
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import axios from 'axios';
 import Search from './UI/BookForm';
 
 // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
 
+
+
 const App = () => {
 	const [data, setData] = useState({});
+
 	const [books, setBooks] = useState({});
 	const [title, setTitle] = useState({});
 	async function getBook() {
@@ -37,6 +46,13 @@ const App = () => {
 			setData(response.data);
 		});
 	}, []);
+	useEffect(() => {
+		axios.get('/api/books').then((response) => {
+			console.log('----fetching books data-----');
+			console.log(response.data);
+			setBooks(response.data);
+		});
+	}, []);
 
 
 	return (
@@ -45,6 +61,7 @@ const App = () => {
 			<BookForm></BookForm>
 			<div className="App">
 				<Home data={data} />
+				<Test books={books} />
 			</div>
 		</Router>
 	);
