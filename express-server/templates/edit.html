@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit Book</title>
+	</head>
+	<body>
+		<h1>Edit Book</h1>
+		<form method="POST" action="edit">
+			<label>
+				Title:
+				<input name="title" type="text" autofocus value="${book.title}" />
+			</label>
+			<label>
+				Author: <input name="author" type="text" value="${book.author}" />
+			</label>
+
+			<div class="form-group">
+				<label for="status">
+					Status:
+					<select id="status" name="status" value="${book.status}">
+						<option value="Wishlist">Wishlist</option>
+						<option value="Purchased">Purchased</option>
+						<option value="Reading">Currently Reading</option>
+						<option value="Completed">Completed</option>
+					</select>
+				</label>
+            </div>
+        </br>
+            <input type="submit" value="Update" />
+        <p>
+            <a href="member-profile">Back to Profile</a>
+		</form>
+	</body>
+</html>

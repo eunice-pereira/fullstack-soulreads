@@ -1,0 +1,46 @@
+<html>
+	<h1>${title}</h1>
+
+	<form method="POST">
+        <div class="form-group">
+            <label>
+                Title:
+                <input name="title" type="text" autofocus />
+567        </div>
+    </br>
+        <div class="form-group">
+            <label>
+                Author:
+                <input name="author" type="text" />
+            </label>
+        </div>
+    </br>
+        <!-- <div class="form-group">
+            <label>
+                Genre:
+                <input name="genre" type="text" />
+            </label>
+        </div> -->
+    </br>
+         <div class="form-group">
+            <label for="status">
+                Status: 
+            <select id="status" name="status">
+                 <option value="wishlist">Wishlist</option>
+                <option value="purchased">Purchased</option>
+                <option value="reading">Currently Reading</option>
+                <option value="completed">Completed</option>
+            </select>
+            </label>
+        </div>
+        </div>
+    </br>
+
+        <input type="submit" value="Submit" />
+        <p>
+            <a href="member-profile">Back to Profile</a>
+        </p>
+	</form>
+</html>
+
+${footer}
