@@ -2,11 +2,18 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 
 import Home from './UI/Home';
+
+// import Search from "./Search";
+// import Wishlist from './components/Wishlist';
+
 import Test from './components/Test';
 
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import axios from 'axios';
+
+
 
 const App = () => {
 	const [data, setData] = useState({});
