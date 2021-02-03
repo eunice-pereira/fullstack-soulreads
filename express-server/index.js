@@ -56,14 +56,35 @@ app.get('/api', (req, res) => {
 	});
 });
 
+app.get('/api/books', (req, res) => {
+	const booksTestData = [
+		{
+			title: 'Book 1',
+			author: 'Author 1',
+			status: 'purchased',
+		},
+		{
+			title: 'Book 2',
+			author: 'Author 2',
+			status: 'complete',
+		},
+		{
+			title: 'Book 3',
+			author: 'Author 3',
+			status: 'wishlist',
+		},
+	];
+	res.json(booksTestData);
+});
+
 // rendering user-account activity routers
-// app.use('/', userRouter);
+app.use('/api', userRouter);
 
-// // rednering book-activity routers
-// app.use('/', bookRouter);
+// rednering book-activity routers
+app.use('/api', bookRouter);
 
-// // rendering journal-activity routers
-// app.use('/post', memberRouter);
+// rendering journal-activity routers
+app.use('/api/post', memberRouter);
 
 server.listen(port, host, () => {
 	console.log(`Listening at http://${host}:${port}`);
