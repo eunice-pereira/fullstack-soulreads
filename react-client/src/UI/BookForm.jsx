@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 
 function BookForm(props) {
     const [title, setTitle] = useState("");
+    const [returned, setReturned] = useState([]);
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        search(title)
         alert(`Searching Title ${title}`)
     }
+
+  const search = query => {
+    const url = `https://www.googleapis.com/books/v1/volumes?q=search+terms=${query}`;
+   
+
+    fetch(url)
+      .then(results => results.json())
+      .then(data => {
+      
+        setReturned(data.items)
+      });
+  };
+  console.log(returned)
     return (
+      <div>
       <form onSubmit={handleSubmit}>
         <label>
           Book Title:
@@ -18,63 +35,18 @@ function BookForm(props) {
         </label>
         <input type="submit" value="Search" />
       </form>
+      {returned.length&&returned.map(item => (
+        <div>{item.volumeInfo.title}
+        <p>{item.volumeInfo.authors}</p>
+        <p>{item.volumeInfo.categories}</p>
+        <p>{item.volumeInfo.description}</p>
+        <img src={item.volumeInfo.imageLinks.thumbnail}></img> 
+        </div>
+      ))}
+      </div>
+
     );
   }
 
-
-
-
-// class Search extends Component {
-//   token = null;
-//   state = {
-//     query: "",
-//     books: []
-//   };
-
-//   onChange = e => {
-//     const { value } = e.target;
-//     this.setState({
-//       query: value
-//     });
-
-//     this.search(value);
-//   };
-
-//   search = query => {
-//     const url = `https://www.googleapis.com/books/v1/volumes?q=search+terms=${query}`;
-//     const token = {};
-//     this.token = token;
-
-//     fetch(url)
-//       .then(results => results.json())
-//       .then(data => {
-//         if (this.token === token) {
-//           this.setState({ book: data.results });
-//         }
-//       });
-//   };
-
-//   componentDidMount() {
-//     this.search("");
-//   }
-
-//   render() {
-//     return (
-//       <form>
-//         <input
-//           type="text"
-//           className="search-box"
-//           placeholder="Search for..."
-//           onChange={this.onChange}
-//         />
-//         {this.state.book.map(books => (
-//           <ul key={books.name}>
-//             <li>{books.name}</li>
-//           </ul>
-//         ))}
-//       </form>
-//     );
-//   }
-// }
 
   export default BookForm;
