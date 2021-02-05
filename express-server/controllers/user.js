@@ -2,10 +2,6 @@ const bcrypt = require('bcryptjs');
 const { layout } = require('../utils');
 const { Member } = require('../models');
 
-const explore = (req, res) => {
-	res.render('explore');
-};
-
 const newUser = (req, res) => {
 	res.render('create-acct', {
 		locals: {
@@ -16,7 +12,7 @@ const newUser = (req, res) => {
 };
 
 const processNewUser = async (req, res) => {
-	const { username, password, firstname, lastname } = req.body;
+	const { username, password, email, firstname, lastname } = req.body;
 	console.log(username, password);
 	console.log('**************');
 	if (username == '' || password == '') {
@@ -30,6 +26,7 @@ const processNewUser = async (req, res) => {
 			const newUser = await Member.create({
 				firstname,
 				lastname,
+				email,
 				username,
 				password: hash,
 			});
@@ -99,7 +96,6 @@ const logout = (req, res) => {
 };
 
 module.exports = {
-	explore,
 	newUser,
 	processNewUser,
 	login,
