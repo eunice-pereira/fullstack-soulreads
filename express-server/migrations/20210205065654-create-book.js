@@ -1,39 +1,42 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Books', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      firstname: {
-        type: Sequelize.STRING
-      },
-      lastname: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      username: {
-        type: Sequelize.STRING
-      },
-      hash: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Books');
-  }
+	up: async (queryInterface, Sequelize) => {
+		await queryInterface.createTable('Books', {
+			id: {
+				allowNull: false,
+				autoIncrement: true,
+				primaryKey: true,
+				type: Sequelize.INTEGER,
+			},
+			title: {
+				type: Sequelize.STRING,
+			},
+			author: {
+				type: Sequelize.STRING,
+			},
+			category: {
+				type: Sequelize.STRING,
+			},
+			isbn: {
+				type: Sequelize.STRING,
+			},
+			status: {
+				type: Sequelize.STRING,
+			},
+			memberId: {
+				type: Sequelize.INTEGER,
+			},
+			createdAt: {
+				allowNull: false,
+				type: Sequelize.DATE,
+			},
+			updatedAt: {
+				allowNull: false,
+				type: Sequelize.DATE,
+			},
+		});
+	},
+	down: async (queryInterface, Sequelize) => {
+		await queryInterface.dropTable('Books');
+	},
 };

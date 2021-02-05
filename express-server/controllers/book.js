@@ -2,16 +2,14 @@ const { Book } = require('../models');
 const { layout } = require('../utils');
 
 const bookForm = (req, res) => {
-	res.render('addbook', {
-		locals: {
-			title: 'Add New Book',
-		},
-		...layout,
+	res.json({
+		message: 'add book form',
+		id: Book.id,
 	});
 };
 
 const processBookForm = async (req, res) => {
-	const { title, author, status } = req.body;
+	const { title, author, category, isbn, status } = req.body;
 	const { id } = req.session.user;
 	console.log(title, author);
 
@@ -19,12 +17,15 @@ const processBookForm = async (req, res) => {
 		const newBook = await Book.create({
 			title,
 			author,
+			category,
+			isbn,
 			status,
 			memberId: id,
 		});
 		console.log(newBook);
-		req.session.save(() => {
-			res.redirect('member-profile');
+		res.json({
+			message: 'processing book form',
+			id: Book.id,
 		});
 	}
 };
@@ -37,17 +38,10 @@ const showBookList = async (req, res) => {
 			where: {
 				memberId: id,
 			},
-			order: [['title', 'ASC']],
 		});
-		res.render('booklist', {
-			locals: {
-				books,
-				title: Book.title,
-			},
-			...layout,
+		res.json({
+			message: 'showing book list',
 		});
-	} else {
-		res.redirect('/');
 	}
 };
 
@@ -57,11 +51,8 @@ const viewBook = async (req, res) => {
 	if (id && bookId) {
 		const book = await Book.findByPk(bookId);
 		console.log(`You are viewing Book item with id ${bookId}.`);
-		res.render('book', {
-			locals: {
-				book,
-			},
-			...layout,
+		res.json({
+			message: 'viewing book',
 		});
 	}
 };
