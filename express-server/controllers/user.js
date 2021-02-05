@@ -3,11 +3,8 @@ const { layout } = require('../utils');
 const { Member } = require('../models');
 
 const newUser = (req, res) => {
-	res.render('create-acct', {
-		locals: {
-			title: 'Sign up',
-		},
-		...layout,
+	res.json({
+		message: 'new member account',
 	});
 };
 
