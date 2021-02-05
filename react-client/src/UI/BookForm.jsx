@@ -1,4 +1,6 @@
 import React, {  useState } from 'react';
+import axios from 'axios';
+
 
 function BookForm(props) {
     const [title, setTitle] = useState("");
@@ -9,6 +11,17 @@ function BookForm(props) {
         search(title)
         alert(`Searching Title ${title}`)
     }
+
+
+function addBook () {
+  async function retrieveBook() {
+    const resp = await axios.post('/api/book.js');
+    console.log(resp);
+  };
+};
+// const postBook = returned.map((book,i) => {
+  
+//   });
 
   const search = query => {
     const url = `https://www.googleapis.com/books/v1/volumes?q=search+terms=${query}`;
@@ -35,12 +48,17 @@ function BookForm(props) {
         </label>
         <input type="submit" value="Search" />
       </form>
-      {returned.length&&returned.map(item => (
+      {returned.length&&returned.map((item) => (
         <div>{item.volumeInfo.title}
         <p>{item.volumeInfo.authors}</p>
         <p>{item.volumeInfo.categories}</p>
         <p>{item.volumeInfo.description}</p>
-        <img src={item.volumeInfo.imageLinks.thumbnail}></img> 
+        <img src={item.volumeInfo.imageLinks.thumbnail} alt="Book Cover"></img> 
+        <button onClick={()=>{
+            console.log(item)
+            // axios.post('/api/book/add',item)
+        }}>add book</button>
+        
         </div>
       ))}
       </div>
