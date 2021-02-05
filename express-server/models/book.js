@@ -19,11 +19,16 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	Book.init(
 		{
-			firstname: DataTypes.STRING,
-			lastname: DataTypes.STRING,
-			email: DataTypes.STRING,
-			username: DataTypes.STRING,
-			hash: DataTypes.STRING,
+			title: DataTypes.STRING,
+			author: DataTypes.STRING,
+			category: DataTypes.STRING,
+			isbn: DataTypes.STRING,
+			status: DataTypes.STRING,
+			memberId: {
+				type: DataTypes.INTEGER,
+				model: 'Member',
+				key: 'id',
+			},
 		},
 		{
 			sequelize,
