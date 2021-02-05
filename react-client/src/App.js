@@ -41,8 +41,11 @@ const App = () => {
 		});
 	}, []);
 
+	const newUserSubmit = async (e) => {
+		e.preventDefault();
+	};
 	useEffect(() => {
-		axios.get('/api/books').then((response) => {
+		axios.post('/api/new').then((response) => {
 			console.log(response.data);
 			setBooks(response.data);
 		});
@@ -53,7 +56,7 @@ const App = () => {
 			<BookForm></BookForm>
 			<div className="App">
 				<Home data={data} />
-				<Test books={books} />
+				<Test />
 			</div>
 		</Router>
 	);
