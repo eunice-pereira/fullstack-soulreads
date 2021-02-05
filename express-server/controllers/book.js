@@ -24,8 +24,8 @@ const processBookForm = async (req, res) => {
 		});
 		console.log(newBook);
 		res.json({
-			message: 'processing book form',
-			id: Book.id,
+			status: 'processing book form',
+			id: newBook.id,
 		});
 	}
 };
