@@ -30,6 +30,25 @@ const processBookForm = async (req, res) => {
 	}
 };
 
+const addBookApi = async (req, res) => {
+	console.log('new book from api');
+	const { bookTitle, bookAuthor, bookCategory, bookDesc, bookImage } = req.body;
+	// const { id } = req.session.user
+
+	if (bookTitle) {
+		const newBook = await Book.create({
+			title: bookTitle,
+			author: bookAuthor,
+			category: bookCategory,
+			// memberId: id,
+		});
+		res.json({
+			status: 'api book added successfully',
+			bookid: newBook.id,
+		});
+	}
+};
+
 const showBookList = async (req, res) => {
 	const { id } = req.session.user;
 
@@ -124,4 +143,5 @@ module.exports = {
 	showEditList,
 	processEditList,
 	viewBook,
+	addBookApi,
 };

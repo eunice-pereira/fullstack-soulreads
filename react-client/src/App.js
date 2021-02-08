@@ -6,7 +6,7 @@ import Home from './UI/Home';
 // import Search from "./Search";
 // import Wishlist from './components/Wishlist';
 
-import Test from './components/Test';
+// import Test from './components/Test';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -34,29 +34,15 @@ const App = () => {
 		console.log(data.items);
 	}
 
-	useEffect(() => {
-		axios.get('/api').then((response) => {
-			console.log(response.data);
-			setData(response.data);
-		});
-	}, []);
-
 	const newUserSubmit = async (e) => {
 		e.preventDefault();
 	};
-	useEffect(() => {
-		axios.post('/api/new').then((response) => {
-			console.log(response.data);
-			setBooks(response.data);
-		});
-	}, []);
 
 	return (
 		<Router>
-			<BookForm></BookForm>
 			<div className="App">
 				<Home data={data} />
-				<Test />
+				<BookForm />
 			</div>
 		</Router>
 	);
