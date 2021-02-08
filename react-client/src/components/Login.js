@@ -2,9 +2,10 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 
-const Login = () => {
-	const [username, setUsername] = useState();
-	const [password, setPassword] = useState();
+const Login = (props) => {
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
+	const [message, setMessage] = useState('');
 
 	const processLogin = async (e) => {
 		e.preventDefault();
@@ -12,14 +13,23 @@ const Login = () => {
 			username,
 			password,
 		};
-		const resp = await axios.post('/api/login', user);
-		console.log(resp.data);
+		try {
+			const resp = await axios.post('/api/user/login', user);
+			console.log(resp.data);
+
+			// Sending Login status to App
+			props.doLogin();
+			setMessage('');
+		} catch (e) {
+			setMessage('Invalid username and password.');
+		}
 	};
 
 	return (
 		<div className="login-form">
 			<form align="center" method="POST" onSubmit={processLogin}>
 				<h1>Login!</h1>
+				{message && <h2>{message}</h2>}
 				<div className="form-group">
 					<label for="username">
 						Username:
@@ -41,8 +51,8 @@ const Login = () => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</label>
-					<input type="submit" className="login-button" value="Login" />
 				</div>
+				<input type="submit" className="login-button" value="Login" />
 			</form>
 		</div>
 	);
