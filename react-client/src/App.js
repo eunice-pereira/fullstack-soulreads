@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import CreateAccount from './components/CreateAccount';
+import Login from './components/Login';
 import BookForm from './UI/BookForm';
 import Home from './UI/Home';
 
@@ -18,6 +19,7 @@ const App = () => {
 			<div className="App">
 				<Home data={data} />
 				<CreateAccount />
+				<Login />
 				<BookForm />
 			</div>
 		</Router>
