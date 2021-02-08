@@ -30,13 +30,8 @@ const CreateAccount = () => {
 	};
 
 	return (
-		<div>
-			<form
-				align="center"
-				method="POST"
-				className="create-acct-form"
-				onSubmit={processNewMemeber}
-			>
+		<div className="create-acct-form">
+			<form align="center" method="POST" onSubmit={processNewMemeber}>
 				<h2>Become a Member!</h2>
 
 				<div className="form-group">
