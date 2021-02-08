@@ -9,6 +9,6 @@ router.post('/new', userController.processNewUser);
 router.post('/login', userController.processLogin);
 
 // log user out of account
-router.get('/logout', userController.logout);
+router.post('/logout', userController.logout);
 
 module.exports = router;
