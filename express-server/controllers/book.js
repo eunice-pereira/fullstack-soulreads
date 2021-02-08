@@ -33,7 +33,6 @@ const processBookForm = async (req, res) => {
 const addBookApi = async (req, res) => {
 	console.log('new book from api');
 	const { bookTitle, bookAuthor, bookCategory, bookDesc, bookImage } = req.body;
-	console.log(bookAuthor);
 	// const { id } = req.session.user
 
 	if (bookTitle) {

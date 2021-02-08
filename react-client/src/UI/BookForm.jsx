@@ -4,16 +4,6 @@ import axios from 'axios';
 function BookForm(props) {
 	const [title, setTitle] = useState('');
 	const [returned, setReturned] = useState([]);
-	const [bookTitle, setBookTitle] = useState('');
-	const [bookAuthor, setBookAuthor] = useState([]);
-	const [bookCategory, setBookCategory] = useState([]);
-	const [bookDesc, setBookDesc] = useState('');
-	const [bookImage, setBookImage] = useState('');
-
-	// const handleSubmit = (evt) => {
-	// 	evt.preventDefault();
-	// 	search(title);
-	// };
 
 	const search = (query) => {
 		const url = `https://www.googleapis.com/books/v1/volumes?q=search+terms=${query}`;
@@ -32,29 +22,29 @@ function BookForm(props) {
 
 	// set values
 
-	const setValues = (item) => {
-		setBookTitle(item.volumeInfo.title);
-		setBookAuthor(item.volumeInfo.authors);
-		setBookCategory(item.volumeInfo.categories);
-		setBookDesc(item.volumeInfo.description);
-		setBookImage(item.volumeInfo.imageLinks.thumbnail);
-	};
+	// const setValues = (item) => {
+	// 	setBookTitle(item.volumeInfo.title);
+	// 	setBookAuthor(item.volumeInfo.authors);
+	// 	setBookCategory(item.volumeInfo.categories);
+	// 	setBookDesc(item.volumeInfo.description);
+	// 	setBookImage(item.volumeInfo.imageLinks.thumbnail);
+	// };
 
 	// Make array of objects
 	// Loop through bookArray compare object id with Returned list id
 	// If id's match > pull object from bookArray and pass into axios request
 
-	const bookArray = []; //UseState
-	const bookValues = (item) => {
-		const book = {};
-		book.push('id', item.volumeInfo.id);
-		book.push('title', item.volumeInfo.title);
-		book.push('author', item.volumeInfo.authors);
-		book.push('category', item.volumeInfo.categories);
-		book.push('desc', item.volumeInfo.description);
-		book.push('image', item.volumeInfo.imageLinks.thumbnail);
-		bookArray.push(book);
-	};
+	// const bookArray = []; //UseState
+	// const bookValues = (item) => {
+	// 	const book = {};
+	// 	book.push('id', item.volumeInfo.id);
+	// 	book.push('title', item.volumeInfo.title);
+	// 	book.push('author', item.volumeInfo.authors);
+	// 	book.push('category', item.volumeInfo.categories);
+	// 	book.push('desc', item.volumeInfo.description);
+	// 	book.push('image', item.volumeInfo.imageLinks.thumbnail);
+	// 	bookArray.push(book);
+	// };
 
 	return (
 		<div>
@@ -77,7 +67,7 @@ function BookForm(props) {
 				<input type="submit" value="Search" />
 			</form>
 			{returned.length &&
-				returned.map((item) => (
+				returned.map((item, idx) => (
 					<div key={item.id} className="book-info-api">
 						<h3>{item.volumeInfo.title}</h3>
 						<p>{item.volumeInfo.authors}</p>
@@ -87,17 +77,18 @@ function BookForm(props) {
 							src={item.volumeInfo.imageLinks.thumbnail}
 							alt="Book Cover"
 						></img>
-						{/* {bookValues(item)} */}
 
 						<button
+							id={idx}
 							onClick={async (e) => {
-								setValues(item);
+								// setValues(item);
+								let returnedId = e.target.id;
 								const bookInfo = {
-									bookTitle,
-									bookAuthor: bookAuthor[0],
-									bookCategory: bookCategory[0],
-									bookDesc,
-									bookImage,
+									bookTitle: returned[returnedId].volumeInfo.title,
+									bookAuthor: returned[returnedId].volumeInfo.authors[0],
+									bookCategory: returned[returnedId].volumeInfo.categories[0],
+									// bookDesc,
+									// bookImage,
 								};
 								console.log(bookInfo);
 								const resp = await axios.post('/api/books/bookapi', bookInfo);
