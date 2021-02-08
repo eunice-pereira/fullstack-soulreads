@@ -1,15 +1,40 @@
 .App {
-    text-align: center;
-    background-color: rgb(25, 24, 29);
-    height: 150vh;
-	/* width: 200vh;  */
+    text-align: center; 
+    background-size: cover;
+    background-position: top;
+    min-height: 100%;
+    height: 100vh;
+    position: relative;
+    
 }
 
+/* .flex {
+    text-align: left;  
+} */
+.form {
+    overflow: hidden;
+}
+.mask {
+    font-weight: bolder;
+    font-family: 'Roboto';
+    font-size: 2000px;
+}
 
+.bookshelf {
+    /* background-image:  */
+    background-size: cover;
+    background-position: top;
+    min-height: 100%;
+    height: 100vh;
+    position: relative;
+    font-weight: bolder;
+    font-family: 'Roboto';
+    font-size: 2000px;
+}
 
 .App-header {
     
-    height: 80px;
+    height: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,14 +48,10 @@
   
   
 * {
-    box-sizing: border-box;
-    /* border-radius: 1000px; */
+    /* box-sizing: border-box; */
     color: #CCB73C;
-    font-size: ;
-    font-family: "Roboto";
-    font-size: 80px;
-	font-weight: 400;
-   
+    
+    font-family: "Roboto";  
 }
   
   
@@ -39,6 +60,7 @@
 }
   
 .search {
+    justify-content: left;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -46,7 +68,7 @@
     margin-top: 20px;
 }
   
-input[type="submit"] {
+/* input[type="submit"] {
     padding: 5px;
     background-color: rgb(141, 72, 206);
     color: whitesmoke;
@@ -56,9 +78,9 @@ input[type="submit"] {
     width: 80px;
     margin-left: 5px;
     cursor: pointer;
-}
+} */
   
-input[type="submit"]:hover {
+/* input[type="submit"]:hover {
     background-color: #282c34;
     color: antiquewhite;
 }
@@ -68,6 +90,6 @@ input[type="submit"]:hover {
     min-width: 170px;
     color: #282c34;
 }
-  
+   */
 
   
