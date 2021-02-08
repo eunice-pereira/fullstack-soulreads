@@ -51,23 +51,34 @@ const processLogin = async (req, res) => {
 				username,
 				id: user.id,
 			};
-			req.session.save(() => {
-				res.json('log in successful, saving session');
+			req.session.save(() => {});
+			res.status(200).json({
+				message: 'log in successful, saving session',
+				id: user.id,
 			});
 		} else {
 			console.log('password is wrong');
-			res.json('password incorrect');
+			res.status(400).json({
+				message: 'password incorrect',
+			});
+			return;
 		}
 	} else {
 		console.log('not a valid user');
+		res.status(400).json({
+			message: 'Invalid username or password.',
+		});
+		return;
 	}
 };
 
 const logout = (req, res) => {
 	console.log('logging out...');
 	req.session.destroy(() => {
-		// deleting session:
-		res.redirect('/');
+		res.status(200).json({
+			message: 'logout successful',
+		});
+		return;
 	});
 };
 

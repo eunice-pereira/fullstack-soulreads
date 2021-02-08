@@ -20,7 +20,7 @@ const CreateAccount = () => {
 			username,
 			password,
 		};
-		const resp = await axios.post('/api/new', newMember);
+		const resp = await axios.post('/api/user/new', newMember);
 		console.log(resp.data);
 
 		// if response is successful, sending user to general home page

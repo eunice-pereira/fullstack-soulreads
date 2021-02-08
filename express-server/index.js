@@ -48,14 +48,8 @@ app.use(
 	})
 );
 
-app.get('/api', (req, res) => {
-	res.json({
-		status: 'hello from express app!',
-	});
-});
-
 // rendering user-account activity routers
-app.use('/api', userRouter);
+app.use('/api/user', userRouter);
 
 // rednering book-activity routers
 app.use('/api/books', bookRouter);
