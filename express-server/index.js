@@ -15,9 +15,7 @@ const host = 'localhost';
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
-// routers
-
-// const memberRouter = require('./routers/member');
+// ROUTERS
 const userRouter = require('./routers/user');
 const bookRouter = require('./routers/book');
 const memberRouter = require('./routers/member');
@@ -56,32 +54,11 @@ app.get('/api', (req, res) => {
 	});
 });
 
-app.get('/api/books', (req, res) => {
-	const booksTestData = [
-		{
-			title: 'Book 1',
-			author: 'Author 1',
-			status: 'purchased',
-		},
-		{
-			title: 'Book 2',
-			author: 'Author 2',
-			status: 'complete',
-		},
-		{
-			title: 'Book 3',
-			author: 'Author 3',
-			status: 'wishlist',
-		},
-	];
-	res.json(booksTestData);
-});
-
 // rendering user-account activity routers
 app.use('/api', userRouter);
 
 // rednering book-activity routers
-app.use('/api', bookRouter);
+app.use('/api/books', bookRouter);
 
 // rendering journal-activity routers
 app.use('/api/post', memberRouter);

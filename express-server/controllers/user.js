@@ -2,26 +2,18 @@ const bcrypt = require('bcryptjs');
 const { layout } = require('../utils');
 const { Member } = require('../models');
 
-const explore = (req, res) => {
-	res.render('explore');
-};
-
 const newUser = (req, res) => {
-	res.render('create-acct', {
-		locals: {
-			title: 'Sign up',
-		},
-		...layout,
+	res.json({
+		message: 'new member account',
 	});
 };
 
 const processNewUser = async (req, res) => {
-	const { username, password, firstname, lastname } = req.body;
+	const { username, password, email, firstname, lastname } = req.body;
 	console.log(username, password);
-	console.log('**************');
 	if (username == '' || password == '') {
 		// informs user of required info
-		console.log('username or password is blank', req.baseUrl);
+		console.log('username or password is blank');
 		// display message to user (use local, conditional statement)
 	} else {
 		const salt = bcrypt.genSaltSync(10);
@@ -30,24 +22,20 @@ const processNewUser = async (req, res) => {
 			const newUser = await Member.create({
 				firstname,
 				lastname,
+				email,
 				username,
 				password: hash,
 			});
 			console.log(newUser);
-			res.redirect(`${req.baseUrl}/`);
+			res.json('new account created successfully');
 		} catch (e) {
 			// e.name will be "SequelizeUniqueConstraintError"
 			console.log(e);
 			if (e.name === 'SequelizeUniqueConstraintError') {
 				// We should tell the user that the username is taken
 				// and then redirect them
-				res.render('create-acct', {
-					locals: {
-						message: 'That username is taken. Please try again.',
-					},
-				});
+				res.json('That username is taken. Please try again.');
 			}
-			res.redirect(`${req.baseUrl}/new`);
 		}
 	}
 };
@@ -99,7 +87,6 @@ const logout = (req, res) => {
 };
 
 module.exports = {
-	explore,
 	newUser,
 	processNewUser,
 	login,

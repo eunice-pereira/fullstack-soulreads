@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 		 */
 		static associate(models) {
 			// define association here
-			Post.hasOne(models.Book, {
+			Post.belongsTo(models.Book, {
 				foreignKey: 'bookId',
 			});
 			Post.hasMany(models.Comment, {
@@ -21,8 +21,16 @@ module.exports = (sequelize, DataTypes) => {
 		{
 			comment: DataTypes.STRING,
 			content: DataTypes.STRING,
-			bookId: DataTypes.INTEGER,
-			memberId: DataTypes.INTEGER,
+			bookId: {
+				type: DataTypes.INTEGER,
+				model: 'Book',
+				key: 'id',
+			},
+			memberId: {
+				type: DataTypes.INTEGER,
+				model: 'Member',
+				key: 'id',
+			},
 		},
 		{
 			sequelize,

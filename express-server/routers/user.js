@@ -12,8 +12,6 @@ router
 	.post('/', userController.processLogin)
 	.get('/member-profile', userController.profileController);
 
-router
-	.get('/logout', userController.logout)
-	.get('/explore', userController.explore);
+router.get('/logout', userController.logout);
 
 module.exports = router;

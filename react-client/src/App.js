@@ -1,17 +1,22 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import BookForm from './components/BookForm';
 import Home from './components/Home';
 import Search from './components/BookForm';
+=======
+import CreateAccount from './components/CreateAccount';
+import BookForm from './UI/BookForm';
+import Home from './UI/Home';
+>>>>>>> main
 
 // import Search from "./Search";
 // import Wishlist from './components/Wishlist';
-
-//import Test from './components/Test';
-
+// import Test from './components/Test';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
+<<<<<<< HEAD
 import axios from 'axios';
 
 
@@ -50,15 +55,28 @@ const App = () => {
 		});
 	}, []);
 
+=======
+const App = () => {
+	const [data, setData] = useState({});
+>>>>>>> main
 
 	return (
 		<Router>
 			<div className="App">
+<<<<<<< HEAD
 				<Home data={data}></Home>
+=======
+				<Home data={data} />
+				<CreateAccount />
+				<BookForm />
+>>>>>>> main
 			</div>
 		</Router >
 	);
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 export default App;
