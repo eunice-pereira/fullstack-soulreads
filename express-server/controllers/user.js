@@ -2,12 +2,6 @@ const bcrypt = require('bcryptjs');
 const { layout } = require('../utils');
 const { Member } = require('../models');
 
-const newUser = (req, res) => {
-	res.json({
-		message: 'new member account',
-	});
-};
-
 const processNewUser = async (req, res) => {
 	const { username, password, email, firstname, lastname } = req.body;
 	console.log(username, password);
@@ -40,10 +34,6 @@ const processNewUser = async (req, res) => {
 	}
 };
 
-const login = (req, res) => {
-	res.render('home');
-};
-
 const processLogin = async (req, res) => {
 	const { username, password } = req.body;
 	// find user by username
@@ -62,20 +52,15 @@ const processLogin = async (req, res) => {
 				id: user.id,
 			};
 			req.session.save(() => {
-				res.redirect('member-profile');
+				res.json('log in successful, saving session');
 			});
 		} else {
-			console.log('but password is wrong');
-			res.redirect(`${req.baseUrl}/home`);
+			console.log('password is wrong');
+			res.json('password incorrect');
 		}
 	} else {
 		console.log('not a valid user');
-		res.redirect(`${req.baseUrl}/home`);
 	}
-};
-
-const profileController = (req, res) => {
-	res.render('member-profile');
 };
 
 const logout = (req, res) => {
@@ -87,10 +72,7 @@ const logout = (req, res) => {
 };
 
 module.exports = {
-	newUser,
 	processNewUser,
-	login,
 	processLogin,
-	profileController,
 	logout,
 };
