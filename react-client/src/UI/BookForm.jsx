@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-function BookForm(props) {
+function BookForm() {
+	// can add author search feature
+	// modify state, onSubmit, and form input
 	const [title, setTitle] = useState('');
 	const [returned, setReturned] = useState([]);
 
@@ -15,36 +17,7 @@ function BookForm(props) {
 			});
 	};
 
-	// useEffect((e) => {
-	// 	search();
-	// }, []);
 	console.log(returned);
-
-	// set values
-
-	// const setValues = (item) => {
-	// 	setBookTitle(item.volumeInfo.title);
-	// 	setBookAuthor(item.volumeInfo.authors);
-	// 	setBookCategory(item.volumeInfo.categories);
-	// 	setBookDesc(item.volumeInfo.description);
-	// 	setBookImage(item.volumeInfo.imageLinks.thumbnail);
-	// };
-
-	// Make array of objects
-	// Loop through bookArray compare object id with Returned list id
-	// If id's match > pull object from bookArray and pass into axios request
-
-	// const bookArray = []; //UseState
-	// const bookValues = (item) => {
-	// 	const book = {};
-	// 	book.push('id', item.volumeInfo.id);
-	// 	book.push('title', item.volumeInfo.title);
-	// 	book.push('author', item.volumeInfo.authors);
-	// 	book.push('category', item.volumeInfo.categories);
-	// 	book.push('desc', item.volumeInfo.description);
-	// 	book.push('image', item.volumeInfo.imageLinks.thumbnail);
-	// 	bookArray.push(book);
-	// };
 
 	return (
 		<div>
