@@ -1,13 +1,11 @@
 import React from 'react';
 
-const Home = (props) => {
+const Home = () => {
 	return (
 		<div>
-			<h1>Testing: Hello from Express! </h1>
-			<p>{props.data.status}</p>
+			<h1>SoulReads Home Page</h1>
 		</div>
 	);
 };
 
 export default Home;
-
