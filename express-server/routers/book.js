@@ -8,12 +8,13 @@ const {
 	showEditList,
 	processEditList,
 	viewBook,
+	addBookApi,
 } = require('../controllers/book');
 
 router
 	.get('/booklist', showBookList)
-	.get('/newbook', bookForm)
 	.post('/newbook', processBookForm)
+	.post('/bookapi', addBookApi)
 	.post('/:bookId/delete', delBook)
 	.get('/:bookId/edit', showEditList)
 	.post('/:bookId/edit', processEditList)

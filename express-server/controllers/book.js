@@ -2,8 +2,9 @@ const { Book } = require('../models');
 const { layout } = require('../utils');
 
 
+
 const processBookForm = async (req, res) => {
-	const { title, author, status } = req.body;
+	const { title, author, category, isbn, status } = req.body;
 	const { id } = req.session.user;
 	console.log(title, author);
 
@@ -11,12 +12,34 @@ const processBookForm = async (req, res) => {
 		const newBook = await Book.create({
 			title,
 			author,
+			category,
+			isbn,
 			status,
 			memberId: id,
 		});
 		console.log(newBook);
-		req.session.save(() => {
-			res.redirect('member-profile');
+		res.json({
+			status: 'processing book form',
+			id: newBook.id,
+		});
+	}
+};
+
+const addBookApi = async (req, res) => {
+	console.log('new book from api');
+	const { bookTitle, bookAuthor, bookCategory, bookDesc, bookImage } = req.body;
+	// const { id } = req.session.user
+
+	if (bookTitle) {
+		const newBook = await Book.create({
+			title: bookTitle,
+			author: bookAuthor,
+			category: bookCategory,
+			// memberId: id,
+		});
+		res.json({
+			status: 'api book added successfully',
+			bookid: newBook.id,
 		});
 	}
 };
@@ -29,17 +52,10 @@ const showBookList = async (req, res) => {
 			where: {
 				memberId: id,
 			},
-			order: [['title', 'ASC']],
 		});
-		res.render('booklist', {
-			locals: {
-				books,
-				title: Book.title,
-			},
-			...layout,
+		res.json({
+			message: 'showing book list',
 		});
-	} else {
-		res.redirect('/');
 	}
 };
 
@@ -49,11 +65,8 @@ const viewBook = async (req, res) => {
 	if (id && bookId) {
 		const book = await Book.findByPk(bookId);
 		console.log(`You are viewing Book item with id ${bookId}.`);
-		res.render('book', {
-			locals: {
-				book,
-			},
-			...layout,
+		res.json({
+			message: 'viewing book',
 		});
 	}
 };
@@ -118,11 +131,11 @@ const delBook = async (req, res) => {
 };
 
 module.exports = {
-	bookForm,
 	processBookForm,
 	showBookList,
 	delBook,
 	showEditList,
 	processEditList,
 	viewBook,
+	addBookApi,
 };

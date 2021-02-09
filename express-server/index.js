@@ -15,8 +15,7 @@ const host = 'localhost';
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
-// routers
-
+// ROUTERS
 
 const userRouter = require('./routers/user');
 const bookRouter = require('./routers/book');
@@ -54,7 +53,11 @@ app.use(
 app.use('/api/user', userRouter);
 
 // rednering book-activity routers
+
 app.use('/api/book', bookRouter);
+
+app.use('/api/books', bookRouter);
+
 
 // rendering journal-activity routers
 // app.use('/api/post', memberRouter);

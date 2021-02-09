@@ -1,0 +1,95 @@
+.App {
+    text-align: center; 
+    background-size: cover;
+    background-position: top;
+    min-height: 100%;
+    height: 100vh;
+    position: relative;
+    
+}
+
+/* .flex {
+    text-align: left;  
+} */
+.form {
+    overflow: hidden;
+}
+.mask {
+    font-weight: bolder;
+    font-family: 'Roboto';
+    font-size: 2000px;
+}
+
+.bookshelf {
+    /* background-image:  */
+    background-size: cover;
+    background-position: top;
+    min-height: 100%;
+    height: 100vh;
+    position: relative;
+    font-weight: bolder;
+    font-family: 'Roboto';
+    font-size: 2000px;
+}
+
+.App-header {
+    
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(30px + 5vmin);
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    
+}
+  
+  
+* {
+    /* box-sizing: border-box; */
+    color: #CCB73C;
+    
+    font-family: "Roboto";  
+}
+  
+  
+.App-header h2 {
+    margin: 0;
+}
+  
+.search {
+    justify-content: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+  
+/* input[type="submit"] {
+    padding: 5px;
+    background-color: rgb(141, 72, 206);
+    color: whitesmoke;
+    font-family: Gill Sans;
+    border-radius: 25px;
+    border: 1px solid white;
+    width: 80px;
+    margin-left: 5px;
+    cursor: pointer;
+} */
+  
+/* input[type="submit"]:hover {
+    background-color: #282c34;
+    color: antiquewhite;
+}
+  
+.search > input[type="text"] {
+    width: 40%;
+    min-width: 170px;
+    color: #282c34;
+}
+   */
+
+  

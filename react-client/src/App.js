@@ -1,74 +1,52 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import BookForm from './UI/BookForm';
-import Home from './UI/Home';
+import { MDBInput } from 'mdbreact';
+
+import BookForm from './components/BookForm';
+import Home from './components/Home';
+import Navigation from './components/Navigation';
+import Background from './components/Background';
+import Journal from './components/Journal';
+import Login from './components/Login'
+import Search from './components/BookForm';
+import CreateAccount from './components/CreateAccount';
+import Login from './components/Login';
+import Logout from './components/Logout';
+
+
 
 // import Search from "./Search";
 // import Wishlist from './components/Wishlist';
-
-//import Test from './components/Test';
-
+// import Test from './components/Test';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import axios from 'axios';
-import Search from './UI/BookForm';
-
-// console.log(process.env.REACT_APP_GOOGLE_API_KEY)
-
-
 
 const App = () => {
-	const [data, setData] = useState({});
-	const [books, setBooks] = useState({});
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-	
-
-
-	async function getBook() {
-	
-		const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=intitle:', {
-			headers: {
-				Accept: 'application/json'
-			}
-		});
-
-		const data = await response.json();
-		setBooks(data.items);
-		console.log(data.items)
-
-
-		
-
+	// Login/Logout callbacks, passing to respective components
+	function doLogin() {
+		console.log('logged in');
+		setIsLoggedIn(true);
 	}
-	
-	useEffect(() => {
-		axios.get('/api').then((response) => {
-			console.log(response.data);
-			setData(response.data);
-		});
-	}, []);
-	useEffect(() => {
-		axios.get('/api/books').then((response) => {
-			console.log('----fetching books data-----');
-			console.log(response.data);
-			setBooks(response.data);
-		});
-	}, []);
 
+	function doLogout() {
+		console.log('logged out');
+		setIsLoggedIn(false);
+	}
 
 	return (
 		<Router>
-			<BookForm></BookForm>
 			<div className="App">
-				<Home data={data} />
-				{/* <Test books={books} /> */}
+				<Home />
+				<CreateAccount />
+				<Login doLogin={doLogin} />
+				<Logout doLogout={doLogout} />
+				<BookForm />
 			</div>
-		</Router>
+		</Router >
 	);
 };
-
-
-
 
 export default App;

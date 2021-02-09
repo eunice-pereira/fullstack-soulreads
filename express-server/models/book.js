@@ -21,10 +21,14 @@ module.exports = (sequelize, DataTypes) => {
 		{
 			title: DataTypes.STRING,
 			author: DataTypes.STRING,
-			genre: DataTypes.STRING,
+			category: DataTypes.STRING,
 			isbn: DataTypes.STRING,
 			status: DataTypes.STRING,
-			memberId: DataTypes.INTEGER,
+			memberId: {
+				type: DataTypes.INTEGER,
+				model: 'Member',
+				key: 'id',
+			},
 		},
 		{
 			sequelize,

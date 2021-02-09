@@ -2,26 +2,12 @@ const bcrypt = require('bcryptjs');
 const { layout } = require('../utils');
 const { Member } = require('../models');
 
-const explore = (req, res) => {
-	res.render('explore');
-};
-
-const newUser = (req, res) => {
-	res.render('create-acct', {
-		locals: {
-			title: 'Sign up',
-		},
-		...layout,
-	});
-};
-
 const processNewUser = async (req, res) => {
-	const { username, password, firstname, lastname } = req.body;
+	const { username, password, email, firstname, lastname } = req.body;
 	console.log(username, password);
-	console.log('**************');
 	if (username == '' || password == '') {
 		// informs user of required info
-		console.log('username or password is blank', req.baseUrl);
+		console.log('username or password is blank');
 		// display message to user (use local, conditional statement)
 	} else {
 		const salt = bcrypt.genSaltSync(10);
@@ -30,30 +16,22 @@ const processNewUser = async (req, res) => {
 			const newUser = await Member.create({
 				firstname,
 				lastname,
+				email,
 				username,
 				password: hash,
 			});
 			console.log(newUser);
-			res.redirect(`${req.baseUrl}/`);
+			res.json('new account created successfully');
 		} catch (e) {
 			// e.name will be "SequelizeUniqueConstraintError"
 			console.log(e);
 			if (e.name === 'SequelizeUniqueConstraintError') {
 				// We should tell the user that the username is taken
 				// and then redirect them
-				res.render('create-acct', {
-					locals: {
-						message: 'That username is taken. Please try again.',
-					},
-				});
+				res.json('That username is taken. Please try again.');
 			}
-			res.redirect(`${req.baseUrl}/new`);
 		}
 	}
-};
-
-const login = (req, res) => {
-	res.render('home');
 };
 
 const processLogin = async (req, res) => {
@@ -73,37 +51,39 @@ const processLogin = async (req, res) => {
 				username,
 				id: user.id,
 			};
-			req.session.save(() => {
-				res.redirect('member-profile');
+			req.session.save(() => {});
+			res.status(200).json({
+				message: 'log in successful, saving session',
+				id: user.id,
 			});
 		} else {
-			console.log('but password is wrong');
-			res.redirect(`${req.baseUrl}/home`);
+			console.log('password is wrong');
+			res.status(400).json({
+				message: 'password incorrect',
+			});
+			return;
 		}
 	} else {
 		console.log('not a valid user');
-		res.redirect(`${req.baseUrl}/home`);
+		res.status(400).json({
+			message: 'Invalid username or password.',
+		});
+		return;
 	}
-};
-
-const profileController = (req, res) => {
-	res.render('member-profile');
 };
 
 const logout = (req, res) => {
 	console.log('logging out...');
 	req.session.destroy(() => {
-		// deleting session:
-		res.redirect('/');
+		res.status(200).json({
+			message: 'logout successful',
+		});
+		return;
 	});
 };
 
 module.exports = {
-	explore,
-	newUser,
 	processNewUser,
-	login,
 	processLogin,
-	profileController,
 	logout,
 };
