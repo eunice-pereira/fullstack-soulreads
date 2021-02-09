@@ -13,7 +13,6 @@ const {
 
 router
 	.get('/booklist', showBookList)
-	.get('/newbook', bookForm)
 	.post('/newbook', processBookForm)
 	.post('/bookapi', addBookApi)
 	.post('/:bookId/delete', delBook)

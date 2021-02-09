@@ -1,12 +1,4 @@
 const { Book } = require('../models');
-const { layout } = require('../utils');
-
-const bookForm = (req, res) => {
-	res.json({
-		message: 'add book form',
-		id: Book.id,
-	});
-};
 
 const processBookForm = async (req, res) => {
 	const { title, author, category, isbn, status } = req.body;
@@ -136,7 +128,6 @@ const delBook = async (req, res) => {
 };
 
 module.exports = {
-	bookForm,
 	processBookForm,
 	showBookList,
 	delBook,
