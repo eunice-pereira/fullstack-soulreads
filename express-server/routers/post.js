@@ -3,13 +3,22 @@ const router = express.Router();
 
 const {
     postComment,
+    processPost,
     delComment,
-   
-} = require('../controllers/post');
+    processDelComment,
+    showPostList,
+    editPost,
+    processEditPost,
+   } = require('../controllers/post');
 
 router
-    .get('/', )
-    .get('/postcomment', postComment)
+    .get('/showpost', showPostList)
+    .post('/postcomment', postComment)
+    .post('/processnewpost', processPost)
     .post('/deletecomment', delComment)
+    .post('/processdeletecomment',processDelComment)
+    .post('/editpost', editPost)
+    .post('/processedit', processEditPost);
+
 
 module.exports = router;

@@ -1,5 +1,5 @@
-// import React from 'react';
-// import { useState, useHistory } from 'react';
+import React from 'react';
+import { useState, useHistory } from 'react';
 import axios from 'axios';
 
 const CreateAccount = () => {
@@ -27,7 +27,7 @@ const CreateAccount = () => {
 		// 		// if (resp.status === 200) {
 		// 		// 	history.push('/home');
 		// 		// }
-		// 	};
+	};
 
 		return (
 			<div className="create-acct-form">
@@ -96,6 +96,6 @@ const CreateAccount = () => {
 			</div>
 		);
 	};
-};
+
 // // need to add redirect to login page
 export default CreateAccount;

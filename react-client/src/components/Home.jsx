@@ -17,7 +17,7 @@ const Home = (props) => {
 				</MDBMask>
 			</MDBView>
 
-			<p>{props.data.status}</p>
+	
 			<MDBContainer>
 				<MDBRow >
 					<MDBCol md="3">
