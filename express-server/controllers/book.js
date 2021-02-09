@@ -1,14 +1,6 @@
 const { Book } = require('../models');
 const { layout } = require('../utils');
 
-const bookForm = (req, res) => {
-	res.render('addbook', {
-		locals: {
-			title: 'Add New Book',
-		},
-		...layout,
-	});
-};
 
 const processBookForm = async (req, res) => {
 	const { title, author, status } = req.body;

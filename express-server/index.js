@@ -17,11 +17,11 @@ const FileStore = require('session-file-store')(session);
 
 // routers
 
-// const memberRouter = require('./routers/member');
+
 const userRouter = require('./routers/user');
 const bookRouter = require('./routers/book');
 const memberRouter = require('./routers/member');
-
+const postRouter = require('./routers/post');
 app.use(logger);
 app.use(express.json());
 app.use(
@@ -50,41 +50,17 @@ app.use(
 	})
 );
 
-app.get('/api', (req, res) => {
-	res.json({
-		status: 'hello from express app!',
-	});
-});
-
-app.get('/api/books', (req, res) => {
-	const booksTestData = [
-		{
-			title: 'Book 1',
-			author: 'Author 1',
-			status: 'purchased',
-		},
-		{
-			title: 'Book 2',
-			author: 'Author 2',
-			status: 'complete',
-		},
-		{
-			title: 'Book 3',
-			author: 'Author 3',
-			status: 'wishlist',
-		},
-	];
-	res.json(booksTestData);
-});
-
 // rendering user-account activity routers
-app.use('/api', userRouter);
+app.use('/api/user', userRouter);
 
 // rednering book-activity routers
-app.use('/api', bookRouter);
+app.use('/api/book', bookRouter);
 
 // rendering journal-activity routers
-app.use('/api/post', memberRouter);
+// app.use('/api/post', memberRouter);
+
+// rendering post activity routers
+app.use('/api/post', postRouter);
 
 server.listen(port, host, () => {
 	console.log(`Listening at http://${host}:${port}`);
