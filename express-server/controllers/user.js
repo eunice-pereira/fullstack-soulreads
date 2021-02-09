@@ -2,12 +2,6 @@ const bcrypt = require('bcryptjs');
 const { layout } = require('../utils');
 const { Member } = require('../models');
 
-const newUser = (req, res) => {
-	res.json({
-		message: 'new member account',
-	});
-};
-
 const processNewUser = async (req, res) => {
 	const { username, password, email, firstname, lastname } = req.body;
 	console.log(username, password);
@@ -40,10 +34,6 @@ const processNewUser = async (req, res) => {
 	}
 };
 
-const login = (req, res) => {
-	res.render('home');
-};
-
 const processLogin = async (req, res) => {
 	const { username, password } = req.body;
 	// find user by username
@@ -61,36 +51,39 @@ const processLogin = async (req, res) => {
 				username,
 				id: user.id,
 			};
-			req.session.save(() => {
-				res.redirect('member-profile');
+			req.session.save(() => {});
+			res.status(200).json({
+				message: 'log in successful, saving session',
+				id: user.id,
 			});
 		} else {
-			console.log('but password is wrong');
-			res.redirect(`${req.baseUrl}/home`);
+			console.log('password is wrong');
+			res.status(400).json({
+				message: 'password incorrect',
+			});
+			return;
 		}
 	} else {
 		console.log('not a valid user');
-		res.redirect(`${req.baseUrl}/home`);
+		res.status(400).json({
+			message: 'Invalid username or password.',
+		});
+		return;
 	}
-};
-
-const profileController = (req, res) => {
-	res.render('member-profile');
 };
 
 const logout = (req, res) => {
 	console.log('logging out...');
 	req.session.destroy(() => {
-		// deleting session:
-		res.redirect('/');
+		res.status(200).json({
+			message: 'logout successful',
+		});
+		return;
 	});
 };
 
 module.exports = {
-	newUser,
 	processNewUser,
-	login,
 	processLogin,
-	profileController,
 	logout,
 };

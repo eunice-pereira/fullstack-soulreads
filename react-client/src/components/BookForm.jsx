@@ -1,80 +1,79 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-function BookForm(props) {
-  const [title, setTitle] = useState("");
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    alert(`Searching Title ${title}`)
-  }
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Book Title:
-          <input
-          type="text"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-      </label>
-      <input type="submit" value="Search" />
-    </form>
-  );
+function BookForm() {
+	// can add author search feature
+	// modify state, onSubmit, and form input
+	const [title, setTitle] = useState('');
+	const [returned, setReturned] = useState([]);
+
+	const search = (query) => {
+		const url = `https://www.googleapis.com/books/v1/volumes?q=search+terms=${query}`;
+
+		fetch(url)
+			.then((results) => results.json())
+			.then((data) => {
+				setReturned(data.items);
+			});
+	};
+
+	console.log(returned);
+
+	return (
+		<div>
+			<form
+				className="book-search"
+				onSubmit={(e) => {
+					e.preventDefault();
+					search(title);
+					setTitle('');
+				}}
+			>
+				<label>
+					Book Title:
+					<input
+						type="text"
+						value={title}
+						onChange={(e) => setTitle(e.target.value)}
+					/>
+				</label>
+				<input type="submit" value="Search" />
+			</form>
+			{returned.length &&
+				returned.map((item, idx) => (
+					<div key={item.id} className="book-info-api">
+						<h3>{item.volumeInfo.title}</h3>
+						<p>{item.volumeInfo.authors}</p>
+						<p>{item.volumeInfo.categories}</p>
+						<p>{item.volumeInfo.description}</p>
+						<img
+							src={item.volumeInfo.imageLinks.thumbnail}
+							alt="Book Cover"
+						></img>
+
+						<button
+							id={idx}
+							onClick={async (e) => {
+								// setValues(item);
+								let returnedId = e.target.id;
+								const bookInfo = {
+									bookTitle: returned[returnedId].volumeInfo.title,
+									bookAuthor: returned[returnedId].volumeInfo.authors[0],
+									bookCategory: returned[returnedId].volumeInfo.categories[0],
+									// bookDesc,
+									// bookImage,
+								};
+								console.log(bookInfo);
+								const resp = await axios.post('/api/books/bookapi', bookInfo);
+								console.log(resp.data);
+							}}
+						>
+							add book
+						</button>
+					</div>
+				))}
+		</div>
+	);
 }
-
-
-
-
-// class Search extends Component {
-//   token = null;
-//   state = {
-//     query: "",
-//     books: []
-//   };
-
-//   onChange = e => {
-//     const { value } = e.target;
-//     this.setState({
-//       query: value
-//     });
-
-//     this.search(value);
-//   };
-
-//   search = query => {
-//     const url = `https://www.googleapis.com/books/v1/volumes?q=search+terms=${query}`;
-//     const token = {};
-//     this.token = token;
-
-//     fetch(url)
-//       .then(results => results.json())
-//       .then(data => {
-//         if (this.token === token) {
-//           this.setState({ book: data.results });
-//         }
-//       });
-//   };
-
-//   componentDidMount() {
-//     this.search("");
-//   }
-
-//   render() {
-//     return (
-//       <form>
-//         <input
-//           type="text"
-//           className="search-box"
-//           placeholder="Search for..."
-//           onChange={this.onChange}
-//         />
-//         {this.state.book.map(books => (
-//           <ul key={books.name}>
-//             <li>{books.name}</li>
-//           </ul>
-//         ))}
-//       </form>
-//     );
-//   }
-// }
 
 export default BookForm;
