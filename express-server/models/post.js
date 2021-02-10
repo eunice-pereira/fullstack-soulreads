@@ -15,19 +15,19 @@ module.exports = (sequelize, DataTypes) => {
 			Post.hasMany(models.Comment, {
 				foreignKey: 'postId',
 			});
+			Post.belongsTo(models.Member, {
+				foreignKey: 'memberId',
+			});
 		}
 	}
 	Post.init(
 		{
 			comment: DataTypes.STRING,
 			content: DataTypes.STRING,
-			bookId: {
-				type: DataTypes.INTEGER,
-				model: 'Book',
-				key: 'id',
-			},
-			memberId: {
-				type: DataTypes.INTEGER,
+			bookId: DataTypes.INTEGER,
+			memberId: 
+			{ 
+				type: DataTypes.INTEGER, 
 				model: 'Member',
 				key: 'id',
 			},
