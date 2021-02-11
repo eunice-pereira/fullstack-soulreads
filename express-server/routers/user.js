@@ -11,4 +11,7 @@ router.post('/login', userController.processLogin);
 // log user out of account
 router.post('/logout', userController.logout);
 
+// fetching user by id
+router.get('/fetchuser', userController.fetchUser);
+
 module.exports = router;
