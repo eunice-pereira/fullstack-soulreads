@@ -9,15 +9,15 @@ module.exports = (sequelize, DataTypes) => {
 		 */
 		static associate(models) {
 			// define association here
-			Post.belongsTo(models.Book, {
-				foreignKey: 'bookId',
-			});
-			Post.hasMany(models.Comment, {
-				foreignKey: 'postId',
-			});
-			Post.belongsTo(models.Member, {
-				foreignKey: 'memberId',
-			});
+			// Post.belongsTo(models.Book, {
+			// 	foreignKey: 'bookId',
+			// });
+			// Post.hasMany(models.Comment, {
+			// 	foreignKey: 'postId',
+			// });
+			// Post.belongsTo(models.Member, {
+			// 	foreignKey: 'memberId',
+			// });
 		}
 	}
 	Post.init(
@@ -25,9 +25,8 @@ module.exports = (sequelize, DataTypes) => {
 			comment: DataTypes.STRING,
 			content: DataTypes.STRING,
 			bookId: DataTypes.INTEGER,
-			memberId: 
-			{ 
-				type: DataTypes.INTEGER, 
+			memberId: {
+				type: DataTypes.INTEGER,
 				model: 'Member',
 				key: 'id',
 			},
