@@ -10,6 +10,7 @@ import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Member from './components/Member';
+import Forum from './components/Forum';
 
 // import Search from "./Search";
 // import Wishlist from './components/Wishlist';
@@ -50,6 +51,7 @@ const App = () => {
 				<Login doLogin={doLogin} />
 				<Logout doLogout={doLogout} />
 				<Member sessionId={sessionId} />
+				<Forum/>
 			</div>
 		</Router>
 	);
