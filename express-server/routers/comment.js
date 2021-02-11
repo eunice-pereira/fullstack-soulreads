@@ -13,6 +13,6 @@ router
 .post('/addcomment', addComment)
 .post('/deletecomment', delComment)
 .get('/editcomment', editComment)
-.post('/processedit', processEditComment);
+.put('/processedit', processEditComment);
 
 module.exports = router;
