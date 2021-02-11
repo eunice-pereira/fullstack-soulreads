@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
-
+    color: purple;
     background-image: url(./components/images/login.jpg); 
 }
 
@@ -29,7 +29,15 @@
     background-color: none;
 }
 
+.h1{
+    font-weight: 1000;
+    color: goldenrod;
+}
 
+.heading{
+    font-weight: 1000;
+    color: goldenrod;
+}
 
 /* .h1.display-1 {
     margin: 0px 0px 0px;
@@ -74,6 +82,7 @@
 } */
 
 .display-1{
+    
     font-family: 'Julius Sans One', sans-serif;  
     font-weight: 1000;
     font-size: 15em;
@@ -83,7 +92,7 @@
     margin: 0px 0px 0px;
 }
 
-  
+
 /* * { */
     /* box-sizing: border-box; */
     /* color: indigo;

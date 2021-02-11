@@ -16,9 +16,12 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 // ROUTERS
+
 const userRouter = require('./routers/user');
 const bookRouter = require('./routers/book');
 const memberRouter = require('./routers/member');
+//const postRouter = require('./routers/post');
+const commentRouter = require('./routers/comment');
 
 app.use(logger);
 app.use(express.json());
@@ -55,7 +58,13 @@ app.use('/api/user', userRouter);
 app.use('/api/books', bookRouter);
 
 // rendering journal-activity routers
-app.use('/api/post', memberRouter);
+// app.use('/api/post', memberRouter);
+
+// rendering post activity routers
+//app.use('/api/post', postRouter);
+
+//rendering post activity routers
+app.use('/api/comment', commentRouter);
 
 server.listen(port, host, () => {
 	console.log(`Listening at http://${host}:${port}`);

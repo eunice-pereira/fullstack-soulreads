@@ -35,9 +35,8 @@ const Login = (props) => {
 	};
 	return (
 		// <MDBContainer>
-
 		<MDBRow>
-			<MDBCol md="11">
+			<MDBCol md="11" >
 
 				<div className="login-form">
 					<form className="flex" align="right" method="POST" onSubmit={processLogin}>
@@ -67,7 +66,7 @@ const Login = (props) => {
 							</label>
 						</div>
 						<MDBBtn rounded outline color="unique">
-							<MDBInput type="submit" className="login-button" onSubmit={HomeButton} />
+							<MDBInput type="submit" className="login-button" />
 						</MDBBtn>
 
 					</form>
@@ -81,19 +80,7 @@ const Login = (props) => {
 };
 
 // need to add useHistory() to send user to their member profile
-function HomeButton() {
-	let history = useHistory();
 
-	function handleClick() {
-		history.push("/Member");
-	}
-
-	return (
-		<button type="button" onClick={handleClick}>
-			Member Profile
-		</button>
-	);
-}
 
 export default Login;
 

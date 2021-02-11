@@ -18,5 +18,18 @@ function Navigation() {
 }
 
 // render(<Navigation />);
+// function HomeButton() {
+// 	let history = useHistory();
+
+// 	function handleClick() {
+// 		history.push("/Member");
+// 	}
+
+// 	return (
+// 		<button type="button" onClick={handleClick}>
+// 			Member Profile
+// 		</button>
+// 	);
+// }
 
 export default Navigation;

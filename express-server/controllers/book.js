@@ -16,7 +16,7 @@ const processBookForm = async (req, res) => {
 		});
 		console.log(newBook);
 		res.json({
-			status: 'processing book form',
+			status: 'manual book add successful',
 			id: newBook.id,
 		});
 	}
@@ -25,14 +25,14 @@ const processBookForm = async (req, res) => {
 const addBookApi = async (req, res) => {
 	console.log('new book from api');
 	const { bookTitle, bookAuthor, bookCategory, bookDesc, bookImage } = req.body;
-	// const { id } = req.session.user
+	const { id } = req.session.user;
 
-	if (bookTitle) {
+	if (bookTitle && id) {
 		const newBook = await Book.create({
 			title: bookTitle,
 			author: bookAuthor,
 			category: bookCategory,
-			// memberId: id,
+			memberId: id,
 		});
 		res.json({
 			status: 'api book added successfully',
@@ -52,6 +52,7 @@ const showBookList = async (req, res) => {
 		});
 		res.json({
 			message: 'showing book list',
+			books,
 		});
 	}
 };
@@ -64,6 +65,7 @@ const viewBook = async (req, res) => {
 		console.log(`You are viewing Book item with id ${bookId}.`);
 		res.json({
 			message: 'viewing book',
+			book,
 		});
 	}
 };
@@ -75,14 +77,10 @@ const showEditList = async (req, res) => {
 		const book = await Book.findByPk(bookId);
 
 		console.log(`You are editing Book item with id ${bookId}.`);
-		res.render('edit', {
-			locals: {
-				book,
-			},
-			...layout,
+		res.json({
+			message: 'showing book to edit',
+			id: bookId,
 		});
-	} else {
-		res.redirect('/member-profile');
 	}
 };
 
@@ -105,9 +103,10 @@ const processEditList = async (req, res) => {
 			}
 		);
 		console.log(`You updated Book item with id ${bookId}.`);
-		res.redirect('/booklist');
-	} else {
-		res.redirect('/');
+		res.json({
+			message: 'book item updated',
+			id: bookId,
+		});
 	}
 };
 
@@ -121,9 +120,10 @@ const delBook = async (req, res) => {
 			},
 		});
 		console.log(`You deleted book item with id ${bookId}.`);
-		res.redirect('/booklist');
-	} else {
-		res.redirect('/');
+		res.json({
+			message: 'book deleted successfully',
+			id: bookId,
+		});
 	}
 };
 
