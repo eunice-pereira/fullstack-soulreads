@@ -7,22 +7,16 @@ import axios from 'axios';
 // view book from library
 // edit
 
-const ViewBook = ({ library }) => {
-	// const [viewbook, setViewBook] = useState('');
-	async function viewBook() {
-		const resp = await axios.get(`/api/books/:bookId/viewbook`);
-		console.log(resp.data);
-	}
-
+const ViewBook = ({ viewbook }) => {
 	return (
 		<div className="view-book">
-			<p>Title</p>
-			<p>Author</p>
-			<p>Category</p>
-			<p>ISBN</p>
+			<p>{viewbook.title}</p>
+			<p>{viewbook.author}</p>
+			<p>{viewbook.category}</p>
+			<p>{viewbook.isbn}</p>
+			<p>Image</p>
 			<p>Description</p>
-			<p>Status</p>
-			<p></p>
+			<button>Edit</button>
 		</div>
 	);
 };

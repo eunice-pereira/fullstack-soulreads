@@ -6,11 +6,10 @@ import axios from 'axios';
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Background from './components/Background';
-import Journal from './components/Journal';
-import Search from './components/BookForm';
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import Member from './components/Member';
 
 // import Search from "./Search";
 // import Wishlist from './components/Wishlist';

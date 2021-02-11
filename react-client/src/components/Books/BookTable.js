@@ -5,8 +5,9 @@ import ViewBook from './ViewBook';
 
 const BookTable = (props) => {
 	const [library, setLibrary] = useState([]);
+	const [viewbook, setViewBook] = useState('');
 
-	// retrieve member booklist saved to Book model
+	// retrieve member library saved to Book model
 	async function viewLibrary() {
 		const resp = await axios.get('/api/books/booklist');
 		console.log(resp.data.books);
@@ -48,7 +49,19 @@ const BookTable = (props) => {
 							<td>{book.category}</td>
 							<td>{book.status}</td>
 							<td>
-								<button className="btn">View</button>
+								<button
+									className="btn"
+									onClick={async (e) => {
+										let bookId = book.id;
+										const resp = await axios.get(
+											`/api/books/${bookId}/viewbook`
+										);
+										console.log(resp.data.book);
+										setViewBook(resp.data.book);
+									}}
+								>
+									View
+								</button>
 							</td>
 							<td>
 								<button
@@ -68,7 +81,7 @@ const BookTable = (props) => {
 					))}
 				</tbody>
 			</Table>
-			<ViewBook library={library} />
+			<ViewBook viewbook={viewbook} />
 		</div>
 	);
 };
