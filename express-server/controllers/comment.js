@@ -47,47 +47,6 @@ const processEditComment= async (req, res) => {
     });
   };
 
-  const delComment = async (req,res) =>{
-    const { id } = req.session.user;
-    const { forumId } = req.params;
-    if (id && forumId) {
-        const comment = await Comment.destroy({
-            where: {
-                id: forumId,
-            },
-        });
-    }   
-    
-        console.log(` deleted a comment from ${forumId}.`);
-        res.json({
-            message: "Deleting comment",
-            id: forumId
-        })
-    };
-
-const editComment = async (req, res) => {
-	const { id } = req.sessions.user;
-	//const { forumId } = req.params;
-	if (id && { forumId }) {
-		const comment = await Comment.findByPk(forumId);
-		console.log(`Your are editing a comment for ${forumId}.`);
-	}
-};
-
-const processEditComment = async (req, res) => {
-	const { id } = req.params;
-	const { comment } = req.body;
-	const updateComment = await Comment.update({
-		where: {
-			id,
-			memberId: req.session.user.id,
-		},
-	});
-	console.log(`Comment updated.`);
-	res.json({
-		message: 'Comment updated.',
-	});
-};
 
 const delComment = async (req, res) => {
 	const { id } = req.session.user;
