@@ -21,6 +21,7 @@ function BookForm() {
 
 	return (
 		<div>
+			<h1>Search for Book</h1>
 			<form
 				className="book-search"
 				onSubmit={(e) => {
