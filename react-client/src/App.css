@@ -1,11 +1,12 @@
 .App {
-    text-align: center; 
-    background-size: cover;
-    background-position: top;
-    min-height: 100%;
+    /* text-align: center;  */
     height: 100vh;
-    position: relative;
-    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+
+    background-image: url(./components/images/login.jpg); 
 }
 
 /* .flex {
@@ -13,12 +14,38 @@
 } */
 .form {
     overflow: hidden;
+    position: top;
 }
-.mask {
+
+.login-form{
+    
+    font-weight: 1000;
+    color: goldenrod;
+    font-family: 'Julius Sans One', sans-serif;
+    position: absolute; 
+    align-items: right;
+}
+.input{
+    background-color: none;
+}
+
+
+
+/* .h1.display-1 {
+    margin: 0px 0px 0px;
+} */
+
+/* .container{
+   
+    /* height: 100vh; */
+   
+/* }  */
+
+/* .mask {
     font-weight: bolder;
     font-family: 'Roboto';
     font-size: 2000px;
-}
+} */
 
 .bookshelf {
     /* background-image:  */
@@ -32,7 +59,7 @@
     font-size: 2000px;
 }
 
-.App-header {
+/* .App-header {
     
     height: 20px;
     display: flex;
@@ -43,22 +70,32 @@
     color: white;
     padding: 20px;
     cursor: pointer;
-    
+   
+} */
+
+.display-1{
+    font-family: 'Julius Sans One', sans-serif;  
+    font-weight: 1000;
+    font-size: 15em;
+    position: relative;
+    bottom: 0;
+    color: goldenrod;
+    margin: 0px 0px 0px;
 }
+
   
-  
-* {
+/* * { */
     /* box-sizing: border-box; */
-    color: #CCB73C;
-    
-    font-family: "Roboto";  
-}
+    /* color: indigo;
+    font-weight: 600;
+    font-family: 'Julius Sans One', sans-serif; 
+} */
   
   
-.App-header h2 {
+/* .App-header h2 {
     margin: 0;
-}
-  
+} */
+/*   
 .search {
     justify-content: left;
     display: flex;
@@ -66,7 +103,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
-}
+} */
   
 /* input[type="submit"] {
     padding: 5px;

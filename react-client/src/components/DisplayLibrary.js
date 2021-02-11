@@ -1,22 +1,22 @@
-import React from 'react';
+// import React from 'react';
 
-function LibraryList(props) {
-    return (
-        <ul>
-            {
-                props.books.map(b => (
-                    <li key={b.id}
-                        onClick={(e) => {
-                            console.log(b.name);
-                            props.chooseBook(b);
-                        }}
-                    >
-                        {/* {b.name}: {b.author} - {b.year} */}
-                    </li>
-                ))
-            }
-        </ul>
-    );
-}
+// function LibraryList(props) {
+//     return (
+//         <ul>
+//             {
+//                 props.books.map(b => (
+//                     <li key={b.id}
+//                         onClick={(e) => {
+//                             console.log(b.name);
+//                             props.chooseBook(b);
+//                         }}
+//                     >
+//                         {/* {b.name}: {b.author} - {b.year} */}
+//                     </li>
+//                 ))
+//             }
+//         </ul>
+//     );
+// }
 
-export default LibraryList;
+// export default LibraryList;

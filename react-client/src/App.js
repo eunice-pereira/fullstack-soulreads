@@ -1,25 +1,29 @@
+//standard imports
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import { MDBInput } from 'mdbreact';
+import { BrowserRouter as Router } from 'react-router-dom';
 
+//state imports
+import React, { useEffect, useState } from 'react';
+
+//component imports
+import About from './components/About';
 import BookForm from './components/BookForm';
 import Home from './components/Home';
-import Navigation from './components/Navigation';
-import Background from './components/Background';
 import Journal from './components/Journal';
-import Login from './components/Login'
-import Search from './components/BookForm';
-import CreateAccount from './components/CreateAccount';
+import AddModal from './components/AddModal';
+import Navigation from './components/Navigation';
+// import CreateAccount from './components/CreateAccount';
+
+// import Background from './components/Background';
+// import Journal from './components/Journal';
+
+// import Search from './components/BookForm';
+// import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import DeleteModal from './components/DeleteModal';
+// import BookAccordion from './components/BookAccordian';
 
-
-
-// import Search from "./Search";
-// import Wishlist from './components/Wishlist';
-// import Test from './components/Test';
-
-import { BrowserRouter as Router } from 'react-router-dom';
 
 
 const App = () => {
@@ -39,11 +43,16 @@ const App = () => {
 	return (
 		<Router>
 			<div className="App">
-				<Home />
-				<CreateAccount />
-				<Login doLogin={doLogin} />
-				<Logout doLogout={doLogout} />
-				<BookForm />
+				<Navigation></Navigation>
+
+				{/* <BookAccordion></BookAccordion> */}
+				{/* <AddModal></AddModal>
+				<DeleteModal></DeleteModal> */}
+				{/* <Journal></Journal> */}
+				{/* <About></About> */}
+				{/* <Login doLogin={doLogin} /> */}
+				{/* <Logout doLogout={doLogout} /> */}
+				{/* <BookForm /> */}
 			</div>
 		</Router >
 	);
