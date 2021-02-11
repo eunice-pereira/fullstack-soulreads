@@ -1,7 +1,8 @@
 const { Book } = require('../models');
+const { Library } = require('../models');
 
 const processBookForm = async (req, res) => {
-	const { title, author, category, isbn, status } = req.body;
+	const { title, author, category, isbn, status, intention } = req.body;
 	const { id } = req.session.user;
 	console.log(title, author);
 
@@ -14,7 +15,13 @@ const processBookForm = async (req, res) => {
 			status,
 			memberId: id,
 		});
+		// const newLibraryItem = await Library.create({
+		// 	intention,
+		// 	bookId: newBook.id,
+		// });
+
 		console.log(newBook);
+		// console.log(newLibraryItem);
 		res.json({
 			status: 'manual book add successful',
 			id: newBook.id,
