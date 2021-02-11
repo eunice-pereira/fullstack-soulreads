@@ -53,11 +53,7 @@ app.use(
 app.use('/api/user', userRouter);
 
 // rednering book-activity routers
-
-app.use('/api/book', bookRouter);
-
 app.use('/api/books', bookRouter);
-
 
 // rendering journal-activity routers
 // app.use('/api/post', memberRouter);
