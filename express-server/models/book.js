@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
 			category: DataTypes.STRING,
 			isbn: DataTypes.STRING,
 			status: DataTypes.STRING,
+			content: DataTypes.STRING,
 			memberId: {
 				type: DataTypes.INTEGER,
 				model: 'Member',
