@@ -23,6 +23,9 @@ module.exports = {
 			status: {
 				type: Sequelize.STRING,
 			},
+			content: {
+				type: Sequelize.STRING,
+			},
 			memberId: {
 				type: Sequelize.INTEGER,
 			},

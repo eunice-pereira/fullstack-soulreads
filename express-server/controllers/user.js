@@ -72,6 +72,12 @@ const processLogin = async (req, res) => {
 	}
 };
 
+const fetchUser = async (req, res) => {
+	console.log(req.session.user);
+	// return req.session.user
+	res.json(req.session.user);
+};
+
 const logout = (req, res) => {
 	console.log('logging out...');
 	req.session.destroy(() => {
@@ -86,4 +92,5 @@ module.exports = {
 	processNewUser,
 	processLogin,
 	logout,
+	fetchUser,
 };
