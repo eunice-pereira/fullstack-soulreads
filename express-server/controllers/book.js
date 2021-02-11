@@ -65,6 +65,7 @@ const viewBook = async (req, res) => {
 		console.log(`You are viewing Book item with id ${bookId}.`);
 		res.json({
 			message: 'viewing book',
+			book,
 		});
 	}
 };

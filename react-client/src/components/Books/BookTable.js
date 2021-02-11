@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, NavLink } from 'react-bootstrap';
 import axios from 'axios';
+import ViewBook from './ViewBook';
 
 const BookTable = (props) => {
 	const [library, setLibrary] = useState([]);
@@ -16,8 +17,8 @@ const BookTable = (props) => {
 	const refresh = () => {
 		window.location.reload(false);
 	};
-
-	let keys = ['Title', 'Author', 'Category', 'ISBN', 'Status', 'Action'];
+	// table headings
+	let keys = ['Title', 'Author', 'Category', 'Status', 'View', 'Delete'];
 
 	return (
 		<div style={{ width: '90%', margin: '0 auto' }}>
@@ -45,8 +46,10 @@ const BookTable = (props) => {
 							<td>{book.title}</td>
 							<td>{book.author}</td>
 							<td>{book.category}</td>
-							<td>{book.isbn}</td>
 							<td>{book.status}</td>
+							<td>
+								<button className="btn">View</button>
+							</td>
 							<td>
 								<button
 									className="btn"
@@ -61,11 +64,11 @@ const BookTable = (props) => {
 									Delete
 								</button>
 							</td>
-							<td>Edit</td>
 						</tr>
 					))}
 				</tbody>
 			</Table>
+			<ViewBook library={library} />
 		</div>
 	);
 };
