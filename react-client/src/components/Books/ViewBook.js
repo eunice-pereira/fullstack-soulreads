@@ -8,7 +8,7 @@ import axios from 'axios';
 // edit
 
 const ViewBook = ({ library }) => {
-	const [viewbook, setViewBook] = useState('');
+	// const [viewbook, setViewBook] = useState('');
 	async function viewBook() {
 		const resp = await axios.get(`/api/books/:bookId/viewbook`);
 		console.log(resp.data);

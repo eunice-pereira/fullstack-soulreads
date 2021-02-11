@@ -28,6 +28,7 @@ const CreateAccount = () => {
 		// 	history.push('/home');
 		// }
 	};
+
 	return (
 		<div className="create-acct-form">
 			<form align="center" method="POST" onSubmit={processNewMemeber}>
