@@ -5,7 +5,7 @@ import ViewBook from './ViewBook';
 
 const BookTable = (props) => {
 	const [library, setLibrary] = useState([]);
-	const [viewbook, setViewBook] = useState('');
+	const [viewbook, setViewBook] = useState(null);
 
 	// retrieve member library saved to Book model
 	async function viewLibrary() {
@@ -14,10 +14,6 @@ const BookTable = (props) => {
 		setLibrary(resp.data.books);
 	}
 
-	// refresh page after book delete
-	const refresh = () => {
-		window.location.reload(false);
-	};
 	// table headings
 	let keys = ['Title', 'Author', 'Category', 'Status', 'View', 'Delete'];
 
@@ -70,8 +66,7 @@ const BookTable = (props) => {
 										let bookId = book.id;
 										const resp = await axios
 											.post(`/api/books/${bookId}/delete`, bookId)
-											.then(() => refresh());
-										console.log(resp.data);
+											.then(() => viewLibrary());
 									}}
 								>
 									Delete
@@ -81,7 +76,7 @@ const BookTable = (props) => {
 					))}
 				</tbody>
 			</Table>
-			<ViewBook viewbook={viewbook} />
+			{viewbook && <ViewBook viewbook={viewbook} />}
 		</div>
 	);
 };
