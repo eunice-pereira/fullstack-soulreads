@@ -22,6 +22,7 @@ const bookRouter = require('./routers/book');
 const memberRouter = require('./routers/member');
 const commentRouter = require('./routers/comment');
 const forumRouter = require('./routers/forum');
+const journalRouter = require('./routers/journal');
 
 app.use(logger);
 app.use(express.json());
@@ -65,6 +66,9 @@ app.use('/api/comment', commentRouter);
 
 // rendering forum activity routers
 app.use('/api/forum', forumRouter);
+
+// rendering journal activity routers
+app.use('/api/journal', journalRouter);
 
 server.listen(port, host, () => {
 	console.log(`Listening at http://${host}:${port}`);
