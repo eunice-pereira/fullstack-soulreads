@@ -1,44 +1,57 @@
 const { Forum } = require('../models');
 const { Book } = require('../models');
+const { Op } = require('sequelize');
+const Sequelize = require('sequelize');
 
 // create forum post with desc + find book from library
 const addForumPost = async (req, res) => {
 	const { id } = req.session.user;
-	const { description } = req.body;
+	const { description, book } = req.body;
 
 	if (id && description) {
 		const forumEntry = await Forum.create({
 			description,
+			bookId: book,
+			memberId: id,
 		});
 
 		res.json({
 			status: 'new forum post created',
-			id: forumEntry.id,
+			forumId: forumEntry.id,
 		});
 	}
 };
 // find library item to go along with above post
 const findLibraryItem = async (req, res) => {
 	const { id } = req.session.user;
-	const { title, author } = req.body;
+	const { search } = req.query;
+	console.log(req);
 
-	if (id && title) {
-		const libraryBook = await Book.findOne({
+	if (id && search) {
+		const libraryTitle = await Book.findAll({
 			where: {
-				title,
+				[Op.or]: {
+					title: Sequelize.where(
+						Sequelize.fn('concat', Sequelize.col('title')),
+						{
+							[Op.iLike]: '%' + search + '%',
+						}
+					),
+					author: Sequelize.where(
+						Sequelize.fn('concat', Sequelize.col('author')),
+						{
+							[Op.iLike]: '%' + search + '%',
+						}
+					),
+				},
 			},
 		});
-		res.json(libraryBook);
-	} else if (id && author) {
-		const libraryAuthors = await Book.findAll({
-			where: {
-				author,
-			},
+		res.json({
+			message: 'book retrieved from library',
+			libraryTitle,
 		});
-		res.json(libraryAuthors);
 	}
 };
-
 // upload image
 
 // edit forum post
