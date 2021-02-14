@@ -6,12 +6,14 @@ const {
 	findLibraryItem,
 	delForumPost,
 	editForumPost,
+	getForumPosts,
 } = require('../controllers/forum');
 
 router
 	.post('/newpost', addForumPost)
-	.put('/:forumId/editpost', editForumPost)
+	.put('/:postId/edit', editForumPost)
 	.get('/newpost', findLibraryItem)
-	.post('/:forumId/delete', delForumPost);
+	.post('/:postId/delete', delForumPost)
+	.get('/soulchat', getForumPosts);
 
 module.exports = router;
