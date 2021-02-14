@@ -8,7 +8,7 @@ const addForumPost = async (req, res) => {
 	const { id } = req.session.user;
 	const { description, book } = req.body;
 
-	if (id && description) {
+	if (id && description && book) {
 		const forumEntry = await Forum.create({
 			description,
 			bookId: book,
@@ -21,14 +21,14 @@ const addForumPost = async (req, res) => {
 		});
 	}
 };
-// find library item to go along with above post
+// find library item by either author or title
 const findLibraryItem = async (req, res) => {
 	const { id } = req.session.user;
 	const { search } = req.query;
 	console.log(req);
 
 	if (id && search) {
-		const libraryTitle = await Book.findAll({
+		const libraryItem = await Book.findAll({
 			where: {
 				[Op.or]: {
 					title: Sequelize.where(
@@ -48,48 +48,60 @@ const findLibraryItem = async (req, res) => {
 		});
 		res.json({
 			message: 'book retrieved from library',
-			libraryTitle,
+			libraryItem,
 		});
 	}
 };
-// upload image
 
-// edit forum post
+// query through Forum posts to show on front end SoulChat
+const getForumPosts = async (req, res) => {
+	const posts = await Forum.findAll({
+		order: [['createdAt', 'desc']],
+		include: [
+			{
+				model: Book,
+				attributes: ['title', 'author', 'status'],
+			},
+		],
+	});
+	res.json({
+		posts,
+	});
+};
 const editForumPost = async (req, res) => {
 	const { id } = req.session.user;
-	const { forumId } = req.params;
-	const { description, libraryBook } = req.body;
-	if (id && forumId) {
+	const { postId } = req.params;
+	const { description } = req.body;
+	if (id && postId) {
 		const forumPost = await Forum.update(
 			{
 				description,
 			},
 			{
 				where: {
-					id: forumId,
+					id: postId,
 				},
 			}
 		);
 		res.json({
-			message: 'forum post updated',
-			id: forumId,
+			message: 'soulchat desc updated',
+			id: postId,
 		});
 	}
 };
 
-// delete forum post
 const delForumPost = async (req, res) => {
 	const { id } = req.session.user;
-	const { forumId } = req.params;
-	if (id && forumId) {
+	const { postId } = req.params;
+	if (id && postId) {
 		const forumPost = await Forum.destroy({
 			where: {
-				id: forumId,
+				id: postId,
 			},
 		});
 		res.json({
 			message: 'post deleted successfully',
-			id: forumId,
+			id: postId,
 		});
 	}
 };
@@ -99,4 +111,5 @@ module.exports = {
 	findLibraryItem,
 	delForumPost,
 	editForumPost,
+	getForumPosts,
 };
