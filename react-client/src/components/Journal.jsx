@@ -2,49 +2,116 @@ import React from 'react';
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBView, MDBIcon } from 'mdbreact';
 
 const Journal = () => {
+	const notes = [{
+		id: 1,
+		book: {
+			'id': 2,
+			'title': 'Science and the Akashic Field',
+			'author': 'Ervin Laszlo',
+			'category': 'science',
+			'isbn': '',
+			'status': 'Completed',
+			'content': null,
+			'memberId': 2,
+			'createdAt': '2021 - 02 - 11T20: 58: 46.671Z',
+			'updatedAt': '2021 - 02 - 11T20: 58: 46.671Z'
+		},
+		journal: [
+			{
+				content: "This book is greatttt!"
+			}
+		]
+
+	},
+	{
+		id: 1,
+		book: {
+			'id': 2,
+			'title': 'Science and the Akashic Field',
+			'author': 'Ervin Laszlo',
+			'category': 'science',
+			'isbn': '',
+			'status': 'Completed',
+			'content': null,
+			'memberId': 2,
+			'createdAt': '2021 - 02 - 11T20: 58: 46.671Z',
+			'updatedAt': '2021 - 02 - 11T20: 58: 46.671Z'
+		},
+		journal: [
+			{
+				content: "This book is greatttt!"
+			}
+		]
+
+	},
+	{
+		id: 1,
+		book: {
+			'id': 2,
+			'title': 'Science and the Akashic Field',
+			'author': 'Ervin Laszlo',
+			'category': 'science',
+			'isbn': '',
+			'status': 'Completed',
+			'content': null,
+			'memberId': 2,
+			'createdAt': '2021 - 02 - 11T20: 58: 46.671Z',
+			'updatedAt': '2021 - 02 - 11T20: 58: 46.671Z'
+		},
+		journal: [
+			{
+				content: "This book is annoying!"
+			}
+		]
+
+	}
+
+	]
 	return (
 		<MDBRow>
-			<MDBCol md='4'>
-				<MDBCard wide cascade>
-					<MDBView cascade>
-						<MDBCardImage
-							hover
-							overlay='white-slight'
-							className='card-img-top'
-							src='https://images-na.ssl-images-amazon.com/images/I/81vdSLkE5YL.jpg'
-							alt='You are the Universe'
-						/>
-					</MDBView>
+			{notes.map(note => (
+				<MDBCol md='4'>
+					<MDBCard wide cascade>
+						<MDBView cascade>
+							<MDBCardImage
+								hover
+								overlay='white-slight'
+								className='card-img-top'
+								src='https://images-na.ssl-images-amazon.com/images/I/81vdSLkE5YL.jpg'
+								alt={note.book.title}
+							/>
+						</MDBView>
 
-					<MDBCardBody cascade className='text-center'>
-						<MDBCardTitle className='card-title'>
-							{/* <strong>{$bookTitle}</strong> */}
-						</MDBCardTitle>
+						<MDBCardBody cascade className='text-center'>
+							<MDBCardTitle className='card-title'>
+								{/* <strong>{$bookTitle}</strong> */}
+							</MDBCardTitle>
 
-						<p className='font-weight-bold blue-text'>Thought:</p>
+							<p className='font-weight-bold blue-text'>Thought:</p>
 
-						<MDBCardText>
-							Sed ut perspiciatis unde omnis iste natus sit voluptatem
+							<MDBCardText>
+								Sed ut perspiciatis unde omnis iste natus sit voluptatem
               				accusantium doloremque laudantium, totam rem aperiam.{' '}
-						</MDBCardText>
+							</MDBCardText>
 
-						<MDBCol md='12' className='d-flex justify-content-center'>
-							<a href='!#' className='px-2 fa-lg li-ic'>
-								<MDBIcon fab icon='linkedin-in'></MDBIcon>
-							</a>
+							<MDBCol md='12' className='d-flex justify-content-center'>
+								<a href='!#' className='px-2 fa-lg li-ic'>
+									<MDBIcon fab icon='linkedin-in'></MDBIcon>
+								</a>
 
-							<a href='!#' className='px-2 fa-lg tw-ic'>
-								<MDBIcon fab icon='twitter'></MDBIcon>
-							</a>
+								<a href='!#' className='px-2 fa-lg tw-ic'>
+									<MDBIcon fab icon='twitter'></MDBIcon>
+								</a>
 
-							<a href='!#' className='px-2 fa-lg fb-ic'>
-								<MDBIcon fab icon='facebook-f'></MDBIcon>
-							</a>
-						</MDBCol>
-					</MDBCardBody>
-				</MDBCard>
-			</MDBCol>
+								<a href='!#' className='px-2 fa-lg fb-ic'>
+									<MDBIcon fab icon='facebook-f'></MDBIcon>
+								</a>
+							</MDBCol>
+						</MDBCardBody>
+					</MDBCard>
+				</MDBCol>
 
+			))}
 			<MDBCol md='4'>
 				<MDBCard narrow>
 					<MDBView cascade>

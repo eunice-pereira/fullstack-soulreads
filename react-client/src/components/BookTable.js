@@ -4,7 +4,8 @@ import { Table, NavLink } from "react-bootstrap";
 const BookTable = props => {
     let keys = ["popularity", "title", "release_date", "overview"];
     const { books } = props;
-
+    console.log(books)
+    console.log('--------------')
     return (
         <div style={{ width: "90%", margin: "0 auto" }}>
             <Table
@@ -25,9 +26,12 @@ const BookTable = props => {
                     {books.map(book => {
                         return (
                             <tr key={book.id}>
-                                <td>{book.popularity}</td>
+
                                 <td>{book.title}</td>
-                                <td>{book.release_date}</td>
+                                <td>{book.author}</td>
+                                <td>{book.category}</td>
+                                <td>{book.status}</td>
+
                                 <td>modal</td>
                             </tr>
                         );

@@ -59,7 +59,7 @@ const App = () => {
 			<div className="App">
 				<RouterSwitch>
 					{/* <Background></Background> */}
-					{/* <Home /> */}
+					<Home />
 					{/* <CreateAccount /> */}
 
 
@@ -73,6 +73,7 @@ const App = () => {
 						</Navigation>
 						<AddModal></AddModal>
 						<DeleteModal></DeleteModal>
+						<About></About>
 						<Member sessionId={sessionId} />
 					</Route>
 				</RouterSwitch>
