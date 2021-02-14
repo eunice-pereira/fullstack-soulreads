@@ -51,7 +51,6 @@ const App = () => {
 				<Login doLogin={doLogin} />
 				<Logout doLogout={doLogout} />
 				<Member sessionId={sessionId} />
-				<Forum/>
 			</div>
 		</Router>
 	);
