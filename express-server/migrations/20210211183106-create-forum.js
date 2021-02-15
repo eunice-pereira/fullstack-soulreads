@@ -11,8 +11,8 @@ module.exports = {
 			description: {
 				type: Sequelize.STRING,
 			},
-			comment: {
-				type: Sequelize.STRING,
+			commentId: {
+				type: Sequelize.INTEGER,
 			},
 			memberId: {
 				type: Sequelize.INTEGER,

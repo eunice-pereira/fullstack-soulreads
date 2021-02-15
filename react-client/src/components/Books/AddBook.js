@@ -18,6 +18,7 @@ const AddBook = () => {
 			status,
 		};
 		const resp = await axios.post('/api/books/newbook', book);
+		console.log(resp.data);
 	};
 
 	return (

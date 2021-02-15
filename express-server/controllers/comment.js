@@ -5,9 +5,8 @@ const addComment = async (req, res) => {
 	const { comment, forumId } = req.body;
 	console.log(req.body);
 
-
 	if (id && comment) {
-		const NewComment = await Comment.create({
+		const newComment = await Comment.create({
 			comment,
 			memberId: id,
 			forumId,
@@ -20,39 +19,34 @@ const addComment = async (req, res) => {
 		res.json({
 			message: 'not logged in',
 		});
-	} 
+	}
 };
 
-
-const editComment = async (req, res) =>{
-    const { id } = req.session.user;
-    const { forumId } = req.params;
-    if (id && { forumId } ) {
-        const comment = await Comment.findByPk(forumId);
-        
-    };
-    console.log(`Your are editing a comment for ${forumId}.`);
+const editComment = async (req, res) => {
+	const { id } = req.session.user;
+	const { forumId } = req.params;
+	if (id && { forumId }) {
+		const comment = await Comment.findByPk(forumId);
+	}
+	console.log(`Your are editing a comment for ${forumId}.`);
 };
 
-const processEditComment= async (req, res) => {
-    const { id } = req.params;
-    const { comment } = req.body;
-    if (id && { forumId }) {
+const processEditComment = async (req, res) => {
+	const { id } = req.params;
+	const { comment } = req.body;
+	if (id && { forumId }) {
+		const updateComment = await Comment.update({
+			where: {
+				memberId: id,
+			},
+		});
+	}
 
-    const updateComment = await Comment.update({
-        where: {
-            memberId: id,
-        }
-
-      });
-    } 
-
-    console.log(`Comment updated.`);
-    res.json({
-        message: 'Comment updated.'
-    });
-  };
-
+	console.log(`Comment updated.`);
+	res.json({
+		message: 'Comment updated.',
+	});
+};
 
 const delComment = async (req, res) => {
 	const { id } = req.session.user;
