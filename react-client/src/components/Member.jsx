@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddBook from './Books/AddBook';
 import BookForm from './Books/BookForm';
-import Journal from './Journal';
 import BookTable from './Books/BookTable';
 import Forum from './Forum/Forum';
 

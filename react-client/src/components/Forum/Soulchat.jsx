@@ -16,14 +16,14 @@ const Soulchat = () => {
 		console.log(resp.data);
 		setPosts(resp.data.posts);
 	}
-	// useEffect(()=> {
-	// 	getForums()
-	// }, [])
+	useEffect(() => {
+		getForums();
+	}, []);
 
 	return (
 		<div className="soulchat-container">
 			<h1>Soulchat</h1>
-			<button onClick={getForums}>Get Posts</button>
+			{/* <button onClick={getForums}>Get Posts</button> */}
 			<div className="soulchat-posts">
 				<ul>
 					{posts.length !== 0 &&
