@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// import add journal entry feature
-
 const ViewBook = ({ viewbook }) => {
 	const [editing, setEditing] = useState(false);
 	const [editTitle, setEditTitle] = useState('');
