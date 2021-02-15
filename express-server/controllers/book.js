@@ -15,10 +15,11 @@ const processBookForm = async (req, res) => {
 			status,
 			memberId: id,
 		});
-		// const newLibraryItem = await Library.create({
-		// 	intention,
-		// 	bookId: newBook.id,
-		// });
+		const newLibraryItem = await Library.create({
+			intention,
+			memberId: id,
+			bookId: newBook.id,
+		});
 
 		console.log(newBook);
 		res.json({
@@ -68,10 +69,12 @@ const viewBook = async (req, res) => {
 	const { bookId } = req.params;
 	if (id && bookId) {
 		const book = await Book.findByPk(bookId);
+		const intention = await Library.findByPk(bookId);
 		console.log(`You are viewing Book item with id ${bookId}.`);
 		res.json({
 			message: 'viewing book',
 			book,
+			intention,
 		});
 	}
 };
@@ -93,13 +96,14 @@ const showEditList = async (req, res) => {
 const processEditList = async (req, res) => {
 	const { id } = req.session.user;
 	const { bookId } = req.params;
-	const { title, author, status } = req.body;
+	const { title, author, status, category, intention } = req.body;
 
 	if (id && bookId) {
 		const book = await Book.update(
 			{
 				title,
 				author,
+				category,
 				status,
 			},
 			{
@@ -108,6 +112,11 @@ const processEditList = async (req, res) => {
 				},
 			}
 		);
+		const library = await Library.update(intention, {
+			where: {
+				id: bookId,
+			},
+		});
 		console.log(`You updated Book item with id ${bookId}.`);
 		res.json({
 			message: 'book item updated',

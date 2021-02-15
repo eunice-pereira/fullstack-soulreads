@@ -6,6 +6,7 @@ import ViewBook from './ViewBook';
 const BookTable = (props) => {
 	const [library, setLibrary] = useState([]);
 	const [viewbook, setViewBook] = useState(null);
+	const [viewIntention, setViewIntention] = useState(null);
 
 	// retrieve member library saved to Book model
 	async function viewLibrary() {
@@ -53,7 +54,9 @@ const BookTable = (props) => {
 											`/api/books/${bookId}/viewbook`
 										);
 										console.log(resp.data.book);
+										console.log(resp.data);
 										setViewBook(resp.data.book);
+										// setViewIntention(resp.data.intention)
 									}}
 								>
 									View

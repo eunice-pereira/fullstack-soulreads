@@ -9,12 +9,14 @@ const ViewBook = ({ viewbook }) => {
 	const [editAuthor, setEditAuthor] = useState('');
 	const [editCategory, setEditCategory] = useState('');
 	const [editStatus, setEditStatus] = useState('');
+	const [editIntention, setEditIntention] = useState('');
 
 	useEffect(() => {
 		setEditTitle(viewbook.title);
 		setEditAuthor(viewbook.author);
 		setEditCategory(viewbook.category);
 		setEditStatus(viewbook.status);
+		setEditIntention(viewbook.intention);
 	}, [viewbook]);
 
 	if (editing) {
@@ -28,6 +30,7 @@ const ViewBook = ({ viewbook }) => {
 							author: editAuthor,
 							category: editCategory,
 							status: editStatus,
+							intention: editIntention,
 						});
 					}}
 				>
@@ -73,6 +76,15 @@ const ViewBook = ({ viewbook }) => {
 							<option value="Completed">Completed</option>
 						</select>
 					</div>
+					<label>
+						Intention
+						<div>
+							<input
+								value={editIntention}
+								onChange={(e) => setEditIntention(e.target.value)}
+							/>
+						</div>
+					</label>
 					<input className="btn" type="submit" value="Update" />
 				</form>
 				<button className="btn" onClick={() => setEditing(false)}>
@@ -84,9 +96,10 @@ const ViewBook = ({ viewbook }) => {
 		return (
 			<div className="view-book">
 				<p>{viewbook.title}</p>
-				<p>{viewbook.author}</p>
-				<p>{viewbook.category}</p>
-				<p>{viewbook.isbn}</p>
+				<p>Author: {viewbook.author}</p>
+				<p>Category: {viewbook.category}</p>
+				<p>ISBN: {viewbook.isbn}</p>
+				<p>Intention: {viewbook.intention}</p>
 
 				<button className="btn" onClick={() => setEditing(true)}>
 					Edit
