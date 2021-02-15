@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
 	Forum.init(
 		{
 			description: DataTypes.STRING,
-			comment: DataTypes.STRING,
+			commentId: {
+				type: DataTypes.INTEGER,
+				model: 'Member',
+				key: 'id',
+			},
 			memberId: {
 				type: DataTypes.INTEGER,
 				model: 'Member',

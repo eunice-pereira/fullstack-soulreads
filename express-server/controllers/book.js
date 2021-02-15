@@ -21,7 +21,6 @@ const processBookForm = async (req, res) => {
 		// });
 
 		console.log(newBook);
-		// console.log(newLibraryItem);
 		res.json({
 			status: 'manual book add successful',
 			id: newBook.id,
