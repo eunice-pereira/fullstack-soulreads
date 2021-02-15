@@ -1,7 +1,11 @@
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import AddComment from '../Comment/AddComment';
 // import EditPost from './EditPost';
+
+// route for it to show on particular path
+// swap onclick Get Posts for useEffect
 
 const Soulchat = () => {
 	const [posts, setPosts] = useState([]);
@@ -11,6 +15,9 @@ const Soulchat = () => {
 		console.log(resp.data);
 		setPosts(resp.data.posts);
 	}
+	// useEffect(()=> {
+	// 	getForums()
+	// }, [])
 
 	return (
 		<div className="soulchat-container">
@@ -36,7 +43,8 @@ const Soulchat = () => {
 									>
 										Delete Post
 									</button>
-									<button>Edit Post</button>
+									{/* <button>Edit Post</button> */}
+									<AddComment post={post} />
 								</div>
 							</li>
 						))}
