@@ -4,6 +4,7 @@ const addComment = async (req, res) => {
 	const { id } = req.session.user;
 	const { comment, forumId } = req.body;
 	console.log(req.body);
+
 	if (id && comment) {
 		const newComment = await Comment.create({
 			comment,
