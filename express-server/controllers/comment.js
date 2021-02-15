@@ -2,19 +2,25 @@ const { Comment } = require('../models');
 
 const addComment = async (req, res) => {
 	const { id } = req.session.user;
-	const { comment } = req.body;
+	const { comment, forumId } = req.body;
+	console.log(req.body);
+
 
 	if (id && comment) {
-		const comment = await Comment.create({
-			where: {
-				memberId: id,
-			},
+		const NewComment = await Comment.create({
+			comment,
+			memberId: id,
+			forumId,
 		});
-	}
-	console.log(`Comment added.`);
-	res.json({
-		message: 'Comment added.',
-	});
+		console.log(`Comment added.`);
+		res.json({
+			message: 'Comment added.',
+		});
+	} else {
+		res.json({
+			message: 'not logged in',
+		});
+	} 
 };
 
 
