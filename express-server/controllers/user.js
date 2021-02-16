@@ -78,6 +78,19 @@ const fetchUser = async (req, res) => {
 	res.json(req.session.user);
 };
 
+const loginStatus = (req, res) => {
+	console.log('api: checking login status');
+	if (req.session.user) {
+		res.status(200).json({
+			status: 'OK',
+		});
+	} else {
+		res.status(400).json({
+			status: 'no active session',
+		});
+	}
+};
+
 const logout = (req, res) => {
 	console.log('logging out...');
 	req.session.destroy(() => {
@@ -93,4 +106,5 @@ module.exports = {
 	processLogin,
 	logout,
 	fetchUser,
+	loginStatus,
 };

@@ -14,4 +14,6 @@ router.post('/logout', userController.logout);
 // fetching user by id
 router.get('/fetchuser', userController.fetchUser);
 
+router.get('/login-status', userController.loginStatus);
+
 module.exports = router;
