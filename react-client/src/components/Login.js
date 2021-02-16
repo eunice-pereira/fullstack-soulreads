@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
+import logo from '../components/images/zen.png';
 
 const Login = (props) => {
 	const [username, setUsername] = useState('');
@@ -26,34 +27,47 @@ const Login = (props) => {
 	};
 
 	return (
-		<div className="login-form">
-			<form align="center" method="POST" onSubmit={processLogin}>
-				<h1>Login!</h1>
-				{message && <h2>{message}</h2>}
-				<div className="form-group">
-					<label for="username">
-						Username:
-						<input
-							autoFocus
-							name="username"
-							type="text"
-							onChange={(e) => setUsername(e.target.value)}
-						/>
-					</label>
-				</div>
+		<div class="main">
+			<h2 class="welcome">Soul</h2>
 
-				<div className="form-group">
-					<label for="password">
-						Password
-						<input
-							name="password"
-							type="password"
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-					</label>
+			<h1 class="welcome2">Reads</h1>
+			<div class="separate">
+				<div className="login-form">
+					<i class="fas fa-exclamation-circle trailing"></i>
+					<form
+						className="flex"
+						align="right"
+						method="POST"
+						onSubmit={processLogin}
+					>
+						<div className="form-group">
+							<label for="username" align="left">
+								Username:
+								<input
+									autoFocus
+									name="username"
+									type="text"
+									onChange={(e) => setUsername(e.target.value)}
+								/>
+							</label>
+						</div>
+
+						<div className="form-group">
+							<label for="password" align="left">
+								Password
+								<input
+									name="password"
+									type="password"
+									onChange={(e) => setPassword(e.target.value)}
+								/>
+							</label>
+						</div>
+						<div>
+							<input type="submit" className="login-button" value="Login" />
+						</div>
+					</form>
 				</div>
-				<input type="submit" className="login-button" value="Login" />
-			</form>
+			</div>
 		</div>
 	);
 };
