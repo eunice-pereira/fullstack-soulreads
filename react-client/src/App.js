@@ -24,7 +24,7 @@ import About from './components/About';
 // import CreateAccount from './components/CreateAccount';
 import AddModal from './components/DeleteModal';
 import DeleteModal from './components/DeleteModal';
-import Forum from './components/Forum';
+// import Forum from './Forum';
 
 // import BookAccordion from './components/BookAccordian';
 

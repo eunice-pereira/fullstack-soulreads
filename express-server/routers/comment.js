@@ -10,10 +10,9 @@ const {
 
 router
 
-.post('/addcomment', addComment)
-.post('/deletecomment', delComment)
-.get('/editcomment', editComment)
-.put('/processedit', processEditComment);
-
+	.post('/add', addComment)
+	.post('/:commentId/delete', delComment)
+	.get('/:commentId/edit', editComment)
+	.put('/:commentId/processedit', processEditComment);
 
 module.exports = router;

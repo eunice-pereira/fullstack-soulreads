@@ -12,15 +12,19 @@ module.exports = (sequelize, DataTypes) => {
 			Forum.hasMany(models.Comment, {
 				foreignKey: 'forumId',
 			});
-			// Forum.belongsTo(models.Book, {
-			// 	foreignKey: 'bookId',
-			// });
+			Forum.belongsTo(models.Book, {
+				foreignKey: 'bookId',
+			});
 		}
 	}
 	Forum.init(
 		{
 			description: DataTypes.STRING,
-			comment: DataTypes.STRING,
+			commentId: {
+				type: DataTypes.INTEGER,
+				model: 'Member',
+				key: 'id',
+			},
 			memberId: {
 				type: DataTypes.INTEGER,
 				model: 'Member',

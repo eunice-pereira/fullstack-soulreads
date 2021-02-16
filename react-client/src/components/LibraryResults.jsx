@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { MDBInput } from 'mdbreact';
 
 const LibraryResults = ({ searchResult, newPost }) => {
-	const history = useHistory();
+	// const history = useHistory();
 	console.log(searchResult);
 	const [book, setBook] = useState(null);
 	const [description, setDescription] = useState('');
@@ -43,7 +43,7 @@ const LibraryResults = ({ searchResult, newPost }) => {
 					type="textarea"
 					name="description"
 					onChange={(e) => setDescription(e.target.value)}
-					label="Thoughts"
+					label="Thoughts..."
 					rows="3"
 					outline
 				/>

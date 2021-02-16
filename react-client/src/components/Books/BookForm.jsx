@@ -66,10 +66,9 @@ function BookForm() {
 								};
 								console.log(bookInfo);
 								const resp = await axios.post('/api/books/bookapi', bookInfo);
-								console.log(resp.data);
 							}}
 						>
-							add book
+							Add Book to Library
 						</button>
 					</div>
 				))}

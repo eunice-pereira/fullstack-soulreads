@@ -1,23 +1,51 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
+import React, { useState } from 'react';
+import { MDBInput } from 'mdbreact';
+import axios from 'axios';
 
+const AddComment = ({ post }) => {
+	const [comment, setComment] = useState('');
+	const [showForm, setShowForm] = useState(false);
 
-// const AddComment = (props) => {
-//     const [comment, setAddComment] = useState("");
-//     const processComment = async (e) => {
-//         e.preventDefault();
-//         comment,
-//             id: forumId,
-//         };
-//     console.log(forumId);
-//     let resp = await axios.post("/api/comment" + forumId, comment);
-// }
-// return (
-//     <div>
+	async function newComment(forumId) {
+		const content = {
+			comment,
+			forumId,
+		};
+		const resp = await axios.post('/api/comment/add/', content);
+		console.log(resp.data);
+	}
 
+	return (
+		<div className="comment-container">
+			<button
+				onClick={() => {
+					setShowForm(true);
+				}}
+			>
+				Add Comment
+			</button>
+			{showForm && (
+				<form
+					method="POST"
+					onSubmit={(e) => {
+						e.preventDefault();
+						newComment(post.id);
+					}}
+				>
+					<MDBInput
+						autoFocus
+						type="textarea"
+						name="comment"
+						value={comment}
+						rows="3"
+						outline
+						onChange={(e) => setComment(e.target.value)}
+					/>
+					<input type="submit" value="Post Comment" />
+				</form>
+			)}
+		</div>
+	);
+};
 
-//     </div>
-// )
-// }
-
-// export default addComment;
+export default AddComment;

@@ -3,15 +3,16 @@ import Login from './Login'
 import AddBook from './Books/AddBook';
 import BookForm from './Books/BookForm';
 import Journal from './Journal';
-import BookTable from './BookTable';
+
 import Navigation from './Navigation';
-// import BookTable from './BookTable';
+
 import { MDBNavbar, MDBRow, MDBIcon } from 'mdbreact';
 import ViewBook from './Books/ViewBook';
-// import BookTable from './BookTable';
-import Forum from './Forum';
+import BookTable from './BookTable';
+import Forum from './Forum/Forum';
 import { LibraryAdd } from '@material-ui/icons';
 
+// import Forum from './Forum/Forum';
 
 const Member = ({ sessionId }) => {
 	const { books } = {

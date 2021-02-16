@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, NavLink } from 'react-bootstrap';
 import axios from 'axios';
 import ViewBook from './ViewBook';
+import Journal from '../Journal';
 
 const BookTable = (props) => {
 	const [library, setLibrary] = useState([]);
 	const [viewbook, setViewBook] = useState(null);
+	const [viewIntention, setViewIntention] = useState(null);
 
 	// retrieve member library saved to Book model
 	async function viewLibrary() {
@@ -13,15 +15,18 @@ const BookTable = (props) => {
 		console.log(resp.data.books);
 		setLibrary(resp.data.books);
 	}
+	useEffect(() => {
+		viewLibrary();
+	}, []);
 
 	// table headings
 	let keys = ['Title', 'Author', 'Category', 'Status', 'View', 'Delete'];
 
 	return (
 		<div style={{ width: '90%', margin: '0 auto' }}>
-			<button className="btn" onClick={viewLibrary}>
+			{/* <button className="btn" onClick={viewLibrary}>
 				View Library
-			</button>
+			</button> */}
 
 			<Table
 				variant="default"
@@ -77,6 +82,7 @@ const BookTable = (props) => {
 				</tbody>
 			</Table>
 			{viewbook && <ViewBook viewbook={viewbook} />}
+			<Journal />
 		</div>
 	);
 };
