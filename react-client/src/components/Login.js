@@ -1,7 +1,19 @@
-import axios from 'axios';
+//standard imports
 import React from 'react';
+import axios from 'axios';
+
+//material database imports
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBJumbotron } from 'mdbreact';
+import { Fragment } from "react";
+//import file from components
+import Home from "./Home";
+//state imports
 import { useState } from 'react';
+
 import logo from '../components/images/zen.png';
+import { useHistory } from "react-router-dom";
+
+
 
 const Login = (props) => {
 	const [username, setUsername] = useState('');
@@ -25,8 +37,8 @@ const Login = (props) => {
 			setMessage('Invalid username and password.');
 		}
 	};
-
 	return (
+
 		<div class="main">
 			<h2 class="welcome">Soul</h2>
 
@@ -74,4 +86,6 @@ const Login = (props) => {
 
 // need to add useHistory() to send user to their member profile
 
+
 export default Login;
+
