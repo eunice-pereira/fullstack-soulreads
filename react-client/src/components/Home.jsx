@@ -1,20 +1,21 @@
+
 // import React from "react";
-import Login from "./Login";
-import { MDBJumbotron, MDBContainer } from "mdbreact";
+// import Login from "./Login";
+// import { MDBJumbotron, MDBContainer } from "mdbreact";
 
-const Animation = () => {
-	return (
-		<MDBJumbotron fluid>
-			<MDBContainer>
-				<h2 className="display-4">SoulReads</h2>
-				<Login></Login>
-			</MDBContainer>
+// const Animation = () => {
+// 	return (
+// 		<MDBJumbotron fluid>
+// 			<MDBContainer>
+// 				<h2 className="display-4">SoulReads</h2>
+// 				<Login></Login>
+// 			</MDBContainer>
 
-		</MDBJumbotron>
-	);
-};
+// 		</MDBJumbotron>
+// 	);
+// };
 
-export default Animation;
+// export default Animation;
 
 //standard imports
 // import React from 'react';
@@ -181,5 +182,6 @@ export default Animation;
 // 		</div>
 // 	);
 // };
+
 
 // export default Home;

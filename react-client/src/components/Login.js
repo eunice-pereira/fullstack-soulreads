@@ -9,7 +9,10 @@ import { Fragment } from "react";
 import Home from "./Home";
 //state imports
 import { useState } from 'react';
+
+import logo from '../components/images/zen.png';
 import { useHistory } from "react-router-dom";
+
 
 
 const Login = (props) => {
@@ -35,50 +38,49 @@ const Login = (props) => {
 		}
 	};
 	return (
-		<MDBContainer>
-			<Home></Home>
-			<MDBRow>
-				<MDBCol md="11" >
 
-					<div className="login-form">
-						<i class="fas fa-exclamation-circle trailing"></i>
-						<form className="flex" align="right" method="POST" onSubmit={processLogin}>
-							{/* <h1>Sign In</h1> */}
-							{/* {message && <h2>{message}</h2>} */}
+		<div class="main">
+			<h2 class="welcome">Soul</h2>
 
-							<div className="form-group">
-								<label for="username" align="left">
-									Username:
-							<MDBInput
-										autoFocus
-										name="username"
-										type="text"
-										onChange={(e) => setUsername(e.target.value)}
-									/>
-								</label>
-							</div>
+			<h1 class="welcome2">Reads</h1>
+			<div class="separate">
+				<div className="login-form">
+					<i class="fas fa-exclamation-circle trailing"></i>
+					<form
+						className="flex"
+						align="right"
+						method="POST"
+						onSubmit={processLogin}
+					>
+						<div className="form-group">
+							<label for="username" align="left">
+								Username:
+								<input
+									autoFocus
+									name="username"
+									type="text"
+									onChange={(e) => setUsername(e.target.value)}
+								/>
+							</label>
+						</div>
 
-							<div className="form-group">
-								<label for="password" align="left">
-									Password
-							<MDBInput
-										name="password"
-										type="password"
-										onChange={(e) => setPassword(e.target.value)}
-									/>
-								</label>
-							</div>
-							{/* <MDBBtn rounded outline color="unique">
-							<MDBInput type="submit" className="login-button" />
-						</MDBBtn> */}
-
-						</form>
-					</div>
-
-				</MDBCol>
-			</MDBRow>
-
-		</MDBContainer >
+						<div className="form-group">
+							<label for="password" align="left">
+								Password
+								<input
+									name="password"
+									type="password"
+									onChange={(e) => setPassword(e.target.value)}
+								/>
+							</label>
+						</div>
+						<div>
+							<input type="submit" className="login-button" value="Login" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	);
 };
 
