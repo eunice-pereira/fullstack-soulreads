@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-import AddComment from '../Comment/AddComment';
+import AddComment from '../comment/AddComment';
 // import EditPost from './EditPost';
 
 // route for it to show on particular path

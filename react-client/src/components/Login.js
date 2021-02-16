@@ -1,6 +1,16 @@
-import axios from 'axios';
+//standard imports
 import React from 'react';
+import axios from 'axios';
+
+//material database imports
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBJumbotron } from 'mdbreact';
+import { Fragment } from "react";
+//import file from components
+import Home from "./Home";
+//state imports
 import { useState } from 'react';
+import { useHistory } from "react-router-dom";
+
 
 const Login = (props) => {
 	const [username, setUsername] = useState('');
@@ -24,40 +34,56 @@ const Login = (props) => {
 			setMessage('Invalid username and password.');
 		}
 	};
-
 	return (
-		<div className="login-form">
-			<form align="center" method="POST" onSubmit={processLogin}>
-				<h1>Login!</h1>
-				{message && <h2>{message}</h2>}
-				<div className="form-group">
-					<label for="username">
-						Username:
-						<input
-							autoFocus
-							name="username"
-							type="text"
-							onChange={(e) => setUsername(e.target.value)}
-						/>
-					</label>
-				</div>
+		<MDBContainer>
+			<Home></Home>
+			<MDBRow>
+				<MDBCol md="11" >
 
-				<div className="form-group">
-					<label for="password">
-						Password
-						<input
-							name="password"
-							type="password"
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-					</label>
-				</div>
-				<input type="submit" className="login-button" value="Login" />
-			</form>
-		</div>
+					<div className="login-form">
+						<i class="fas fa-exclamation-circle trailing"></i>
+						<form className="flex" align="right" method="POST" onSubmit={processLogin}>
+							{/* <h1>Sign In</h1> */}
+							{/* {message && <h2>{message}</h2>} */}
+
+							<div className="form-group">
+								<label for="username" align="left">
+									Username:
+							<MDBInput
+										autoFocus
+										name="username"
+										type="text"
+										onChange={(e) => setUsername(e.target.value)}
+									/>
+								</label>
+							</div>
+
+							<div className="form-group">
+								<label for="password" align="left">
+									Password
+							<MDBInput
+										name="password"
+										type="password"
+										onChange={(e) => setPassword(e.target.value)}
+									/>
+								</label>
+							</div>
+							{/* <MDBBtn rounded outline color="unique">
+							<MDBInput type="submit" className="login-button" />
+						</MDBBtn> */}
+
+						</form>
+					</div>
+
+				</MDBCol>
+			</MDBRow>
+
+		</MDBContainer >
 	);
 };
 
 // need to add useHistory() to send user to their member profile
 
+
 export default Login;
+
