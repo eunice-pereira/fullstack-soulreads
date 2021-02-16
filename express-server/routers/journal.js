@@ -2,17 +2,19 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    journalEntry,
-    editEntry,
-    processEditEntry,
-    delEntry,
+	journalEntry,
+	editEntry,
+	processEditEntry,
+	delEntry,
+	getEntries,
 } = require('../controllers/journal');
 
-router 
+router
 
-.post('/journalentry', journalEntry)
-.post('/deleteentry', delEntry)
-.get('/editentry', editEntry)
-.put('/processeditentry', processEditEntry);
+	.post('/new', journalEntry)
+	.post('/:journalId/delete', delEntry)
+	.get('/editentry', editEntry)
+	.put('/processeditentry', processEditEntry)
+	.get('/entries', getEntries);
 
 module.exports = router;

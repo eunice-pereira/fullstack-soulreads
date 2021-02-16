@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
 		 */
 		static associate(models) {
 			// define association here
-			Library.hasMany(models.Journal, {
-				foreignKey: 'journalId',
-			});
+			// Library.hasMany(models.Journal, {
+			// 	foreignKey: 'journalId',
+			// });
 		}
 	}
 	Library.init(
