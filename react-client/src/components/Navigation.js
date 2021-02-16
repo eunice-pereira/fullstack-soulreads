@@ -8,8 +8,8 @@ function Navigation() {
 
     return (
 
-        <NavDropdown color="indigo" title="Nav" id="nav-dropdown" sticky='top'>
-            <NavDropdown.Item eventKey="4.1">Member Profile</NavDropdown.Item>
+        <NavDropdown color="indigo" title="Nav" id="nav-dropdown" class="navbar-nav mr-auto" sticky='top'>
+            <NavDropdown.Item class="fas fa-user" eventKey="4.1"  >Member Profile</NavDropdown.Item>
             <NavDropdown.Item eventKey="4.2">About</NavDropdown.Item>
             <NavDropdown.Item eventKey="4.3">Logout</NavDropdown.Item>
             <NavDropdown.Divider />

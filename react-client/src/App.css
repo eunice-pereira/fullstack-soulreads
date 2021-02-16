@@ -1,17 +1,35 @@
 .App {
-    /* text-align: center;  */
+    text-align: center;
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
     color: goldenrod;
-    background-image: url(./components/images/login.jpg); 
 }
 
-/* .flex {
+body, html {
+    height: 100%;
+}
+
+.jumbotron{
+    background-image: url('./components/images/login.jpg');
+    background-size: cover;
+    height: 100%;
+}
+
+.bg {
+    background-image: url("./components/images/login.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+.flex {
     text-align: left;  
-} */
+}
+
 .form {
     overflow: hidden;
     position: top;
@@ -19,6 +37,18 @@
     font-weight: 500;
 }
 
+.form-group{
+    color: purple;
+    font-style: bold;
+    font-weight: 1000;
+    font-family: 'Julius Sans One', sans-serif;
+    border-radius: 25px;
+
+}
+
+.button{
+    border-radius: 25px;
+}
 .login-form{
     
     font-weight: 1000;
@@ -26,12 +56,19 @@
     font-family: 'Julius Sans One', sans-serif;
     position: absolute; 
     align-items: right;
+
 }
 .input{
     background-color: none;
+
 }
 
 .h1{
+    font-weight: 1000;
+    color: goldenrod;
+}
+
+.h2{
     font-weight: 1000;
     color: goldenrod;
 }
@@ -40,6 +77,14 @@
     font-weight: 1000;
     color: goldenrod;
 }
+
+.nav-dropdown {
+    font-family: 'Julius Sans One', sans-serif;
+    color: purple;
+    border-radius: 25px;
+
+}
+
 
 /* .h1.display-1 {
     margin: 0px 0px 0px;
@@ -59,17 +104,17 @@
 .td{
     color: goldenrod;
 }
-.bookshelf {
+/* .bookshelf { */
     /* background-image:  */
-    background-size: cover;
+    /* background-size: cover;
     background-position: top;
     min-height: 100%;
     height: 100vh;
     position: relative;
     font-weight: bolder;
     font-family: 'Roboto';
-    font-size: 2000px;
-}
+    font-size: 2000px; */
+
 
 /* .App-header {
     
@@ -118,17 +163,18 @@
     margin-top: 20px;
 } */
   
-/* input[type="submit"] {
+input[type="submit"] {
     padding: 5px;
     background-color: rgb(141, 72, 206);
-    color: whitesmoke;
-    font-family: Gill Sans;
+    /* color: whitesmoke; */
+    font-family: 'Julius Sans One', sans-serif;  
     border-radius: 25px;
     border: 1px solid white;
     width: 80px;
     margin-left: 5px;
     cursor: pointer;
-} */
+    
+}
   
 /* input[type="submit"]:hover {
     background-color: #282c34;

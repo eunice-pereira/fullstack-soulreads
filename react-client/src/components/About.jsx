@@ -4,6 +4,13 @@ import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn } from "mdbreact"
 const About = () => {
 	return (
 		<MDBCard className="my-5 px-1 pb-5 text-center">
+			<img
+				tag="img"
+				src="https://ciclovivo.com.br/wp-content/uploads/2018/02/iStock-498313087.jpg"
+				className="img-fluid"
+				alt="color background"
+			/>
+
 			<MDBCardBody>
 				<h2 className="h1-responsive font-weight-bold my-25" >
 					Creators of SoulReads

@@ -58,25 +58,27 @@ const App = () => {
 		<Router>
 			<div className="App">
 				<RouterSwitch>
+					<Login></Login>
 					{/* <Background></Background> */}
-					<Home />
+					{/* <Home /> */}
 					{/* <CreateAccount /> */}
-
-
 					<Route path="/" exact><Login doLogin={doLogin} /></Route>
-
-
 					<Route path="/Member" exact>
 						<Navigation>
-							<About></About>
-							<Logout doLogout={doLogout} />
+							<Route path="/About" exact><About></About></Route>
+							<Route path="/Login" exact><Logout doLogout={doLogout} /></Route>
 						</Navigation>
-						<AddModal></AddModal>
-						<DeleteModal></DeleteModal>
-						<About></About>
+						<Route path="/AddBook" exact><AddModal></AddModal></Route>
+						<Route path="/DeleteBook" exact><DeleteModal></DeleteModal></Route>
+
 						<Member sessionId={sessionId} />
 					</Route>
 				</RouterSwitch>
+				{/* <Home />
+				<CreateAccount />
+				<Login doLogin={doLogin} />
+				<Logout doLogout={doLogout} /> */}
+				{/* <Member sessionId={sessionId} /> */}
 			</div>
 
 		</Router >

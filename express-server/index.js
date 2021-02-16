@@ -20,8 +20,9 @@ const FileStore = require('session-file-store')(session);
 const userRouter = require('./routers/user');
 const bookRouter = require('./routers/book');
 const memberRouter = require('./routers/member');
-//const postRouter = require('./routers/post');
 const commentRouter = require('./routers/comment');
+const forumRouter = require('./routers/forum');
+const journalRouter = require('./routers/journal');
 
 app.use(logger);
 app.use(express.json());
@@ -60,11 +61,14 @@ app.use('/api/books', bookRouter);
 // rendering journal-activity routers
 // app.use('/api/post', memberRouter);
 
-// rendering post activity routers
-//app.use('/api/post', postRouter);
-
 //rendering post activity routers
 app.use('/api/comment', commentRouter);
+
+// rendering forum activity routers
+app.use('/api/forum', forumRouter);
+
+// rendering journal activity routers
+app.use('/api/journal', journalRouter);
 
 server.listen(port, host, () => {
 	console.log(`Listening at http://${host}:${port}`);

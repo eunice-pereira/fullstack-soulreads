@@ -3,7 +3,7 @@ import { MDBInput } from "mdbreact";
 
 const textbox = () => {
     return (
-        <MDBInput
+        <input
             type="textarea"
             label="Icon"
             rows="2"

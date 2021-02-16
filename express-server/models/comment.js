@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 		static associate(models) {
 			// define association here
 			Comment.belongsTo(models.Forum, {
-				foreignKey: 'memberId',
+				foreignKey: 'forumId',
 			});
 		}
 	}
@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
 			memberId: {
 				type: DataTypes.INTEGER,
 				model: 'Member',
+				key: 'id',
+			},
+			forumId: {
+				type: DataTypes.INTEGER,
+				model: 'Forum',
 				key: 'id',
 			},
 
