@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
-import LibraryResults from '../LibraryResults';
-import Soulchat from './Soulchat';
+import LibraryResults from './LibraryResults';
 
 // protected route - link should only appear once logged in
 
@@ -72,7 +71,6 @@ const Forum = () => {
 					</label>
 				</MDBCol>
 			</div>
-			<Soulchat />
 		</div>
 	);
 };

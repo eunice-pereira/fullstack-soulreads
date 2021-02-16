@@ -2,9 +2,10 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { MDBInput } from 'mdbreact';
+import Soulchat from './Soulchat';
 
 const LibraryResults = ({ searchResult, newPost }) => {
-	// const history = useHistory();
+	const history = useHistory();
 	console.log(searchResult);
 	const [book, setBook] = useState(null);
 	const [description, setDescription] = useState('');
@@ -36,7 +37,6 @@ const LibraryResults = ({ searchResult, newPost }) => {
 				onSubmit={(e) => {
 					e.preventDefault();
 					newPost(description, book);
-					// history.push('/soulchat')
 				}}
 			>
 				<MDBInput
@@ -47,8 +47,10 @@ const LibraryResults = ({ searchResult, newPost }) => {
 					rows="3"
 					outline
 				/>
+
 				<input className="btn" type="submit" value="Post" />
 			</form>
+			<Soulchat />
 		</div>
 	);
 };

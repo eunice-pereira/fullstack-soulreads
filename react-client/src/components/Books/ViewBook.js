@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Journal from '../Forum/Journal';
 
 const ViewBook = ({ viewbook }) => {
 	const [editing, setEditing] = useState(false);
@@ -102,6 +103,7 @@ const ViewBook = ({ viewbook }) => {
 				<button className="btn" onClick={() => setEditing(true)}>
 					Edit
 				</button>
+				<Journal />
 			</div>
 		);
 	}
