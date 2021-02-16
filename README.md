@@ -4,7 +4,7 @@
 
 SoulReads is an online book club built with React and Express. It allows for members to keep an online library and book journal, and also allows for member interaction through a public member forum. 
 
-##😍 Inspiration 
+## 😍 Inspiration 
 
 Simply, we love to read! We found a common interest mainly in spiritual, self-transformation, cosmic, elevating books, which inspired our name 😌 While recommending books to one another, we were inspired to begin building an online book club where we could connect with other people. 
 
