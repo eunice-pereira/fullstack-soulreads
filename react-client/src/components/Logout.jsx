@@ -7,7 +7,6 @@ const Logout = (props) => {
 		e.preventDefault();
 		const resp = await axios.post('/api/user/logout');
 		console.log(resp.data);
-		props.doLogout();
 	};
 
 	return (
