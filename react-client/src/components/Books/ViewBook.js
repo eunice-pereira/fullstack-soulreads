@@ -18,6 +18,7 @@ const ViewBook = ({ viewbook }) => {
 	const [editCategory, setEditCategory] = useState('');
 	const [editStatus, setEditStatus] = useState('');
 	const [editIntention, setEditIntention] = useState('');
+	const [bookImage, setBookImage] = useState('');
 
 	useEffect(() => {
 		setEditTitle(viewbook.title);
@@ -25,6 +26,7 @@ const ViewBook = ({ viewbook }) => {
 		setEditCategory(viewbook.category);
 		setEditStatus(viewbook.status);
 		setEditIntention(viewbook.intention);
+		setBookImage(viewbook.content);
 	}, [viewbook]);
 
 	if (editing) {
@@ -111,11 +113,11 @@ const ViewBook = ({ viewbook }) => {
 	} else {
 		return (
 			<div className="view-book">
-				{/* <p>{viewbook.title}</p>
+				<p>{viewbook.title}</p>
 				<p>Author: {viewbook.author}</p>
 				<p>Category: {viewbook.category}</p>
 				<p>ISBN: {viewbook.isbn}</p>
-				<p>Intention: {viewbook.intention}</p> */}
+				<p>Intention: {viewbook.intention}</p>
 
 				<Button
 					color="primary"
@@ -125,7 +127,7 @@ const ViewBook = ({ viewbook }) => {
 				>
 					Edit
 				</Button>
-				<Journal />
+				<Journal image={bookImage} />
 			</div>
 		);
 	}

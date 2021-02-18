@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
 //material ui imports
 import { Input, Select } from '@material-ui/core';
@@ -12,6 +13,7 @@ const AddBook = () => {
 	const [isbn, setIsbn] = useState('');
 	const [status, setStatus] = useState('');
 	const [intention, setIntention] = useState('');
+	const [successfulAdd, setSuccessfulAdd] = useState(false);
 
 	// const history = useHistory();
 
@@ -27,11 +29,12 @@ const AddBook = () => {
 		};
 		const resp = await axios.post('/api/books/newbook', book);
 		console.log(resp.data);
+		setSuccessfulAdd(true);
 		// history.push('/Library');
 	};
 
 	return (
-		<form align="center" method="POST" onSubmit={newBook}>
+		<form align="center" onSubmit={newBook}>
 			<h2>Add New Book</h2>
 			<div className="addbook-intro-intention">
 				<p>
@@ -107,6 +110,11 @@ const AddBook = () => {
 			</div>
 
 			<input className="add-book" type="submit" value="Add Book" />
+			<Switch>
+				<Route path="/AddBook" exact>
+					{successfulAdd && <Redirect to="/Library" />}
+				</Route>
+			</Switch>
 		</form>
 	);
 };

@@ -6,7 +6,8 @@ const processBookForm = async (req, res) => {
 	const { id } = req.session.user;
 	console.log(title, author);
 
-	if (title && author && status && id) {
+	if (title && author && id) {
+		// removed status from if statement
 		const newBook = await Book.create({
 			title,
 			author,
@@ -39,6 +40,7 @@ const addBookApi = async (req, res) => {
 			title: bookTitle,
 			author: bookAuthor,
 			category: bookCategory,
+			content: bookImage,
 			memberId: id,
 		});
 		res.json({
