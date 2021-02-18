@@ -12,7 +12,8 @@ import { MDBInput } from 'mdbreact';
 import axios from 'axios';
 import logo from './components/images/zen.png';
 import background from './components/images/login.jpg';
-import background2 from './components/images/background.jpg';
+import background2 from './components/images/book_wall.jpeg';
+
 
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
