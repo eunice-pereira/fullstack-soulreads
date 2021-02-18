@@ -52,9 +52,14 @@ const App = () => {
 		checkLogin();
 	}, []);
 
+	let appClass = "App";
+	if (!isLoggedIn) {
+		appClass += " login-background "
+	}
+
 	return (
 		<Router>
-			<div className="App">
+			<div className={appClass}>
 				{isLoggedIn ? (
 					<>
 						{/* <div className="background">

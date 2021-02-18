@@ -8,13 +8,21 @@ html, body {
 	background-image: url('./components/images/background.jpg')
 	
 }
+
+.login-background {
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	background-image: url('./components/images/login.jpg')
+}
+
 .App {
 	text-align: center;
 	position: relative;
 	margin: 0;
 	padding: 0;
   }
-  
+
   .App-logo {
 	height: 40vmin;
 	pointer-events: none;
