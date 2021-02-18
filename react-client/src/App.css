@@ -402,14 +402,35 @@ html, body {
 	background-color: rgba(218, 165, 32, 0.5);
 }
 
-.App > .bgholder > div > table > thead >tr{
+.App > .bgholder > div > table > thead > tr{
 	font-family: 'Julius Sans One', sans-serif;
 	background-color: rgba(218, 165, 32, 0.5);
 	border-radius: 20px;
-	
-
-
 }
+
+.App > .bgholder > form > h2 {
+	font-family: 'Julius Sans One', sans-serif;
+	color:black;
+	font-size: 40px;
+	background-color: rgba(255, 235, 205, 0.5);
+	border-radius: 10px;
+}
+
+.App > .bgholder > form > h1{
+	font-family: 'Julius Sans One', sans-serif;
+	color: goldenrod;
+	border-radius: 20px;
+}
+
+.App > .bgholder > form > .addbook-intro-intention > p{
+	font-family: 'Julius Sans One', sans-serif;
+	color:black;
+	font-weight: bold;
+	line-height: 25px;
+	background-color: rgba(255, 235, 205, 0.5);
+	border-radius: 10px;
+}
+
   .btn-floating{
 	margin-left: 100px;
   }
