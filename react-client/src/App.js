@@ -1,4 +1,12 @@
+//standard imports
 import './App.css';
+import {
+	BrowserRouter as Router,
+	Switch as RouterSwitch,
+	Route
+} from 'react-router-dom';
+
+//state imports
 import React, { useEffect, useState } from 'react';
 import { MDBInput } from 'mdbreact';
 import axios from 'axios';
@@ -11,10 +19,16 @@ import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
 // import Logout from './components/Logout';
 import Member from './components/Member';
+import About from './components/About';
 
-// import Search from "./Search";
-// import Wishlist from './components/Wishlist';
-// import Test from './components/Test';
+// import Search from './components/BookForm';
+// import CreateAccount from './components/CreateAccount';
+import AddModal from './components/DeleteModal';
+import DeleteModal from './components/DeleteModal';
+// import Forum from './Forum';
+
+// import BookAccordion from './components/BookAccordian';
+
 
 import {
 	BrowserRouter as Router,
@@ -22,6 +36,8 @@ import {
 	Switch,
 	Redirect,
 } from 'react-router-dom';
+
+
 
 const App = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -78,8 +94,10 @@ const App = () => {
 						Connect&nbsp;&bull;&nbsp; Grow &nbsp;&bull;&nbsp;
 					</p>
 				</footer>
+
 			</div>
-		</Router>
+
+		</Router >
 	);
 };
 

@@ -10,7 +10,6 @@ const CreateAccount = () => {
 	const [email, setEmail] = useState('');
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	const [showForm, setShowForm] = useState(false);
 
 	const processNewMemeber = async (e) => {
 		e.preventDefault();
@@ -23,76 +22,75 @@ const CreateAccount = () => {
 		};
 		const resp = await axios.post('/api/user/new', newMember);
 		console.log(resp.data);
-
-		// if response is successful, sending user to general home page
-		// if (resp.status === 200) {
-		// 	history.push('/home');
-		// }
 	};
 
 	return (
 		<div className="create-acct-form">
-			<button
-				onClick={() => {
-					setShowForm(true);
-				}}
-			>
-				Become a Member
-			</button>
-			{showForm && (
-				<form align="center" method="POST" onSubmit={processNewMemeber}>
-					<div className="form-group">
+			<form align="center" method="POST" onSubmit={processNewMemeber}>
+				<h2>Become a Member!</h2>
+
+				<div className="form-group">
+					<label>
+						First Name:
 						<input
 							autoFocus
-							placeholder="First Name"
 							name="firstname"
 							type="text"
 							onChange={(e) => setFirstName(e.target.value)}
 						/>
-					</div>
+					</label>
+				</div>
 
-					<div className="form-group">
+				<div className="form-group">
+					<label>
+						Last Name:
 						<input
-							placeholder="Last Name"
 							name="lastname"
 							type="text"
 							onChange={(e) => setLastName(e.target.value)}
 						/>
-					</div>
+					</label>
+				</div>
 
-					<div className="form-group">
+				<div className="form-group">
+					<label>
+						Email:
 						<input
-							placeholder="Email"
 							name="email"
 							type="text"
 							onChange={(e) => setEmail(e.target.value)}
 						/>
-					</div>
+					</label>
+				</div>
 
-					<div className="form-group">
+				<div className="form-group">
+					<label>
+						Username:
 						<input
-							placeholder="Username"
 							name="username"
 							type="text"
 							onChange={(e) => setUsername(e.target.value)}
 						/>
-					</div>
+					</label>
+				</div>
 
-					<div className="form-group">
+				<div className="form-group">
+					<label>
+						Password:
 						<input
-							placeholder="Password"
 							name="password"
 							type="password"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
-					</div>
-					<div className="form-group">
-						<input type="submit" value="Create Account" />
-					</div>
-				</form>
-			)}
+					</label>
+				</div>
+				<div className="form-group">
+					<input type="submit" value="Create Account" />
+				</div>
+			</form>
 		</div>
 	);
 };
-// need to add redirect to login page
+
+// // need to add redirect to login page
 export default CreateAccount;

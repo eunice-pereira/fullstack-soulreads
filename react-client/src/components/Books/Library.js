@@ -3,7 +3,7 @@ import { Table, NavLink } from 'react-bootstrap';
 import axios from 'axios';
 import ViewBook from './ViewBook';
 
-const BookTable = (props) => {
+const Library = (props) => {
 	const [library, setLibrary] = useState([]);
 	const [viewbook, setViewBook] = useState(null);
 	const [viewIntention, setViewIntention] = useState(null);
@@ -85,4 +85,4 @@ const BookTable = (props) => {
 	);
 };
 
-export default BookTable;
+export default Library;
