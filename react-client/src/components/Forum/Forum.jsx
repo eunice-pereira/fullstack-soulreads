@@ -9,7 +9,7 @@ import LibraryResults from './LibraryResults';
 const Forum = () => {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [searchResult, setSearchResult] = useState([]);
-
+	const [refresh, setRefresh] = useState(0);
 	const newPost = async (description, book) => {
 		console.log(book);
 		let post = {
@@ -18,6 +18,7 @@ const Forum = () => {
 		};
 		const resp = await axios.post('/api/forum/newpost', post);
 		console.log(resp.data);
+		setRefresh((new Date()).getTime())
 	};
 	const searchLibrary = async (searchQuery) => {
 		const resp = await axios.get(`/api/forum/newpost?search=${searchQuery}`);
@@ -67,7 +68,7 @@ const Forum = () => {
 						>
 							Search Library
 						</MDBBtn>
-						<LibraryResults searchResult={searchResult} newPost={newPost} />
+						<LibraryResults refresh={refresh} searchResult={searchResult} newPost={newPost} />
 					</label>
 				</MDBCol>
 			</div>

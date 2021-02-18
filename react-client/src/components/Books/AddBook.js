@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 //material ui imports
 import { Input, Select } from '@material-ui/core';
@@ -11,6 +12,8 @@ const AddBook = () => {
 	const [isbn, setIsbn] = useState('');
 	const [status, setStatus] = useState('');
 	const [intention, setIntention] = useState('');
+
+	// const history = useHistory();
 
 	const newBook = async (e) => {
 		e.preventDefault();
@@ -24,6 +27,7 @@ const AddBook = () => {
 		};
 		const resp = await axios.post('/api/books/newbook', book);
 		console.log(resp.data);
+		// history.push('/Library');
 	};
 
 	return (

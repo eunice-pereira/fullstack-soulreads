@@ -11,6 +11,8 @@ import React, { useEffect, useState } from 'react';
 import { MDBInput } from 'mdbreact';
 import axios from 'axios';
 import logo from './components/images/zen.png';
+import background from './components/images/login.jpg';
+import background2 from './components/images/background.jpg';
 
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
@@ -36,42 +38,60 @@ const App = () => {
 	// 	console.log(resp);
 	// 	setSessionId(resp.data);
 	// };
-	// useEffect(() => {
-	// 	async function checkLogin() {
-	// 		try {
-	// 			const resp = await axios.get('/api/user/login-status');
-	// 			console.log('you are logged in already');
-	// 			setIsLoggedIn(true);
-	// 		} catch (e) {
-	// 			console.log('not logged in');
-	// 			setIsLoggedIn(false);
-	// 		}
-	// 	}
-	// 	checkLogin();
-	// }, []);
+	useEffect(() => {
+		async function checkLogin() {
+			try {
+				const resp = await axios.get('/api/user/login-status');
+				console.log('you are logged in already');
+				setIsLoggedIn(true);
+			} catch (e) {
+				console.log('not logged in');
+				setIsLoggedIn(false);
+			}
+		}
+		checkLogin();
+	}, []);
+
+	let appClass = "App";
+	if (!isLoggedIn) {
+		appClass += " login-background "
+	}
 
 	return (
 		<Router>
-			<div className="App">
+			<div className={appClass}>
 				{isLoggedIn ? (
 					<>
-						<header className="App-header">
-							{/* <CreateAccount /> */}
-							<Login doLogin={doLogin} />
-						</header>
-					</>
-				) : (
+						{/* <div className="background">
+							<img src={background2} />
+						</div> */}
 						<Member doLogout={doLogout} />
-					)}
 
-				<footer>
-					<p class="tagline">
-						&nbsp;&bull;&nbsp; Read &nbsp;&bull;&nbsp; Learn&nbsp;&bull;&nbsp;
-						Connect&nbsp;&bull;&nbsp; Grow &nbsp;&bull;&nbsp;
+					</>
+				) : (<>
+					<div className="background">
+						<img src={background} />
+					</div>
+					<header className="App-header">
+						{/* <CreateAccount /> */}
+						<Login doLogin={doLogin} />
+					</header>
+					<footer className="tagline">
+						<p >
+							&nbsp;&bull;&nbsp; Read &nbsp;&bull;&nbsp; Learn&nbsp;&bull;&nbsp;
+							Connect&nbsp;&bull;&nbsp; Grow &nbsp;&bull;&nbsp;
 					</p>
-				</footer>
-			</div>
-		</Router>
+					</footer>
+
+				</>
+
+
+					)
+				}
+
+
+			</div >
+		</Router >
 	);
 };
 
