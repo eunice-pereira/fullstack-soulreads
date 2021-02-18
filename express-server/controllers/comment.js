@@ -1,5 +1,11 @@
 const { Comment } = require('../models');
-
+const getComments = async (req, res) => {
+	const { forumId } = req.params;
+	const comments = await Comment.findAll({ where: { forumId } })
+	res.json({
+		message: "found comments", comments
+	})
+}
 const addComment = async (req, res) => {
 	const { id } = req.session.user;
 	const { comment, forumId } = req.body;
@@ -70,4 +76,5 @@ module.exports = {
 	delComment,
 	processEditComment,
 	editComment,
+	getComments
 };
