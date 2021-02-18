@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 // import logo from '../images/zen.png';
 import flower from '../components/images/zen.png'
+import background from '../components/images/login.jpg';
 
 
 //material ui import

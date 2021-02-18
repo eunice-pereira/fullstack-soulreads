@@ -6,6 +6,11 @@ import Logout from './Logout';
 import Library from './Books/Library';
 import Login from './Login';
 
+import { Link, Route } from 'react-router-dom';
+
+
+
+
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 //material ui imports
@@ -16,25 +21,47 @@ import CreateIcon from '@material-ui/icons/Create';
 
 const Member = ({ sessionId, doLogout }) => {
 	console.log(sessionId, 'member component');
+	const [memberclick, setMemberClick] = useState(false);
+	const [home, setHome] = useState(true);
+	const clicked = () => {
+		// setMemberClick(!memberclick);
+
+
+	}
 	return (
 		<div className="bgholder" >
-			<h1 className="member-title">Member Profile</h1>
-			<div className="membernav">
-				<nav >
-					<ul>
-						<li><a href="/Member.js" class="navbtn " >Member<PersonIcon fontSize="large">Member</PersonIcon></a></li>
-						<li><a href="/Library.js" class=" navbtn">Library<LibraryBooksIcon fontSize="large">Library</LibraryBooksIcon></a></li>
-						<li><a href="/Displaywish.js" class="navbtn ">Wishlist<LoyaltyIcon fontSize="large">Wishlist</LoyaltyIcon></a></li>
-						<li><a href="/Journal.js" class=" navbtn">Journal<CreateIcon fontSize="large">Journal</CreateIcon></a></li>
-					</ul >
-				</nav >
+			<div className="member-header">
+				<h1 className="member-title">Welcome to SoulReads</h1>
+				<Logout doLogout={doLogout} />
 			</div>
-			<Login></Login>
-			<Logout doLogout={doLogout} />
-			{/* <AddBook /> */}
-			{/* <BookForm /> */}
-			{/* <Library /> */}
-			{/* <Forum /> */}
+			<div className="membernav">
+				<nav>
+					<ul>
+						{/* <li><Link to="/Member" className="navbtn " onClick={clicked} >Member<PersonIcon fontSize="large">Member</PersonIcon></Link></li> */}
+						<li><Link to="/Library" className=" navbtn">Library<LibraryBooksIcon fontSize="large">Library</LibraryBooksIcon></Link></li>
+						<li><Link to="/Forum" className="navbtn " >SoulChat<LoyaltyIcon fontSize="large">Wishlist</LoyaltyIcon></Link></li>
+						<li><Link to="/AddBook" className=" navbtn" >Add Book<CreateIcon fontSize="large">Journal</CreateIcon></Link></li>
+					</ul>
+				</nav>
+			</div>
+
+
+
+			<Route path="/AddBook">
+				<AddBook />
+				<BookForm />
+			</Route>
+
+
+			<Route path="/Library">
+				<Library />
+
+			</Route>
+
+			<Route path="/Forum">
+				<Forum />
+			</Route>
+
 		</div>
 	);
 };

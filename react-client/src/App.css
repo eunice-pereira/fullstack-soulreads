@@ -1,5 +1,14 @@
+html{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
 .App {
 	text-align: center;
+	position: relative;
+	margin: 0;
+	padding: 0;
   }
   
   .App-logo {
@@ -28,6 +37,20 @@
 	font-size: calc(10px + 2vmin);
 	color: white;
   } 
+
+.background{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left:0;
+	z-index: -1;
+}
+
+.background > img {
+	width: 100%;
+	height: 100%;
+}
   
   .welcome > h2{
 	/* border-top: 2px solid black; */
@@ -143,11 +166,16 @@
 	font-weight: bolder;
   
   }
-  
+  .member-header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+  }
   .logout-button{
-	margin-top: -380px;
-	margin-right: 40px;
-	align-self: flex-end;
+	margin-left: 60px;
+	/* margin-right: 40px;
+	align-self: flex-end; */
   }
   
   /* .nav{
@@ -167,7 +195,10 @@
   .input[type="standard" i] {
 	padding: 1px 2px;
   }
-  .main{
+
+
+
+.main{
 	display: flex;
   }
   .dropdown{
@@ -230,10 +261,16 @@
   }
   
   .tagline{
-	
-	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	bottom: 1px;
+	left: 0;
+	/* flex-direction: column; */
 	color: black;
-	align-items: center;
+	/* align-items: center; */
+	width: 100vw;
+
 	font-weight: bolder;
 	font-style: bold;
 	font-family: 'Julius Sans One', sans-serif;
@@ -292,17 +329,19 @@
   
   .bgholder{
 	z-index: 1;
+	position: relative;
 	background-repeat: none;
 	background-size: cover;
   }
   
   .member-title{
-	display: flex;
-	padding-top: 10px;
-	flex-direction: column;
+	
+	/* display: flex; */
+	/* padding-top: 10px; */
+	/* flex-direction: column; */
 	font-family: 'Julius Sans One', sans-serif;
 	color: goldenrod;
-	font-size: 60px;
+	font-size: 40px;
   }
   
   
