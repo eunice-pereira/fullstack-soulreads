@@ -8,7 +8,7 @@ import {
 
 //state imports
 import React, { useEffect, useState } from 'react';
-import { MDBInput } from 'mdbreact';
+
 import axios from 'axios';
 import logo from './components/images/zen.png';
 
@@ -30,12 +30,7 @@ import DeleteModal from './components/DeleteModal';
 // import BookAccordion from './components/BookAccordian';
 
 
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	Redirect,
-} from 'react-router-dom';
+
 
 
 
@@ -81,12 +76,12 @@ const App = () => {
 						<Member sessionId={sessionId} doLogout={doLogout} />
 					</>
 				) : (
-					<header className="App-header">
-						{/* <CreateAccount /> */}
-						<Login doLogin={doLogin} />
-						{/* <Home /> */}
-					</header>
-				)}
+						<header className="App-header">
+							{/* <CreateAccount /> */}
+							<Login doLogin={doLogin} />
+							{/* <Home /> */}
+						</header>
+					)}
 
 				<footer>
 					<p class="tagline">
