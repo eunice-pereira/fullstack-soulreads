@@ -57,9 +57,9 @@ const App = () => {
 			<div className="App">
 				{isLoggedIn ? (
 					<>
-						<div className="background">
+						{/* <div className="background">
 							<img src={background2} />
-						</div>
+						</div> */}
 						<Member doLogout={doLogout} />
 
 					</>
