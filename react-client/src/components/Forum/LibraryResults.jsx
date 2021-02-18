@@ -38,6 +38,7 @@ const LibraryResults = ({ searchResult, newPost, refresh }) => {
 				onSubmit={(e) => {
 					e.preventDefault();
 					newPost(description, book);
+					setDescription('');
 				}}
 			>
 				<MDBInput
@@ -47,6 +48,7 @@ const LibraryResults = ({ searchResult, newPost, refresh }) => {
 					label="Thoughts..."
 					rows="3"
 					outline
+					value={description}
 				/>
 
 				<input className="btn" type="submit" value="Post" />

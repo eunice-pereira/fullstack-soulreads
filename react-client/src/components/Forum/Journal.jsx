@@ -14,7 +14,7 @@ import {
 	MDBInput,
 } from 'mdbreact';
 
-const Journal = () => {
+const Journal = ({ image }) => {
 	const [showEntry, setShowEntry] = useState(false);
 	const [content, setContent] = useState('');
 	const [entries, setEntries] = useState([]);
@@ -45,7 +45,7 @@ const Journal = () => {
 							hover
 							overlay="white-slight"
 							className="card-img-top"
-							src="https://m.media-amazon.com/images/I/31vLBpmOmoL.jpg"
+							src={image ? image : null}
 							alt="This Thing Called You"
 						/>
 					</MDBView>

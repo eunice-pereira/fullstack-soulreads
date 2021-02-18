@@ -8,6 +8,7 @@ function BookForm() {
 	// modify state, onSubmit, and form input
 	const [title, setTitle] = useState('');
 	const [returned, setReturned] = useState([]);
+	const [isAdded, setIsAdded] = useState(false);
 
 	const search = (query) => {
 		const url = `https://www.googleapis.com/books/v1/volumes?q=search+terms=${query}`;
@@ -33,9 +34,8 @@ function BookForm() {
 				}}
 			>
 				<label>
-					<Input placeholder="Book Title"
-
-
+					<Input
+						placeholder="Book Title"
 						type="text"
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
@@ -43,17 +43,19 @@ function BookForm() {
 				</label>
 				<input type="submit" value="Search" />
 			</form>
-			{returned.length &&
+			{returned.length !== 0 &&
 				returned.map((item, idx) => (
 					<div key={item.id} className="book-info-api">
 						<h3>{item.volumeInfo.title}</h3>
 						<p>{item.volumeInfo.authors}</p>
 						<p>{item.volumeInfo.categories}</p>
 						<p>{item.volumeInfo.description}</p>
-						<img
-							src={item.volumeInfo.imageLinks.thumbnail}
-							alt="Book Cover"
-						></img>
+						{item.volumeInfo.imageLinks && (
+							<img
+								src={item.volumeInfo.imageLinks.thumbnail}
+								alt="Book Cover"
+							></img>
+						)}
 
 						<button
 							id={idx}
@@ -64,14 +66,16 @@ function BookForm() {
 									bookTitle: returned[returnedId].volumeInfo.title,
 									bookAuthor: returned[returnedId].volumeInfo.authors[0],
 									bookCategory: returned[returnedId].volumeInfo.categories[0],
-									// bookDesc,
-									// bookImage,
+									bookImage:
+										returned[returnedId].volumeInfo.imageLinks.thumbnail,
 								};
 								console.log(bookInfo);
 								const resp = await axios.post('/api/books/bookapi', bookInfo);
+								setIsAdded(true);
 							}}
 						>
 							Add Book to Library
+							{/* {isAdded ? 'Added' : 'Add Book to Library'} */}
 						</button>
 					</div>
 				))}

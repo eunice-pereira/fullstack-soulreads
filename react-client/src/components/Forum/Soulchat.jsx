@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import AddComment from '../comment/AddComment';
+import AddComment from '../Comment/AddComment';
 
 // route for it to show on particular path
 // swap onclick Get Posts for useEffect
@@ -32,9 +32,9 @@ const Soulchat = (props) => {
 						posts.map((post) => (
 							<li>
 								<div key={post.id}>
-									<h4>{post.Book.title}</h4>
-									<h5>Author: {post.Book.author}</h5>
-									<h5>Status: {post.Book.status}</h5>
+									<h4>{post.title}</h4>
+									<h5>Author: {post.author}</h5>
+									<h5>Status: {post.status}</h5>
 									<h6>{post.description}</h6>
 									<button
 										onClick={async (e) => {
