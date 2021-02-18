@@ -6,7 +6,7 @@ import AddComment from '../comment/AddComment';
 // route for it to show on particular path
 // swap onclick Get Posts for useEffect
 
-const Soulchat = () => {
+const Soulchat = (props) => {
 	const [posts, setPosts] = useState([]);
 
 	async function getForums() {
@@ -17,6 +17,10 @@ const Soulchat = () => {
 	useEffect(() => {
 		getForums();
 	}, []);
+
+	useEffect(() => {
+		getForums();
+	}, [props.refresh]);
 
 	return (
 		<div className="soulchat-container">
