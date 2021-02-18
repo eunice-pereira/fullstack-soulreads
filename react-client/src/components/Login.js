@@ -21,6 +21,7 @@ const Login = (props) => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [message, setMessage] = useState('');
+	const history = useHistory();
 
 	const processLogin = async (e) => {
 		e.preventDefault();
@@ -34,6 +35,7 @@ const Login = (props) => {
 
 			// Sending Login status to App
 			props.doLogin();
+			history.push('/Library');
 			setMessage('');
 		} catch (e) {
 			setMessage('Invalid username and password.');
