@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { MDBInput } from 'mdbreact';
+
+//material ui imports
+import { Input, Select } from '@material-ui/core';
 
 const AddBook = () => {
 	const [title, setTitle] = useState('');
@@ -37,8 +39,8 @@ const AddBook = () => {
 			</div>
 			<div className="form-group">
 				<label>
-					Title:
-					<input
+					<Input
+						placeholder="Title"
 						autoFocus
 						name="title"
 						type="text"
@@ -48,8 +50,8 @@ const AddBook = () => {
 			</div>
 			<div className="form-group">
 				<label>
-					Author:
-					<input
+					<Input
+						placeholder="Author"
 						name="author"
 						type="text"
 						onChange={(e) => setAuthor(e.target.value)}
@@ -58,8 +60,8 @@ const AddBook = () => {
 			</div>
 			<div className="form-group">
 				<label>
-					Category:
-					<input
+					<Input
+						placeholder="Category"
 						name="category"
 						type="text"
 						onChange={(e) => setCategory(e.target.value)}
@@ -68,8 +70,8 @@ const AddBook = () => {
 			</div>
 			<div className="form-group">
 				<label>
-					ISBN:
-					<input
+					<Input
+						placeholder="ISBN"
 						name="isbn"
 						type="text"
 						onChange={(e) => setIsbn(e.target.value)}
@@ -78,19 +80,18 @@ const AddBook = () => {
 			</div>
 			<div className="form-group">
 				<label>
-					Status:
-					<select name="status" onChange={(e) => setStatus(e.target.value)}>
+					<Select name="status" onChange={(e) => setStatus(e.target.value)}>
 						<option value="Wishlist">Wishlist</option>
 						<option value="Currently reading">Currently Reading</option>
 						<option value="Purchased">Purchased</option>
 						<option value="Completed">Completed</option>
-					</select>
+					</Select>
 				</label>
 			</div>
 			<div>
 				<label>
-					Book intention:
-					<MDBInput
+					<Input
+						placeholder="Book Intention"
 						autoFocus
 						type="textarea"
 						name="intention"
@@ -101,7 +102,7 @@ const AddBook = () => {
 				</label>
 			</div>
 
-			<input type="submit" value="Add Book" />
+			<input className="add-book" type="submit" value="Add Book" />
 		</form>
 	);
 };

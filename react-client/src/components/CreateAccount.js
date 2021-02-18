@@ -10,6 +10,7 @@ const CreateAccount = () => {
 	const [email, setEmail] = useState('');
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const [showForm, setShowForm] = useState(false);
 
 	const processNewMemeber = async (e) => {
 		e.preventDefault();
@@ -31,68 +32,65 @@ const CreateAccount = () => {
 
 	return (
 		<div className="create-acct-form">
-			<form align="center" method="POST" onSubmit={processNewMemeber}>
-				<h2>Become a Member!</h2>
-
-				<div className="form-group">
-					<label>
-						First Name:
+			<button
+				onClick={() => {
+					setShowForm(true);
+				}}
+			>
+				Become a Member
+			</button>
+			{showForm && (
+				<form align="center" method="POST" onSubmit={processNewMemeber}>
+					<div className="form-group">
 						<input
 							autoFocus
+							placeholder="First Name"
 							name="firstname"
 							type="text"
 							onChange={(e) => setFirstName(e.target.value)}
 						/>
-					</label>
-				</div>
+					</div>
 
-				<div className="form-group">
-					<label>
-						Last Name:
+					<div className="form-group">
 						<input
+							placeholder="Last Name"
 							name="lastname"
 							type="text"
 							onChange={(e) => setLastName(e.target.value)}
 						/>
-					</label>
-				</div>
+					</div>
 
-				<div className="form-group">
-					<label>
-						Email:
+					<div className="form-group">
 						<input
+							placeholder="Email"
 							name="email"
 							type="text"
 							onChange={(e) => setEmail(e.target.value)}
 						/>
-					</label>
-				</div>
+					</div>
 
-				<div className="form-group">
-					<label>
-						Username:
+					<div className="form-group">
 						<input
+							placeholder="Username"
 							name="username"
 							type="text"
 							onChange={(e) => setUsername(e.target.value)}
 						/>
-					</label>
-				</div>
+					</div>
 
-				<div className="form-group">
-					<label>
-						Password:
+					<div className="form-group">
 						<input
+							placeholder="Password"
 							name="password"
 							type="password"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
-					</label>
-				</div>
-				<div className="form-group">
-					<input type="submit" value="Create Account" />
-				</div>
-			</form>
+					</div>
+					<div className="form-group">
+						<input type="submit" value="Create Account" />
+					</div>
+				</form>
+			)}
 		</div>
 	);
 };

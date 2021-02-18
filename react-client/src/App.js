@@ -16,7 +16,12 @@ import Member from './components/Member';
 // import Wishlist from './components/Wishlist';
 // import Test from './components/Test';
 
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+} from 'react-router-dom';
 
 const App = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
