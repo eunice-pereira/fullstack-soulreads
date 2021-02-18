@@ -7,12 +7,11 @@ import { useState } from 'react';
 
 // import logo from '../images/zen.png';
 import flower from '../components/images/zen.png'
-import background from '../components/images/login.jpg';
+
 
 
 //material ui import
 import { Input } from '@material-ui/core';
-import logo from '../components/images/zen.png';
 import { useHistory } from "react-router-dom";
 
 
@@ -43,13 +42,6 @@ const Login = (props) => {
 	};
 	return (
 		<div className="main">
-			<div className="welcome-container">
-				<div className="soul-flower">
-					<div className="welcome"><h2 >Soul</h2></div>
-					<div className="flower"><img src={flower} width="225px" /></div>
-				</div>
-				<div className="welcome2"><h1 >Reads</h1></div>
-			</div>
 			<div class="separate">
 				<div className="login-form">
 					<i class="fas fa-exclamation-circle trailing"></i>
@@ -61,7 +53,7 @@ const Login = (props) => {
 					>
 						<div className="form-group">
 							<label for="username" align="left">
-								Username:
+
 								<Input placeholder="Username"
 									autoFocus
 									name="username"
@@ -73,18 +65,31 @@ const Login = (props) => {
 
 						<div className="form-group">
 							<label for="password" align="left">
-								Password
-								<Input placeholder="Password"
+
+								<Input className="password" placeholder="Password"
 									name="password"
 									type="password"
 									onChange={(e) => setPassword(e.target.value)}
 								/>
 							</label>
+							<div>
+								<input className="add-button" type="submit" ></input>
+								{/* <input type="submit" className="login-button" value="Login" /> */}
+							</div>
+							<br />
 						</div>
-						<div>
-							<input className="add-button" type="submit" ></input>
-							{/* <input type="submit" className="login-button" value="Login" /> */}
+						<div className="welcome-container">
+							<div className="soul-flower">
+								<div className="welcome"><h1 >SoulReads</h1></div>
+								<div className="flower-container">
+									<img src={flower} width="300px" />
+								</div>
+							</div>
+
 						</div>
+
+
+
 					</form>
 				</div>
 			</div>
