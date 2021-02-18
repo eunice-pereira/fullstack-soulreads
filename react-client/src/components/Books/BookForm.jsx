@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { Input } from '@material-ui/core';
+
 function BookForm() {
 	// can add author search feature
 	// modify state, onSubmit, and form input
@@ -21,7 +23,7 @@ function BookForm() {
 
 	return (
 		<div>
-			<h1>Search for Book</h1>
+			<h1>Book</h1>
 			<form
 				className="book-search"
 				onSubmit={(e) => {
@@ -31,8 +33,9 @@ function BookForm() {
 				}}
 			>
 				<label>
-					Book Title:
-					<input
+					<Input placeholder="Book Title"
+
+
 						type="text"
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}

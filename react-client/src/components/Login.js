@@ -2,14 +2,15 @@
 import React from 'react';
 import axios from 'axios';
 
-//material database imports
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBJumbotron } from 'mdbreact';
-import { Fragment } from "react";
-//import file from components
-import Home from "./Home";
 //state imports
 import { useState } from 'react';
 
+// import logo from '../images/zen.png';
+import flower from '../components/images/zen.png'
+
+
+//material ui import
+import { Input } from '@material-ui/core';
 import logo from '../components/images/zen.png';
 import { useHistory } from "react-router-dom";
 
@@ -38,11 +39,14 @@ const Login = (props) => {
 		}
 	};
 	return (
-
-		<div class="main">
-			<h2 class="welcome">Soul</h2>
-
-			<h1 class="welcome2">Reads</h1>
+		<div className="main">
+			<div className="welcome-container">
+				<div className="soul-flower">
+					<div className="welcome"><h2 >Soul</h2></div>
+					<div className="flower"><img src={flower} width="225px" /></div>
+				</div>
+				<div className="welcome2"><h1 >Reads</h1></div>
+			</div>
 			<div class="separate">
 				<div className="login-form">
 					<i class="fas fa-exclamation-circle trailing"></i>
@@ -55,7 +59,7 @@ const Login = (props) => {
 						<div className="form-group">
 							<label for="username" align="left">
 								Username:
-								<input
+								<Input placeholder="Username"
 									autoFocus
 									name="username"
 									type="text"
@@ -67,7 +71,7 @@ const Login = (props) => {
 						<div className="form-group">
 							<label for="password" align="left">
 								Password
-								<input
+								<Input placeholder="Password"
 									name="password"
 									type="password"
 									onChange={(e) => setPassword(e.target.value)}
@@ -75,7 +79,8 @@ const Login = (props) => {
 							</label>
 						</div>
 						<div>
-							<input type="submit" className="login-button" value="Login" />
+							<input className="add-button" type="submit" ></input>
+							{/* <input type="submit" className="login-button" value="Login" /> */}
 						</div>
 					</form>
 				</div>

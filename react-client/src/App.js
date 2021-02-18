@@ -61,8 +61,8 @@ const App = () => {
 						</header>
 					</>
 				) : (
-					<Member doLogout={doLogout} />
-				)}
+						<Member doLogout={doLogout} />
+					)}
 
 				<footer>
 					<p class="tagline">
