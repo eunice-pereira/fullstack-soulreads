@@ -17,7 +17,7 @@ import logo from './components/images/zen.png';
 // import Background from './components/Background';
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
-import Logout from './components/Logout';
+// import Logout from './components/Logout';
 import Member from './components/Member';
 import About from './components/About';
 
@@ -30,7 +30,12 @@ import DeleteModal from './components/DeleteModal';
 // import BookAccordion from './components/BookAccordian';
 
 
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+} from 'react-router-dom';
 
 
 
@@ -72,12 +77,12 @@ const App = () => {
 			<div className="App">
 				{isLoggedIn ? (
 					<>
-						<Logout doLogout={doLogout} />
-						<Member sessionId={sessionId} />
+						{/* <Logout doLogout={doLogout} /> */}
+						<Member sessionId={sessionId} doLogout={doLogout} />
 					</>
 				) : (
 					<header className="App-header">
-						<CreateAccount />
+						{/* <CreateAccount /> */}
 						<Login doLogin={doLogin} />
 						{/* <Home /> */}
 					</header>
