@@ -4,6 +4,7 @@ import BookForm from './Books/BookForm';
 import Forum from './Forum/Forum';
 import Logout from './Logout';
 import Library from './Books/Library';
+import Login from './Login';
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -28,6 +29,7 @@ const Member = ({ sessionId, doLogout }) => {
 					</ul >
 				</nav >
 			</div>
+			<Login></Login>
 			<Logout doLogout={doLogout} />
 			{/* <AddBook /> */}
 			{/* <BookForm /> */}
