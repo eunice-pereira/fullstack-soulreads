@@ -23,8 +23,8 @@ function BookForm() {
 	console.log(returned);
 
 	return (
-		<div>
-			<h1>Book</h1>
+		<div className="book-api-form">
+			<h1>Search for New Book</h1>
 			<form
 				className="book-search"
 				onSubmit={(e) => {

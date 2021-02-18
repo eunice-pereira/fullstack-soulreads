@@ -11,7 +11,7 @@ import Select from '@material-ui/core/Select';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { Button, Input } from '@material-ui/core';
 
-const ViewBook = ({ viewbook }) => {
+const ViewBook = ({ viewbook, viewLibrary }) => {
 	const [editing, setEditing] = useState(false);
 	const [editTitle, setEditTitle] = useState('');
 	const [editAuthor, setEditAuthor] = useState('');
@@ -42,6 +42,7 @@ const ViewBook = ({ viewbook }) => {
 							status: editStatus,
 							intention: editIntention,
 						});
+						viewLibrary();
 					}}
 				>
 					<TextField id="standard" label="Title">

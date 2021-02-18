@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import AddComment from '../comment/AddComment';
+import AddComment from '../Comment/AddComment';
 
 // route for it to show on particular path
 // swap onclick Get Posts for useEffect

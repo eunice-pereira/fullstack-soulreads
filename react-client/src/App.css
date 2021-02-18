@@ -1,19 +1,20 @@
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	height: 100%;
 	width: 100%;
 	background-size: cover;
-	background-image: url('./components/images/background.jpg')
-	
+	background-image: url('./components/images/background.jpg');
+	font-family: 'Julius Sans One', sans-serif;
 }
 
 .login-background {
 	height: 100%;
 	width: 100%;
 	background-size: cover;
-	background-image: url('./components/images/login.jpg')
+	background-image: url('./components/images/login.jpg');
 }
 
 /* .App {
@@ -23,39 +24,39 @@ html, body {
 	padding: 0;
   } */
 
-  /* .App-logo {
+/* .App-logo {
 	height: 40vmin;
 	pointer-events: none;
   } */
-  
-  /* @media (prefers-reduced-motion: no-preference) {
+
+/* @media (prefers-reduced-motion: no-preference) {
 	.App-logo {
 	  animation: App-logo-spin infinite 20s linear;
 	}
   } */
-  
-  .App-header {
+
+.App-header {
 	z-index: 1;
 	/* background-image: url('./images/login.jpg'); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	margin: 0px;
 	min-height: 100vh;
-	
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 	color: white;
-  } 
+}
 
-.background{
+.background {
 	width: 100vw;
 	height: 100vh;
 	position: absolute;
 	top: 0;
-	left:0;
+	left: 0;
 	z-index: -1;
 }
 
@@ -63,8 +64,8 @@ html, body {
 	width: 100%;
 	height: 100%;
 }
-  
-  .welcome > h1{
+
+.welcome > h1 {
 	/* border-top: 2px solid black; */
 	z-index: 2;
 	margin: 0px;
@@ -72,9 +73,9 @@ html, body {
 	/* max-width: 315px;
 	max-height: 700px; */
 	/* display: flex; */
-	
+
 	/* align-items: left; */
-	
+
 	/* background-color: grey; */
 	/* background-size: 225px;
 	background-repeat: no-repeat;
@@ -92,37 +93,35 @@ html, body {
 	flex-wrap: wrap;
 	align-items: left;
 	justify-content: left;
-  }
-  
-  .flower-container{
+}
+
+.flower-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
+}
 
-  }
-
- .password{
+.password {
 	color: white;
- } 
+}
 
-  /* .background{
+/* .background{
 	background-size: cover;
   } */
-  
-  .soul-flower{
+
+.soul-flower {
 	flex-direction: column;
 	flex-wrap: wrap;
-  }
-  
-  .welcome2{
+}
+
+.welcome2 {
 	/* border-top: 2px solid black; */
 	/* display: flex;
 	flex-direction: column; */
 	height: 100px;
 	font-style: bold;
 	color: goldenrod;
-	border-radius:300px;
+	border-radius: 300px;
 	/* border-width: thin; */
 	/* background-color: darkcyan; */
 	font-family: 'Julius Sans One', sans-serif;
@@ -130,33 +129,33 @@ html, body {
 	/* flex-wrap: wrap; */
 	letter-spacing: -2px;
 	/* border-bottom: 2px solid black; */
-  }
-  
-  .welcome-container{
+}
+
+.welcome-container {
 	display: flex;
 	flex-wrap: wrap;
-   
-  }
-  
-  ol, ul {
-	display: flex;  
-	  list-style: none;
+}
+
+ol,
+ul {
+	display: flex;
+	list-style: none;
 	margin-bottom: 0px;
-	margin-top: 0px;  
-  }
-  
-  /* .li {
+	margin-top: 0px;
+}
+
+/* .li {
 	margin-top: 0%;
 	flex-direction: column;
 	align-items: left;
   } */
-  
-  /* .ul {
+
+/* .ul {
 	  align-items: center;
 	  line-height: normal;
   } */
-  
-  .h1{
+
+.h1 {
 	display: flex;
 	font-style: bold;
 	color: goldenrod;
@@ -166,147 +165,149 @@ html, body {
 	font-family: 'Julius Sans One', sans-serif;
 	font-size: 8em;
 	letter-spacing: -2px;
-  }
-  
-  .logout-nav {
+}
+
+.logout-nav {
 	display: flex;
-	color:  darkcyan;
+	color: darkcyan;
 	background: transparent;
 	border: none;
-  }
-  
-  .sign-out {
+}
+
+.sign-out {
 	display: flex;
-	margin-top: 10px;;
+	margin-top: 10px;
 	flex-direction: column;
 	font-family: 'Julius Sans One', sans-serif;
 	font-weight: bolder;
-  
-  }
-  .member-header{
+}
+.member-header {
 	display: flex;
 	position: relative;
 	align-items: center;
 	justify-content: center;
-
-  }
-  .logout-button{
+}
+.logout-button {
 	/* margin-left: 60px; */
-	position: absolute; 
+	position: absolute;
 	right: 0;
 	/* margin-right: 40px;
 	align-self: flex-end; */
-  }
-  
-  .form-post-container{
-	  width: 100vw;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  
-  }
+}
 
-  .form-post-container > .soulchat-intro {
+.form-post-container {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form-post-container > .soulchat-intro {
 	/* padding: 0 100px; */
 	width: 50%;
-  }
+}
 
-  .form-post-container > .soulchat-post {
+.form-post-container > .soulchat-post {
 	/* padding: 0 100px; */
 	width: 100%;
-  }
-  /* .nav{
+}
+/* .nav{
 	display: flex;
   } */
-  
 
-
-  .membernav{
+.membernav {
 	display: flex;
 	align-items: center;
 	/* margin-right: 150px; */
 	flex-direction: column;
-  }
-  
-  .editbook{
+}
+
+.editbook {
 	flex-direction: column;
-	
-  }
-  input[type=text] {
+}
+input[type='text'] {
 	color: white;
 	font-weight: bold;
 	padding: 1px 2px;
 	font-family: 'Julius Sans One', sans-serif;
+}
 
-  }
-
-  input[type=password] {
+input[type='password'] {
 	color: white;
 	text-transform: uppercase;
 	font-weight: bold;
 	padding: 1px 2px;
 	font-family: 'Julius Sans One', sans-serif;
+}
 
-  }
-
-.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul {
+.App
+	> .bgholder
+	> .form-post-container
+	> .library-results
+	> .soulchat-container
+	> .soulchat-posts
+	> ul {
 	padding-left: 0;
 }
 
-.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul > li {
+.App
+	> .bgholder
+	> .form-post-container
+	> .library-results
+	> .soulchat-container
+	> .soulchat-posts
+	> ul
+	> li {
 	background-color: darkcyan;
 	margin: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }
 
-.main{
+.main {
 	display: flex;
 	flex-direction: column;
-  }
-  .dropdown{
+}
+.dropdown {
 	flex-direction: column;
-  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-  .separate{
-	
+}
+.separate {
 	flex-direction: column;
 	justify-content: right;
-  }
-  .intention{
+}
+.intention {
 	display: flex;
-  }
-  .btn{
+}
+.btn {
 	flex-direction: column;
 	font-family: 'Julius Sans One', sans-serif;
 	border-width: thin;
 	border-radius: 5px;
 	background-color: goldenrod;
-  
-  }
-  
-  .navbtn {
+}
+
+.navbtn {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Julius Sans One', sans-serif;
 	margin: 20px;
-   
+
 	/* border-width: thin; */
 	/* border-radius: 5px; */
 	/* background-color: goldenrod; */
-  }
-  
-  .add-entry{
+}
+
+.add-entry {
 	flex-direction: column;
 	font-family: 'Julius Sans One', sans-serif;
 	height: 20px;
 	background-color: goldenrod;
 	border-width: thin;
 	border-radius: 5px;
-  }
-  
-  .add-book{
+}
+
+.add-book {
 	margin-top: 25px;
 	flex-direction: column;
 	font-family: 'Julius Sans One', sans-serif;
@@ -314,19 +315,25 @@ html, body {
 	background-color: goldenrod;
 	border-width: thin;
 	border-radius: 5px;
-  }
-  .standard{
+}
+.book-api-form {
+	justify-content: center;
+	align-items: center;
+}
+.view-book {
+}
+
+.standard {
 	color: darkcyan;
-  }
-  .login-form{
-	
+}
+.login-form {
 	display: flex;
 	font-weight: bold;
 	/* font-style: bold; */
 	font-family: 'Julius Sans One', sans-serif;
-  }
-  
-  .tagline{
+}
+
+.tagline {
 	display: flex;
 	justify-content: center;
 	position: absolute;
@@ -341,26 +348,24 @@ html, body {
 	font-weight: bolder;
 	font-style: bold;
 	font-family: 'Julius Sans One', sans-serif;
-  }
-  
-  .App-link {
+}
+
+.App-link {
 	color: #61dafb;
-  }
+}
 
 .App > .bgholder > div > table > tbody > tr:nth-child(even) {
 	background-color: rgba(218, 165, 32, 0.5);
 }
 
-.App > .bgholder > div > table > thead >tr{
+.App > .bgholder > div > table > thead > tr {
 	font-family: 'Julius Sans One', sans-serif;
-
 }
-  .btn-floating{
+.btn-floating {
 	margin-left: 100px;
-  }
-  
-  
-  .maintitle{
+}
+
+.maintitle {
 	display: flex;
 	font-style: bold;
 	color: goldenrod;
@@ -370,10 +375,9 @@ html, body {
 	font-family: 'Julius Sans One', sans-serif;
 	font-size: 5em;
 	letter-spacing: -3px;
-	
-  }
-  
-  .maintitle2{
+}
+
+.maintitle2 {
 	display: flex;
 	font-style: bold;
 	color: goldenrod;
@@ -383,34 +387,33 @@ html, body {
 	font-family: 'Julius Sans One', sans-serif;
 	font-size: 3em;
 	letter-spacing: -3px;
-	
-  }
-  
-  .add-comment{
+}
+
+.add-comment {
 	flex-direction: column;
 	font-family: 'Julius Sans One', sans-serif;
 	border-width: thin;
 	border-radius: 5px;
 	background-color: goldenrod;
-  }
-  
-  .post-comment{
+}
+
+.post-comment {
 	flex-direction: column;
 	font-family: 'Julius Sans One', sans-serif;
 	border-width: thin;
 	border-radius: 5px;
 	background-color: goldenrod;
-  }
-  
-  .bgholder{
+}
+
+.bgholder {
 	align-items: center;
 	z-index: 1;
 	position: relative;
 	background-repeat: none;
 	background-size: cover;
-  }
-  
-  .member-title{
+}
+
+.member-title {
 	flex-direction: column;
 	display: flex;
 	align-items: center;
@@ -419,17 +422,13 @@ html, body {
 	font-family: 'Julius Sans One', sans-serif;
 	color: darkcyan;
 	font-size: 40px;
-  }
-  
-  
-  
-  
-  @keyframes App-logo-spin {
+}
+
+@keyframes App-logo-spin {
 	from {
-	  transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 	to {
-	  transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
-  }
-  
+}
