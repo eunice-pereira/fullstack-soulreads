@@ -198,6 +198,23 @@ html, body {
 	align-self: flex-end; */
   }
   
+  .form-post-container{
+	  width: 100vw;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  
+  }
+
+  .form-post-container > .soulchat-intro {
+	/* padding: 0 100px; */
+	width: 50%;
+  }
+
+  .form-post-container > .soulchat-post {
+	/* padding: 0 100px; */
+	width: 100%;
+  }
   /* .nav{
 	display: flex;
   } */
@@ -232,7 +249,18 @@ html, body {
 
   }
 
+.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul {
+	padding-left: 0;
+}
 
+.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul > li {
+	background-color: darkcyan;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
 
 .main{
 	display: flex;

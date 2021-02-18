@@ -39,37 +39,45 @@ const Forum = () => {
 					SoulReaders with like interests can comment on your posts to get the
 					disucssion going. Start a SoulChat below!
 				</p>
+				<p>
+					Share a book from your library to start a discussion with other
+							SoulReaders!</p>
+				<p>
+					{' '}
+					<MDBIcon icon="search" />
+							Search your personal library:
+						</p>
 			</div>
+			<div className="search-library">
+				<label>
+
+					<input
+						className="form-control form-control-sm ml-3 w-75"
+						type="text"
+						aria-label="Search"
+						placeholder="Title or Author"
+						onChange={(e) => {
+							setSearchQuery(e.target.value);
+						}}
+					/>
+					<MDBBtn
+						rounded
+						size="md"
+						className="btn"
+						onClick={(e) => searchLibrary(searchQuery)}
+					>
+						Search Library
+						</MDBBtn>
+
+				</label>
+			</div>
+			{/* <div className="library-results"> */}
+			<LibraryResults refresh={refresh} searchResult={searchResult} newPost={newPost} />
+			{/* </div> */}
 			<br></br>
 			<div className="soulchat-post">
 				<MDBCol md="6">
-					<label>
-						Share a book from your library to start a discussion with other
-						SoulReaders!
-						<p>
-							{' '}
-							<MDBIcon icon="search" />
-							Search your personal library:
-						</p>
-						<input
-							className="form-control form-control-sm ml-3 w-75"
-							type="text"
-							aria-label="Search"
-							placeholder="Title or Author"
-							onChange={(e) => {
-								setSearchQuery(e.target.value);
-							}}
-						/>
-						<MDBBtn
-							rounded
-							size="md"
-							className="btn"
-							onClick={(e) => searchLibrary(searchQuery)}
-						>
-							Search Library
-						</MDBBtn>
-						<LibraryResults refresh={refresh} searchResult={searchResult} newPost={newPost} />
-					</label>
+
 				</MDBCol>
 			</div>
 		</div>
