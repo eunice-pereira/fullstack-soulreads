@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
@@ -7,7 +7,14 @@ import CreateIcon from '@material-ui/icons/Create';
 
 const AddComment = ({ post }) => {
 	const [comment, setComment] = useState('');
+	const [comments, setComments] = useState([]);
 	const [showForm, setShowForm] = useState(false);
+
+	async function getComments(forumId) {
+		const resp = await axios.get(`/api/comment/${forumId}`);
+		setComments(resp.data.comments);
+		console.log(resp.data.comments);
+	}
 
 	async function newComment(forumId) {
 		const content = {
@@ -16,7 +23,12 @@ const AddComment = ({ post }) => {
 		};
 		const resp = await axios.post('/api/comment/add/', content);
 		console.log(resp.data);
+		setComment('');
+		getComments(forumId);
 	}
+	useEffect(() => {
+		getComments(post.id)
+	}, [])
 
 	return (
 		<div className="comment-container">
