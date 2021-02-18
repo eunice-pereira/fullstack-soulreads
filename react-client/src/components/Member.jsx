@@ -38,9 +38,9 @@ const Member = ({ sessionId, doLogout }) => {
 				<nav>
 					<ul>
 						{/* <li><Link to="/Member" className="navbtn " onClick={clicked} >Member<PersonIcon fontSize="large">Member</PersonIcon></Link></li> */}
-						<li><Link to="/Library" className=" navbtn">Library<LibraryBooksIcon fontSize="large">Library</LibraryBooksIcon></Link></li>
-						<li><Link to="/Forum" className="navbtn " >SoulChat<LoyaltyIcon fontSize="large">Wishlist</LoyaltyIcon></Link></li>
-						<li><Link to="/AddBook" className=" navbtn" >Add Book<CreateIcon fontSize="large">Journal</CreateIcon></Link></li>
+						<li><Link to="/Library" className=" navbtn">Library<LibraryBooksIcon fontSize="medium">Library</LibraryBooksIcon></Link></li>
+						<li><Link to="/Forum" className="navbtn " >SoulChat<LoyaltyIcon fontSize="medium">Wishlist</LoyaltyIcon></Link></li>
+						<li><Link to="/AddBook" className=" navbtn" >Add Book<CreateIcon fontSize="medium">Journal</CreateIcon></Link></li>
 					</ul>
 				</nav>
 			</div>
