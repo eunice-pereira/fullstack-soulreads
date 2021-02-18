@@ -7,7 +7,7 @@ body {
 	width: 100%;
 	background-size: cover;
 	font-family: 'Julius Sans One', sans-serif;
-	background-image: url('./components/images/book_wall.jpeg')	
+	background-image: url('./components/images/book_wall.jpeg');
 }
 
 .login-background {
@@ -250,73 +250,93 @@ input[type='password'] {
 	padding-left: 0;
 }
 
-.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul > li {
+.App
+	> .bgholder
+	> .form-post-container
+	> .library-results
+	> .soulchat-container
+	> .soulchat-posts
+	> ul
+	> li {
 	background-color: rgba(0, 139, 139, 0.9);
 	margin: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }
 
 .main {
-
 	border-radius: 20px;
 	box-shadow: 5px 10px 18px #888888;
 }
 
-.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul > li > div {
+.App
+	> .bgholder
+	> .form-post-container
+	> .library-results
+	> .soulchat-container
+	> .soulchat-posts
+	> ul
+	> li
+	> div {
 	padding: 20px;
-
 }
 
-.App > .bgholder > .form-post-container >  .soulchat-intro > p {
+.App > .bgholder > .form-post-container > .soulchat-intro > p {
 	font-family: 'Julius Sans One', sans-serif;
-	color:black;
+	color: black;
 	font-weight: bold;
 	line-height: 25px;
 	background-color: rgba(255, 235, 205, 0.5);
 	border-radius: 10px;
-
-
 }
 
-.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul > li > div > h6 {
+.App
+	> .bgholder
+	> .form-post-container
+	> .library-results
+	> .soulchat-container
+	> .soulchat-posts
+	> ul
+	> li
+	> div
+	> h6 {
 	color: white;
 	line-height: 15px;
 	font-family: 'Julius Sans One', sans-serif;
 }
 
-.App > .bgholder > .form-post-container  > h1 {
+.App > .bgholder > .form-post-container > h1 {
 	font-family: 'Julius Sans One', sans-serif;
-	color:black;
+	color: black;
 	font-size: 40px;
 	background-color: rgba(255, 235, 205, 0.5);
 	border-radius: 10px;
-
-
 }
-
 
 .App > .bgholder > .membernav > nav > ul {
 	background-color: rgba(255, 235, 205, 0.5);
 	font-family: 'Julius Sans One', sans-serif;
-	color:goldenrod;
+	color: goldenrod;
 	border-radius: 20px;
 	background-color: rgba(218, 165, 32, 0.5);
-	
 }
 
-.App > .bgholder > .form-post-container > .library-results > .soulchat-container > .soulchat-posts > ul > li > div > h5 {
+.App
+	> .bgholder
+	> .form-post-container
+	> .library-results
+	> .soulchat-container
+	> .soulchat-posts
+	> ul
+	> li
+	> div
+	> h5 {
 	font-family: 'Julius Sans One', sans-serif;
 	color: white;
-
 }
 
-
-
-.main{
-
+.main {
 	display: flex;
 	flex-direction: column;
 }
@@ -413,8 +433,39 @@ input[type='password'] {
 	font-family: 'Julius Sans One', sans-serif;
 	background-color: rgba(218, 165, 32, 0.5);
 	border-radius: 20px;
-	
 }
+
+.App > .bgholder > form > h2 {
+	font-family: 'Julius Sans One', sans-serif;
+	color: black;
+	font-size: 40px;
+	background-color: rgba(255, 235, 205, 0.5);
+	border-radius: 10px;
+}
+
+.App > .bgholder > form > h1 {
+	font-family: 'Julius Sans One', sans-serif;
+	color: goldenrod;
+	border-radius: 20px;
+}
+
+.App > .bgholder > div > h1 {
+	font-family: 'Julius Sans One', sans-serif;
+	color: goldenrod;
+	border-radius: 20px;
+	align-items: center;
+	flex-direction: column;
+}
+
+.App > .bgholder > form > .addbook-intro-intention > p {
+	font-family: 'Julius Sans One', sans-serif;
+	color: black;
+	font-weight: bold;
+	line-height: 25px;
+	background-color: rgba(255, 235, 205, 0.5);
+	border-radius: 10px;
+}
+
 .btn-floating {
 	margin-left: 100px;
 }
