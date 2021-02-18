@@ -3,7 +3,7 @@ import './App.css';
 import {
 	BrowserRouter as Router,
 	Switch as RouterSwitch,
-	Route
+	Route,
 } from 'react-router-dom';
 
 //state imports
@@ -12,14 +12,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import logo from './components/images/zen.png';
 
-// import Home from './components/Home';
-// import Navigation from './components/Navigation';
-// import Background from './components/Background';
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
-// import Logout from './components/Logout';
 import Member from './components/Member';
 import About from './components/About';
+import Logout from './components/Logout'
 
 // import Search from './components/BookForm';
 // import CreateAccount from './components/CreateAccount';
@@ -28,10 +25,6 @@ import DeleteModal from './components/DeleteModal';
 // import Forum from './Forum';
 
 // import BookAccordion from './components/BookAccordian';
-
-
-
-
 
 
 const App = () => {
@@ -70,28 +63,27 @@ const App = () => {
 	return (
 		<Router>
 			<div className="App">
-				{isLoggedIn ? (
+				<Login></Login>
+				<Logout></Logout>
+				<Member></Member>
+				{isLoggedIn ?
 					<>
-						{/* <Logout doLogout={doLogout} /> */}
-						<Member sessionId={sessionId} doLogout={doLogout} />
-					</>
-				) : (
 						<header className="App-header">
-							{/* <CreateAccount /> */}
+							<CreateAccount />
 							<Login doLogin={doLogin} />
-							{/* <Home /> */}
 						</header>
-					)}
+					</>
+				): (
+				<Member doLogout={doLogout} />
+				{
 
-				<footer>
-					<p class="tagline">
-						&nbsp;&bull;&nbsp; Read &nbsp;&bull;&nbsp; Learn&nbsp;&bull;&nbsp;
-						Connect&nbsp;&bull;&nbsp; Grow &nbsp;&bull;&nbsp;
+					<footer>
+						<p class="tagline">
+							&nbsp;&bull;&nbsp; Read &nbsp;&bull;&nbsp; Learn&nbsp;&bull;&nbsp;
+							Connect&nbsp;&bull;&nbsp; Grow &nbsp;&bull;&nbsp;
 					</p>
-				</footer>
-
-			</div>
-
+					</footer>
+				}</div>
 		</Router >
 	);
 };
