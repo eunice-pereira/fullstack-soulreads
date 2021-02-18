@@ -15,7 +15,7 @@
 
 .App-header {
 	z-index: 1;
-	background-image: url('./components/images/login.jpg');
+	/* background-image: url('./images/login.jpg'); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	margin: 0px;
@@ -29,62 +29,90 @@
 	color: white;
 }
 
-.welcome {
+.welcome > h2 {
 	/* border-top: 2px solid black; */
 	z-index: 2;
-	max-width: 315px;
-	max-height: 700px;
-	display: flex;
-	font-weight: 9000px;
-	align-items: left;
+	margin: 0px;
+	/* max-width: 315px;
+  max-height: 700px; */
+	/* display: flex; */
+
+	/* align-items: left; */
 
 	/* background-color: grey; */
-	background-size: 225px;
-	background-repeat: no-repeat;
-	background-blend-mode: luminosity;
-	background-position-x: 65px;
-	background-position-y: 85px;
-	background-image: url('./components/images/zen.png');
+	/* background-size: 225px;
+  background-repeat: no-repeat;
+  background-blend-mode: luminosity;
+  background-position-x: 65px;
+  background-position-y: 85px; */
+	/* background-image: url("./images/zen.png"); */
 	color: goldenrod;
 	font-family: 'Julius Sans One', sans-serif;
 	font-size: 6em;
 	letter-spacing: -1px;
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	align-items: left;
 	justify-content: left;
 }
+
+/* .flower{
+  
+  background-blend-mode: luminosity;
+  background-position-y: 85px; 
+} */
+
+/* .background{
+  background-size: cover;
+} */
+
+.soul-flower {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
 .welcome2 {
 	/* border-top: 2px solid black; */
-	display: flex;
+	/* display: flex;
+  flex-direction: column; */
+	height: 50px;
 	font-style: bold;
 	color: goldenrod;
 	border-radius: 200px;
 	border-width: thin;
 	background-color: darkcyan;
 	font-family: 'Julius Sans One', sans-serif;
-	font-size: 8em;
+	font-size: 3em;
+	flex-wrap: wrap;
 	letter-spacing: -2px;
-
 	border-bottom: 2px solid black;
+}
+
+.welcome-container {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 ol,
 ul {
 	display: flex;
 	list-style: none;
-	margin-bottom: 0%;
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
-.li {
-	align-items: center;
-	line-height: normal;
-}
+/* .li {
+  margin-top: 0%;
+  flex-direction: column;
+  align-items: left;
+} */
 
-.ul {
+/* .ul {
 	align-items: center;
 	line-height: normal;
-}
+} */
 
 .h1 {
 	display: flex;
@@ -98,33 +126,108 @@ ul {
 	letter-spacing: -2px;
 }
 
-.nav {
+.logout-nav {
 	display: flex;
+	color: darkcyan;
+	background: transparent;
+	border: none;
 }
-.input {
-	background-color: transparent;
+
+.sign-out {
+	display: flex;
+	margin-top: 10px;
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	font-weight: bolder;
+}
+
+.logout-button {
+	margin-top: -380px;
+	margin-right: 40px;
+	align-self: flex-end;
+}
+
+/* .nav{
+  display: flex;
+} */
+
+.membernav {
+	/* display: flex; */
+	margin-right: 150px;
+	flex-direction: column;
+}
+
+.editbook {
+	flex-direction: column;
+}
+.input[type='standard' i] {
+	padding: 1px 2px;
 }
 .main {
 	display: flex;
 }
-
+.dropdown {
+	flex-direction: column;
+}
 .separate {
 	flex-direction: column;
 	justify-content: right;
 }
+.intention {
+	display: flex;
+}
+.btn {
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	border-width: thin;
+	border-radius: 5px;
+	background-color: goldenrod;
+}
 
+.navbtn {
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	margin: 20px;
+
+	/* border-width: thin; */
+	/* border-radius: 5px; */
+	/* background-color: goldenrod; */
+}
+
+.add-entry {
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	height: 20px;
+	background-color: goldenrod;
+	border-width: thin;
+	border-radius: 5px;
+}
+
+.add-book {
+	margin-top: 25px;
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	height: 20px;
+	background-color: goldenrod;
+	border-width: thin;
+	border-radius: 5px;
+}
+.standard {
+	color: darkcyan;
+}
 .login-form {
 	display: flex;
-	font-weight: 1000px;
-	font-style: bold;
+	font-weight: bold;
+	/* font-style: bold; */
 	font-family: 'Julius Sans One', sans-serif;
 }
 
 .tagline {
-	display: flex;
+	flex-direction: column;
 	color: black;
 	align-items: center;
-	font-weight: 9000px;
+	font-weight: bolder;
 	font-style: bold;
 	font-family: 'Julius Sans One', sans-serif;
 }
@@ -133,9 +236,9 @@ ul {
 	color: #61dafb;
 }
 
-/* .btn-floating{
-  font-size: 30em;
-} */
+.btn-floating {
+	margin-left: 100px;
+}
 
 .maintitle {
 	display: flex;
@@ -159,6 +262,37 @@ ul {
 	font-family: 'Julius Sans One', sans-serif;
 	font-size: 3em;
 	letter-spacing: -3px;
+}
+
+.add-comment {
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	border-width: thin;
+	border-radius: 5px;
+	background-color: goldenrod;
+}
+
+.post-comment {
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	border-width: thin;
+	border-radius: 5px;
+	background-color: goldenrod;
+}
+
+.bgholder {
+	z-index: 1;
+	background-repeat: none;
+	background-size: cover;
+}
+
+.member-title {
+	display: flex;
+	padding-top: 10px;
+	flex-direction: column;
+	font-family: 'Julius Sans One', sans-serif;
+	color: goldenrod;
+	font-size: 60px;
 }
 
 @keyframes App-logo-spin {

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Logout = (props) => {
 	const processLogout = async (e) => {
@@ -10,9 +11,12 @@ const Logout = (props) => {
 	};
 
 	return (
-		<button onClick={processLogout} align="center">
-			Logout
-		</button>
+		<div className="logout-button">
+			<button className="logout-nav" onClick={processLogout}>
+				<ExitToAppIcon fontSize="large"></ExitToAppIcon>
+				<div className="sign-out">Sign Out</div>
+			</button>
+		</div>
 	);
 };
 

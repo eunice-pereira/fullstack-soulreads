@@ -9,7 +9,7 @@ import logo from './components/images/zen.png';
 // import Background from './components/Background';
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
-import Logout from './components/Logout';
+// import Logout from './components/Logout';
 import Member from './components/Member';
 
 // import Search from "./Search";
@@ -61,12 +61,12 @@ const App = () => {
 			<div className="App">
 				{isLoggedIn ? (
 					<>
-						<Logout doLogout={doLogout} />
-						<Member sessionId={sessionId} />
+						{/* <Logout doLogout={doLogout} /> */}
+						<Member sessionId={sessionId} doLogout={doLogout} />
 					</>
 				) : (
 					<header className="App-header">
-						<CreateAccount />
+						{/* <CreateAccount /> */}
 						<Login doLogin={doLogin} />
 						{/* <Home /> */}
 					</header>

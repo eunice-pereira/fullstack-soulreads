@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { MDBInput } from 'mdbreact';
+
 import axios from 'axios';
+
+import { Input, InputAdornment } from '@material-ui/core';
+import CreateIcon from '@material-ui/icons/Create';
 
 const AddComment = ({ post }) => {
 	const [comment, setComment] = useState('');
@@ -32,7 +35,7 @@ const AddComment = ({ post }) => {
 						newComment(post.id);
 					}}
 				>
-					<MDBInput
+					<Input
 						autoFocus
 						type="textarea"
 						name="comment"
@@ -41,7 +44,7 @@ const AddComment = ({ post }) => {
 						outline
 						onChange={(e) => setComment(e.target.value)}
 					/>
-					<input type="submit" value="Post Comment" />
+					<input className="post-comment" type="submit" value="Post Comment" />
 				</form>
 			)}
 		</div>

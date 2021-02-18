@@ -2,6 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Journal from '../Forum/Journal';
 
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import { Button, Input } from '@material-ui/core';
+
 const ViewBook = ({ viewbook }) => {
 	const [editing, setEditing] = useState(false);
 	const [editTitle, setEditTitle] = useState('');
@@ -33,49 +42,54 @@ const ViewBook = ({ viewbook }) => {
 						});
 					}}
 				>
-					<label>
-						Title
+					<TextField id="standard" label="Title">
 						<div>
 							<input
 								value={editTitle}
 								onChange={(e) => setEditTitle(e.target.value)}
 							/>
 						</div>
-					</label>
+					</TextField>
 
-					<label>
-						Author
+					<TextField id="standard-basic" label="Author">
 						<div>
 							<input
 								value={editAuthor}
 								onChange={(e) => setEditAuthor(e.target.value)}
 							/>
 						</div>
-					</label>
+					</TextField>
 
-					<label>
-						Category
+					<TextField id="standard-basic" label="Category">
 						<div>
 							<input
 								value={editCategory}
 								onChange={(e) => setEditCategory(e.target.value)}
 							/>
 						</div>
-					</label>
+					</TextField>
 
-					<div>
-						<select
-							value={editStatus}
-							onChange={(e) => setEditStatus(e.target.value)}
-						>
-							<option>Status</option>
-							<option value="Wishlist">Wishlist</option>
-							<option value="Currently reading">Currently Reading</option>
-							<option value="Purchased">Purchased</option>
-							<option value="Completed">Completed</option>
-						</select>
+					<div className="dropdown">
+						<FormControl>
+							<InputLabel>Status</InputLabel>
+							<Select
+								value={editStatus}
+								onChange={(e) => setEditStatus(e.target.value)}
+							>
+								<option>Status</option>
+								<option value="Wishlist">Wishlist</option>
+								<option value="Currently reading">Currently Reading</option>
+								<option value="Purchased">Purchased</option>
+								<option value="Completed">Completed</option>
+							</Select>
+						</FormControl>
 					</div>
-					<label>
+
+					<TextField
+						className="intention"
+						id="standard-basic"
+						label="Intention"
+					>
 						Intention
 						<div>
 							<input
@@ -83,26 +97,34 @@ const ViewBook = ({ viewbook }) => {
 								onChange={(e) => setEditIntention(e.target.value)}
 							/>
 						</div>
-					</label>
-					<input className="btn" type="submit" value="Update" />
+					</TextField>
+
+					<Button color="secondary">
+						<input type="submit" value="Update" />
+					</Button>
 				</form>
-				<button className="btn" onClick={() => setEditing(false)}>
-					Back to View
-				</button>
+				<Button className="btn" onClick={() => setEditing(false)}>
+					<KeyboardBackspaceIcon fontSize="small"></KeyboardBackspaceIcon>
+				</Button>
 			</div>
 		);
 	} else {
 		return (
 			<div className="view-book">
-				<p>{viewbook.title}</p>
+				{/* <p>{viewbook.title}</p>
 				<p>Author: {viewbook.author}</p>
 				<p>Category: {viewbook.category}</p>
 				<p>ISBN: {viewbook.isbn}</p>
-				<p>Intention: {viewbook.intention}</p>
+				<p>Intention: {viewbook.intention}</p> */}
 
-				<button className="btn" onClick={() => setEditing(true)}>
+				<Button
+					color="primary"
+					variant="contained"
+					className="btn"
+					onClick={() => setEditing(true)}
+				>
 					Edit
-				</button>
+				</Button>
 				<Journal />
 			</div>
 		);
