@@ -16,23 +16,23 @@ html, body {
 	background-image: url('./components/images/login.jpg')
 }
 
-.App {
+/* .App {
 	text-align: center;
 	position: relative;
 	margin: 0;
 	padding: 0;
-  }
+  } */
 
-  .App-logo {
+  /* .App-logo {
 	height: 40vmin;
 	pointer-events: none;
-  }
+  } */
   
-  @media (prefers-reduced-motion: no-preference) {
+  /* @media (prefers-reduced-motion: no-preference) {
 	.App-logo {
 	  animation: App-logo-spin infinite 20s linear;
 	}
-  }
+  } */
   
   .App-header {
 	z-index: 1;
@@ -64,10 +64,11 @@ html, body {
 	height: 100%;
 }
   
-  .welcome > h2{
+  .welcome > h1{
 	/* border-top: 2px solid black; */
 	z-index: 2;
 	margin: 0px;
+
 	/* max-width: 315px;
 	max-height: 700px; */
 	/* display: flex; */
@@ -82,8 +83,9 @@ html, body {
 	background-position-y: 85px; */
 	/* background-image: url("./images/zen.png"); */
 	color: goldenrod;
+	font-weight: 600;
 	font-family: 'Julius Sans One', sans-serif;
-	font-size: 6em;
+	font-size: 200px;
 	letter-spacing: -1px;
 	display: flex;
 	flex-direction: column;
@@ -92,39 +94,42 @@ html, body {
 	justify-content: left;
   }
   
-  /* .flower{
+  .flower-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	
-	background-blend-mode: luminosity;
-  
-	background-position-y: 85px; 
-  } */
-  
+
+  }
+
+ .password{
+	color: white;
+ } 
+
   /* .background{
 	background-size: cover;
   } */
   
   .soul-flower{
-	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
   }
-  
   
   .welcome2{
 	/* border-top: 2px solid black; */
 	/* display: flex;
 	flex-direction: column; */
-	height: 50px;
+	height: 100px;
 	font-style: bold;
 	color: goldenrod;
-	border-radius: 200px;
-	border-width: thin;
-	background-color: darkcyan;
+	border-radius:300px;
+	/* border-width: thin; */
+	/* background-color: darkcyan; */
 	font-family: 'Julius Sans One', sans-serif;
-	font-size: 3em;
-	flex-wrap: wrap;
+	font-size: 100px;
+	/* flex-wrap: wrap; */
 	letter-spacing: -2px;
-	border-bottom: 2px solid black;
+	/* border-bottom: 2px solid black; */
   }
   
   .welcome-container{
@@ -204,19 +209,34 @@ html, body {
 	flex-direction: column;
 	
   }
-  .input[type="standard" i] {
+  input[type=text] {
+	color: white;
+	font-weight: bold;
 	padding: 1px 2px;
+	font-family: 'Julius Sans One', sans-serif;
+
+  }
+
+  input[type=password] {
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 1px 2px;
+	font-family: 'Julius Sans One', sans-serif;
+
   }
 
 
 
 .main{
 	display: flex;
+	flex-direction: column;
   }
   .dropdown{
 	flex-direction: column;
   }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
   .separate{
+	
 	flex-direction: column;
 	justify-content: right;
   }
@@ -276,10 +296,11 @@ html, body {
 	display: flex;
 	justify-content: center;
 	position: absolute;
-	bottom: 1px;
+	bottom: 0;
 	left: 0;
 	/* flex-direction: column; */
-	color: black;
+	color: white;
+	background-color: darkcyan;
 	/* align-items: center; */
 	width: 100vw;
 
