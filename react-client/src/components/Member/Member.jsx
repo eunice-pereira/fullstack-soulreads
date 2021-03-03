@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import AddBook from './Books/AddBook';
-import BookForm from './Books/BookForm';
-import Forum from './Forum/Forum';
+import AddBook from '../Books/AddBook';
+import BookApi from '../Books/BookApi';
+import Post from '../Forum/Post';
 import Logout from './Logout';
-import Library from './Books/Library';
-import Login from './Login';
+import Library from '../Books/Library';
 
 import { Link, Route } from 'react-router-dom';
-
-
-
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -25,43 +21,54 @@ const Member = ({ sessionId, doLogout }) => {
 	const [home, setHome] = useState(true);
 	const clicked = () => {
 		// setMemberClick(!memberclick);
-
-
-	}
+	};
 	return (
-		<div className="bgholder" >
+		<div className="bgholder">
 			<div className="member-header">
-				<h1 className="member-title">Welcome to SoulReads</h1>
+				<h1 className="member-title">Welcome Soulreader!</h1>
 				<Logout doLogout={doLogout} />
 			</div>
 			<div className="membernav">
 				<nav>
 					<ul>
 						{/* <li><Link to="/Member" className="navbtn " onClick={clicked} >Member<PersonIcon fontSize="large">Member</PersonIcon></Link></li> */}
-						<li><Link to="/Library" className=" navbtn">Library<LibraryBooksIcon fontSize="medium">Library</LibraryBooksIcon></Link></li>
-						<li><Link to="/Forum" className="navbtn " >SoulChat<LoyaltyIcon fontSize="medium">Wishlist</LoyaltyIcon></Link></li>
-						<li><Link to="/AddBook" className=" navbtn" >Add Book<CreateIcon fontSize="medium">Journal</CreateIcon></Link></li>
+						<li>
+							<Link to="/Library" className=" navbtn">
+								Library
+								<LibraryBooksIcon fontSize="medium">Library</LibraryBooksIcon>
+							</Link>
+						</li>
+						<li>
+							<Link to="/AddBook" className=" navbtn">
+								Add Book<CreateIcon fontSize="medium">Book</CreateIcon>
+							</Link>
+						</li>
+						<li>
+							<Link to="/Journal" className=" navbtn">
+								Journal<CreateIcon fontSize="medium">Journal</CreateIcon>
+							</Link>
+						</li>
+						<li>
+							<Link to="/Post" className="navbtn ">
+								SoulChat<LoyaltyIcon fontSize="medium">Wishlist</LoyaltyIcon>
+							</Link>
+						</li>
 					</ul>
 				</nav>
 			</div>
 
-
-
 			<Route path="/AddBook">
 				<AddBook />
-				<BookForm />
+				<BookApi />
 			</Route>
-
 
 			<Route path="/Library">
 				<Library />
-
 			</Route>
 
-			<Route path="/Forum">
-				<Forum />
+			<Route path="/Post">
+				<Post />
 			</Route>
-
 		</div>
 	);
 };

@@ -3,10 +3,10 @@ import axios from 'axios';
 import { useState } from 'react';
 import { MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
 import LibraryResults from './LibraryResults';
-
+import Soulchat from './Soulchat';
 // protected route - link should only appear once logged in
 
-const Forum = () => {
+const Post = () => {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [searchResult, setSearchResult] = useState([]);
 	const [refresh, setRefresh] = useState(0);
@@ -18,7 +18,7 @@ const Forum = () => {
 		};
 		const resp = await axios.post('/api/forum/newpost', post);
 		console.log(resp.data);
-		setRefresh((new Date()).getTime())
+		setRefresh(new Date().getTime());
 	};
 	const searchLibrary = async (searchQuery) => {
 		const resp = await axios.get(`/api/forum/newpost?search=${searchQuery}`);
@@ -41,16 +41,16 @@ const Forum = () => {
 				</p>
 				<p>
 					Share a book from your library to start a discussion with other
-							SoulReaders!</p>
+					SoulReaders!
+				</p>
 				<p>
 					{' '}
 					<MDBIcon icon="search" />
-							Search your personal library:
-						</p>
+					Search your personal library:
+				</p>
 			</div>
 			<div className="search-library">
 				<label>
-
 					<input
 						className="form-control form-control-sm ml-3 w-75"
 						type="text"
@@ -67,21 +67,22 @@ const Forum = () => {
 						onClick={(e) => searchLibrary(searchQuery)}
 					>
 						Search Library
-						</MDBBtn>
-
+					</MDBBtn>
 				</label>
 			</div>
 			{/* <div className="library-results"> */}
-			<LibraryResults refresh={refresh} searchResult={searchResult} newPost={newPost} />
-			{/* </div> */}
+			<LibraryResults
+				refresh={refresh}
+				searchResult={searchResult}
+				newPost={newPost}
+			/>
 			<br></br>
 			<div className="soulchat-post">
-				<MDBCol md="6">
-
-				</MDBCol>
+				<MDBCol md="6"></MDBCol>
 			</div>
+			<Soulchat refresh={refresh} />
 		</div>
 	);
 };
 
-export default Forum;
+export default Post;

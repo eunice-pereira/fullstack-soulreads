@@ -2,13 +2,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { MDBInput } from 'mdbreact';
-import Soulchat from './Soulchat';
 
-const LibraryResults = ({ searchResult, newPost, refresh }) => {
+const LibraryResults = ({ searchResult, newPost }) => {
 	const history = useHistory();
 	console.log(searchResult);
 	const [book, setBook] = useState(null);
-
 	const [description, setDescription] = useState('');
 	return (
 		<div className="library-results">
@@ -53,7 +51,6 @@ const LibraryResults = ({ searchResult, newPost, refresh }) => {
 
 				<input className="btn" type="submit" value="Post" />
 			</form>
-			<Soulchat refresh={refresh} />
 		</div>
 	);
 };

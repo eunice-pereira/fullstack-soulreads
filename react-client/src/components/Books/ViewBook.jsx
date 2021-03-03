@@ -35,7 +35,7 @@ const ViewBook = ({ viewbook, viewLibrary }) => {
 				<form
 					onSubmit={async (e) => {
 						e.preventDefault();
-						const resp = await axios.put(`/api/books/${viewbook.id}/edit`, {
+						const resp = await axios.put(`/api/book/${viewbook.id}/edit`, {
 							title: editTitle,
 							author: editAuthor,
 							category: editCategory,
@@ -80,10 +80,12 @@ const ViewBook = ({ viewbook, viewLibrary }) => {
 								onChange={(e) => setEditStatus(e.target.value)}
 							>
 								<option>Status</option>
-								<option value="Wishlist">Wishlist</option>
+								<option value="Want to Read">Want to Read</option>
 								<option value="Currently reading">Currently Reading</option>
-								<option value="Purchased">Purchased</option>
-								<option value="Completed">Completed</option>
+								<option value="Purchased">
+									Purchase and on my read queue!
+								</option>
+								<option value="Completed">Completed!</option>
 							</Select>
 						</FormControl>
 					</div>
@@ -115,9 +117,10 @@ const ViewBook = ({ viewbook, viewLibrary }) => {
 		return (
 			<div className="view-book">
 				<p>{viewbook.title}</p>
-				<p>Author: {viewbook.author}</p>
-				<p>Category: {viewbook.category}</p>
+				<p>By: {viewbook.author}</p>
+				<p>Genre: {viewbook.category}</p>
 				<p>ISBN: {viewbook.isbn}</p>
+				<p>{viewbook.description}</p>
 				<p>Intention: {viewbook.intention}</p>
 
 				<Button

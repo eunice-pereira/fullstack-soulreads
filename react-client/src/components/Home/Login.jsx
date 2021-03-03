@@ -5,16 +5,11 @@ import axios from 'axios';
 //state imports
 import { useState } from 'react';
 
-// import logo from '../images/zen.png';
-import flower from '../components/images/zen.png'
-
-
+import flower from '../images/zen.png';
 
 //material ui import
 import { Input } from '@material-ui/core';
-import { useHistory } from "react-router-dom";
-
-
+import { useHistory } from 'react-router-dom';
 
 const Login = (props) => {
 	const [username, setUsername] = useState('');
@@ -53,8 +48,8 @@ const Login = (props) => {
 					>
 						<div className="form-group">
 							<label for="username" align="left">
-
-								<Input placeholder="Username"
+								<Input
+									placeholder="Username"
 									autoFocus
 									name="username"
 									type="text"
@@ -65,31 +60,30 @@ const Login = (props) => {
 
 						<div className="form-group">
 							<label for="password" align="left">
-
-								<Input className="password" placeholder="Password"
+								<Input
+									className="password"
+									placeholder="Password"
 									name="password"
 									type="password"
 									onChange={(e) => setPassword(e.target.value)}
 								/>
 							</label>
 							<div>
-								<input className="add-button" type="submit" ></input>
+								<input className="add-button" type="submit"></input>
 								{/* <input type="submit" className="login-button" value="Login" /> */}
 							</div>
 							<br />
 						</div>
 						<div className="welcome-container">
 							<div className="soul-flower">
-								<div className="welcome"><h1 >SoulReads</h1></div>
+								<div className="welcome">
+									<h1>SoulReads</h1>
+								</div>
 								<div className="flower-container">
 									<img src={flower} width="300px" />
 								</div>
 							</div>
-
 						</div>
-
-
-
 					</form>
 				</div>
 			</div>
@@ -99,6 +93,4 @@ const Login = (props) => {
 
 // need to add useHistory() to send user to their member profile
 
-
 export default Login;
-

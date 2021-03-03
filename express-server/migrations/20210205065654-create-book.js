@@ -26,6 +26,9 @@ module.exports = {
 			content: {
 				type: Sequelize.STRING,
 			},
+			description: {
+				type: Sequelize.TEXT,
+			},
 			memberId: {
 				type: Sequelize.INTEGER,
 			},

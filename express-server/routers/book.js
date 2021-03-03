@@ -2,21 +2,19 @@ const express = require('express');
 const router = express.Router();
 const {
 	showBookList,
-	processBookForm,
 	delBook,
-	showEditList,
-	processEditList,
 	viewBook,
 	addBookApi,
+	addManualBook,
+	editBook,
 } = require('../controllers/book');
 
 router
 	.get('/booklist', showBookList)
-	.post('/newbook', processBookForm)
-	.post('/bookapi', addBookApi)
+	.post('/new', addManualBook)
+	.post('/new-api', addBookApi)
 	.post('/:bookId/delete', delBook)
-	.get('/:bookId/edit', showEditList)
-	.put('/:bookId/edit', processEditList)
-	.get('/:bookId/viewbook', viewBook);
+	.put('/:bookId/edit', editBook)
+	.get('/:bookId/view', viewBook);
 
 module.exports = router;

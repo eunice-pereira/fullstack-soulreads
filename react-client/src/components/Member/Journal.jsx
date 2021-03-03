@@ -14,71 +14,6 @@ import {
 } from 'mdbreact';
 
 const Journal = () => {
-	// const notes = [{
-	// 	id: 1,
-	// 	book: {
-	// 		'id': 2,
-	// 		'title': 'Science and the Akashic Field',
-	// 		'author': 'Ervin Laszlo',
-	// 		'category': 'science',
-	// 		'isbn': '',
-	// 		'status': 'Completed',
-	// 		'content': null,
-	// 		'memberId': 2,
-	// 		'createdAt': '2021 - 02 - 11T20: 58: 46.671Z',
-	// 		'updatedAt': '2021 - 02 - 11T20: 58: 46.671Z'
-	// 	},
-	// 	journal: [
-	// 		{
-	// 			content: "This book is greatttt!"
-	// 		}
-	// 	]
-
-	// },
-	// {
-	// 	id: 1,
-	// 	book: {
-	// 		'id': 2,
-	// 		'title': 'Science and the Akashic Field',
-	// 		'author': 'Ervin Laszlo',
-	// 		'category': 'science',
-	// 		'isbn': '',
-	// 		'status': 'Completed',
-	// 		'content': null,
-	// 		'memberId': 2,
-	// 		'createdAt': '2021 - 02 - 11T20: 58: 46.671Z',
-	// 		'updatedAt': '2021 - 02 - 11T20: 58: 46.671Z'
-	// 	},
-	// 	journal: [
-	// 		{
-	// 			content: "This book is greatttt!"
-	// 		}
-	// 	]
-
-	// },
-	// {
-	// 	id: 1,
-	// 	book: {
-	// 		'id': 2,
-	// 		'title': 'Science and the Akashic Field',
-	// 		'author': 'Ervin Laszlo',
-	// 		'category': 'science',
-	// 		'isbn': '',
-	// 		'status': 'Completed',
-	// 		'content': null,
-	// 		'memberId': 2,
-	// 		'createdAt': '2021 - 02 - 11T20: 58: 46.671Z',
-	// 		'updatedAt': '2021 - 02 - 11T20: 58: 46.671Z'
-	// 	},
-	// 	journal: [
-	// 		{
-	// 			content: "This book is annoying!"
-	// 		}
-	// 	]
-
-	// }
-
-	// ]
 	// return (
 	// 	<MDBRow>
 	// 		{notes.map(note => (
@@ -240,4 +175,3 @@ const Journal = () => {
 };
 
 export default Journal;
-
