@@ -27,10 +27,9 @@ const AddBook = () => {
 			status,
 			intention,
 		};
-		const resp = await axios.post('/api/books/newbook', book);
+		const resp = await axios.post('/api/book/new', book);
 		console.log(resp.data);
 		setSuccessfulAdd(true);
-		// history.push('/Library');
 	};
 
 	return (
@@ -88,10 +87,10 @@ const AddBook = () => {
 			<div className="form-group">
 				<label>
 					<Select name="status" onChange={(e) => setStatus(e.target.value)}>
-						<option value="Wishlist">Wishlist</option>
+						<option value="Want to Read">Want to Read</option>
 						<option value="Currently reading">Currently Reading</option>
-						<option value="Purchased">Purchased</option>
-						<option value="Completed">Completed</option>
+						<option value="Purchased">Purchased and on my read queue!</option>
+						<option value="Completed">Completed!</option>
 					</Select>
 				</label>
 			</div>
@@ -118,6 +117,5 @@ const AddBook = () => {
 		</form>
 	);
 };
-// needs redirect to member profile
 
 export default AddBook;

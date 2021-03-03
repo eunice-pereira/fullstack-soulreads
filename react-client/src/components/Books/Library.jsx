@@ -10,9 +10,8 @@ const Library = (props) => {
 	const [viewbook, setViewBook] = useState(null);
 	const [viewIntention, setViewIntention] = useState(null);
 
-	// retrieve member library saved to Book model
 	async function viewLibrary() {
-		const resp = await axios.get('/api/books/booklist');
+		const resp = await axios.get('/api/book/booklist');
 		console.log(resp.data.books);
 		setLibrary(resp.data.books);
 	}
@@ -21,7 +20,7 @@ const Library = (props) => {
 	}, []);
 
 	// table headings
-	let keys = ['Title', 'Author', 'Category', 'Status', 'View', 'Delete'];
+	let keys = ['Title', 'Author', 'Genre', 'Status', 'View', 'Delete'];
 
 	return (
 		<div>
@@ -55,9 +54,7 @@ const Library = (props) => {
 									className="btn"
 									onClick={async (e) => {
 										let bookId = book.id;
-										const resp = await axios.get(
-											`/api/books/${bookId}/viewbook`
-										);
+										const resp = await axios.get(`/api/book/${bookId}/view`);
 										console.log(resp.data.book);
 										setViewBook(resp.data.book);
 									}}
@@ -71,7 +68,7 @@ const Library = (props) => {
 									onClick={async (e) => {
 										let bookId = book.id;
 										const resp = await axios
-											.post(`/api/books/${bookId}/delete`, bookId)
+											.post(`/api/book/${bookId}/delete`, bookId)
 											.then(() => viewLibrary());
 									}}
 								>

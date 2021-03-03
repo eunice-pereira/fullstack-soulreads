@@ -51,9 +51,7 @@ const Journal = ({ image }) => {
 					</MDBView>
 
 					<MDBCardBody>
-						<MDBCardTitle className="font-weight-bold">
-							{/* <strong>{$bookTitle}</strong> */}
-						</MDBCardTitle>
+						<MDBCardTitle className="font-weight-bold"></MDBCardTitle>
 						<MDBBtn
 							color="unique"
 							onClick={() => {
@@ -64,19 +62,21 @@ const Journal = ({ image }) => {
 						</MDBBtn>
 
 						{showEntry && (
-							<form
-								method="POST"
-								onSubmit={(e) => {
-									e.preventDefault();
-									newJournal().then(() => getEntries());
-								}}
-							>
+							<form method="POST">
 								<MDBInput
 									type="textarea"
 									rows="5"
 									onChange={(e) => setContent(e.target.value)}
 								/>
-								<MDBBtn color="unique" type="submit">
+								<MDBBtn
+									color="unique"
+									onClick={(e) => {
+										e.preventDefault();
+										newJournal()
+											.then(() => getEntries())
+											.then(() => setContent(''));
+									}}
+								>
 									Save
 								</MDBBtn>
 							</form>

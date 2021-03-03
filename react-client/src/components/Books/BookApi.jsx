@@ -3,10 +3,10 @@ import axios from 'axios';
 
 import { Input } from '@material-ui/core';
 
-function BookForm() {
+function BookApi() {
 	// can add author search feature
 	// modify state, onSubmit, and form input
-	const [title, setTitle] = useState('');
+	const [titleAuthor, setTitleAuthor] = useState('');
 	const [returned, setReturned] = useState([]);
 	const [isAdded, setIsAdded] = useState(false);
 
@@ -24,21 +24,21 @@ function BookForm() {
 
 	return (
 		<div className="book-api-form">
-			<h1>Search for New Book</h1>
+			<h1>Search for a Book in our database!</h1>
 			<form
 				className="book-search"
 				onSubmit={(e) => {
 					e.preventDefault();
-					search(title);
-					setTitle('');
+					search(titleAuthor);
+					setTitleAuthor('');
 				}}
 			>
 				<label>
 					<Input
-						placeholder="Book Title"
+						placeholder="Search Title or Author"
 						type="text"
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
+						value={titleAuthor}
+						onChange={(e) => setTitleAuthor(e.target.value)}
 					/>
 				</label>
 				<input type="submit" value="Search" />
@@ -68,14 +68,14 @@ function BookForm() {
 									bookCategory: returned[returnedId].volumeInfo.categories[0],
 									bookImage:
 										returned[returnedId].volumeInfo.imageLinks.thumbnail,
+									bookDesc: returned[returnedId].volumeInfo.description,
 								};
 								console.log(bookInfo);
-								const resp = await axios.post('/api/books/bookapi', bookInfo);
+								const resp = await axios.post('/api/book/new-api', bookInfo);
 								setIsAdded(true);
 							}}
 						>
 							Add Book to Library
-							{/* {isAdded ? 'Added' : 'Add Book to Library'} */}
 						</button>
 					</div>
 				))}
@@ -83,4 +83,4 @@ function BookForm() {
 	);
 }
 
-export default BookForm;
+export default BookApi;

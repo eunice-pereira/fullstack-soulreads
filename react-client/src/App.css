@@ -403,6 +403,11 @@ input[type='password'] {
 	/* font-style: bold; */
 	font-family: 'Julius Sans One', sans-serif;
 }
+.create-acct-form {
+	display: flex;
+	font-weight: bold;
+	font-family: 'Julius Sans One', sans-serif;
+}
 
 .tagline {
 	display: flex;

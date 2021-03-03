@@ -1,13 +1,11 @@
 const { Book } = require('../models');
 const { Library } = require('../models');
 
-const processBookForm = async (req, res) => {
+const addManualBook = async (req, res) => {
 	const { title, author, category, isbn, status, intention } = req.body;
 	const { id } = req.session.user;
-	console.log(title, author);
 
 	if (title && author && id) {
-		// removed status from if statement
 		const newBook = await Book.create({
 			title,
 			author,
@@ -31,7 +29,6 @@ const processBookForm = async (req, res) => {
 };
 
 const addBookApi = async (req, res) => {
-	console.log('new book from api');
 	const { bookTitle, bookAuthor, bookCategory, bookDesc, bookImage } = req.body;
 	const { id } = req.session.user;
 
@@ -41,6 +38,7 @@ const addBookApi = async (req, res) => {
 			author: bookAuthor,
 			category: bookCategory,
 			content: bookImage,
+			description: bookDesc,
 			memberId: id,
 		});
 		res.json({
@@ -70,32 +68,17 @@ const viewBook = async (req, res) => {
 	const { id } = req.session.user;
 	const { bookId } = req.params;
 	if (id && bookId) {
+		// const book = await Book.findByPk(bookId);
 		const book = await Book.findByPk(bookId);
-		const intention = await Library.findByPk(bookId);
-		console.log(`You are viewing Book item with id ${bookId}.`);
+		console.log(`viewing Book item with id ${bookId}.`);
 		res.json({
 			message: 'viewing book',
 			book,
-			intention,
 		});
 	}
 };
 
-const showEditList = async (req, res) => {
-	const { id } = req.session.user;
-	const { bookId } = req.params;
-	if (id && bookId) {
-		const book = await Book.findByPk(bookId);
-
-		console.log(`You are editing Book item with id ${bookId}.`);
-		res.json({
-			message: 'showing book to edit',
-			id: bookId,
-		});
-	}
-};
-
-const processEditList = async (req, res) => {
+const editBook = async (req, res) => {
 	const { id } = req.session.user;
 	const { bookId } = req.params;
 	const { title, author, status, category, intention } = req.body;
@@ -130,7 +113,7 @@ const processEditList = async (req, res) => {
 const delBook = async (req, res) => {
 	const { id } = req.session.user;
 	const { bookId } = req.params;
-	if (id && bookId) {
+	if (bookId) {
 		const book = await Book.destroy({
 			where: {
 				id: bookId,
@@ -145,11 +128,10 @@ const delBook = async (req, res) => {
 };
 
 module.exports = {
-	processBookForm,
+	addManualBook,
 	showBookList,
 	delBook,
-	showEditList,
-	processEditList,
+	editBook,
 	viewBook,
 	addBookApi,
 };

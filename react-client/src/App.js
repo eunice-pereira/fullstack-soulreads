@@ -14,17 +14,14 @@ import logo from './components/images/zen.png';
 import background from './components/images/login.jpg';
 import background2 from './components/images/book_wall.jpeg';
 
-
-import CreateAccount from './components/CreateAccount';
-import Login from './components/Login';
-import Member from './components/Member';
-import About from './components/About';
+import CreateAccount from './components/Home/CreateAccount';
+import Login from './components/Home/Login';
+import Member from './components/Member/Member';
+import About from './components/Home/About';
 
 const App = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [sessionId, setSessionId] = useState({});
 
-	// Login/Logout callbacks, passing to respective components
 	function doLogin() {
 		console.log('logged in');
 		setIsLoggedIn(true);
@@ -34,11 +31,7 @@ const App = () => {
 		console.log('logged out');
 		setIsLoggedIn(false);
 	}
-	// const fetchUser = async () => {
-	// 	const resp = await axios.get('/api/user/fetchuser');
-	// 	console.log(resp);
-	// 	setSessionId(resp.data);
-	// };
+
 	useEffect(() => {
 		async function checkLogin() {
 			try {
@@ -53,9 +46,9 @@ const App = () => {
 		checkLogin();
 	}, []);
 
-	let appClass = "App";
+	let appClass = 'App';
 	if (!isLoggedIn) {
-		appClass += " login-background "
+		appClass += ' login-background ';
 	}
 
 	return (
@@ -67,32 +60,27 @@ const App = () => {
 							<img src={background2} />
 						</div> */}
 						<Member doLogout={doLogout} />
-
 					</>
-				) : (<>
-					<div className="background">
-						<img src={background} />
-					</div>
-					<header className="App-header">
-						{/* <CreateAccount /> */}
-						<Login doLogin={doLogin} />
-					</header>
-					<footer className="tagline">
-						<p >
-							&nbsp;&bull;&nbsp; Read &nbsp;&bull;&nbsp; Learn&nbsp;&bull;&nbsp;
-							Connect&nbsp;&bull;&nbsp; Grow &nbsp;&bull;&nbsp;
-					</p>
-					</footer>
-
-				</>
-
-
-					)
-				}
-
-
-			</div >
-		</Router >
+				) : (
+					<>
+						<div className="background">
+							<img src={background} />
+						</div>
+						<header className="App-header">
+							<Login doLogin={doLogin} />
+							<CreateAccount />
+						</header>
+						<footer className="tagline">
+							<p>
+								&nbsp;&bull;&nbsp; Read &nbsp;&bull;&nbsp;
+								Learn&nbsp;&bull;&nbsp; Connect&nbsp;&bull;&nbsp; Grow
+								&nbsp;&bull;&nbsp;
+							</p>
+						</footer>
+					</>
+				)}
+			</div>
+		</Router>
 	);
 };
 
