@@ -24,7 +24,7 @@ const Library = (props) => {
 	let keys = ['Title', 'Author', 'Category', 'Status', 'View', 'Delete'];
 
 	return (
-		<div >
+		<div>
 			{/* <button className="btn" onClick={viewLibrary}>
 				View Library
 			</button> */}
@@ -82,7 +82,7 @@ const Library = (props) => {
 					))}
 				</tbody>
 			</table>
-			{viewbook && <ViewBook viewbook={viewbook} />}
+			{viewbook && <ViewBook viewbook={viewbook} viewLibrary={viewLibrary} />}
 		</div>
 	);
 };
